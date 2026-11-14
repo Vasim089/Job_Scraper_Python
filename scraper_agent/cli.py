@@ -63,15 +63,6 @@ def print_database_stats():
     for row in stats["by_remote_type"]:
         rem_table.add_row(row["remote_type"], str(row["count"]))
     console.print(rem_table)
-
-    # Tech Roles Table (Deduced from JD)
-    if "by_tech_role" in stats and stats["by_tech_role"]:
-        role_table = Table(title="Top Tech Roles (Deduced from JD)", border_style="green")
-        role_table.add_column("Tech Role", style="yellow")
-        role_table.add_column("Count", style="bold green", justify="right")
-        for row in stats["by_tech_role"][:12]:
-            role_table.add_row(row["tech_role"], str(row["count"]))
-        console.print(role_table)
     console.print()
 
 

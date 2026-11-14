@@ -63,7 +63,7 @@ class ProcessedJob:
     application_url: Optional[str]
     content_hash: str
     is_tech: bool
-    tech_role: Optional[str] = "Software Engineer"
+    tech_role: Optional[str] = None
     tech_keywords: List[str] = field(default_factory=list)
     status: str = "OPEN"
     job_embedding: Optional[List[float]] = None

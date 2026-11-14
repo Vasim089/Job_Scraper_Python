@@ -83,7 +83,6 @@ class ScraperAgent:
             "contract_jobs": 0,
             "part_time_jobs": 0,
             "internship_jobs": 0,
-            "tech_roles_breakdown": {},
             "non_usa_jobs_skipped": 0,
             "new_stored": 0,
             "updated_stored": 0,
@@ -338,7 +337,7 @@ class ScraperAgent:
             processed_jobs: List[ProcessedJob] = []
 
             console.print(
-                f"  [bold green]▶ Step 7 (Scrape Job Details):[/bold green] Fetching full JD descriptions, deducing Tech Roles & attributes for {len(target_classified)} Full-Time & Contract jobs..."
+                f"  [bold green]▶ Step 7 (Scrape Job Details):[/bold green] Fetching full JD descriptions & attributes for {len(target_classified)} Full-Time & Contract jobs..."
             )
 
             # Filter out jobs already in DB
@@ -390,11 +389,6 @@ class ScraperAgent:
                     if deep_info.get("title") and (raw_job.title.lower() in ["apply", "apply now", "view job"] or len(raw_job.title) < 5):
                         raw_job.title = deep_info["title"]
 
-                # Deduce Tech Role from Job Description
-                tech_role = JDAnalyzer.deduce_tech_role_from_jd(
-                    title=raw_job.title, description=desc
-                )
-
                 # Dynamically resolve hiring company if provided by platform metadata
                 target_company_id = company.id
                 if raw_job.metadata and raw_job.metadata.get("company_name"):
@@ -414,13 +408,10 @@ class ScraperAgent:
                     source_id=source.id,
                     raw_job=raw_job,
                     employment_type=emp_type,
-                    tech_role=tech_role,
                     tech_keywords=tech_kw,
                 )
                 if processed_job:
                     processed_jobs.append(processed_job)
-                    roles_map = self.session_stats["tech_roles_breakdown"]
-                    roles_map[tech_role] = roles_map.get(tech_role, 0) + 1
                     # Update session employment counts
                     if emp_type == "FULL_TIME":
                         self.session_stats["full_time_jobs"] += 1
@@ -511,14 +502,22 @@ class ScraperAgent:
         source_id: int,
         raw_job: RawJobPost,
         employment_type: str,
-        tech_role: str,
-        tech_keywords: List[str],
+        tech_keywords: Optional[Any] = None,
+        tech_role: Optional[str] = None,
+        *args,
+        **kwargs,
     ) -> Optional[ProcessedJob]:
         """
         Cleans and extracts full job attributes, normalizes geography & remote type,
-        assigns deduced tech role, and computes SHA-256 content hash.
+        and computes SHA-256 content hash.
         Returns None if job is not confirmed USA-based.
         """
+        # Handle legacy argument ordering (employment_type, tech_role, tech_keywords)
+        if isinstance(tech_keywords, str) and (args or tech_role is not None):
+            actual_kw = tech_role if isinstance(tech_role, list) else (args[0] if args and isinstance(args[0], list) else [])
+            tech_keywords = actual_kw
+        elif tech_keywords is None:
+            tech_keywords = []
         # Reject malformed or inactive greenhouse URLs
         if not raw_job.job_url or "boards.greenhouse.io/company/" in raw_job.job_url:
             return None
@@ -577,7 +576,6 @@ class ScraperAgent:
             country="United States",
             remote_type=remote_type,
             employment_type=employment_type,
-            tech_role=tech_role,
             posted_at=raw_job.posted_at,
             source_updated_at=raw_job.source_updated_at,
             job_url=raw_job.job_url,
@@ -631,16 +629,6 @@ class ScraperAgent:
 
         console.print("\n")
         console.print(table)
-
-        # Print Tech Roles Breakdown Table
-        roles_data = self.session_stats.get("tech_roles_breakdown", {})
-        if roles_data:
-            role_table = Table(title="Top Tech Roles Deduced from JD", border_style="cyan")
-            role_table.add_column("Deduced Tech Role", style="yellow")
-            role_table.add_column("Count", style="bold green", justify="right")
-            for role, cnt in sorted(roles_data.items(), key=lambda x: x[1], reverse=True)[:10]:
-                role_table.add_row(role, str(cnt))
-            console.print(role_table)
 
         console.print("[bold green]✔ Scraper Agent Execution Completed.[/bold green]\n")
         return self.session_stats

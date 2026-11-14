@@ -201,7 +201,7 @@ class JobRepository:
         with get_dict_cursor() as cur:
             cur.execute(
                 """
-                SELECT id, external_job_id, content_hash, status, employment_type, tech_role, first_seen_at, last_seen_at
+                SELECT id, external_job_id, content_hash, status, employment_type, first_seen_at, last_seen_at
                 FROM jobs
                 WHERE company_id = %s AND external_job_id = ANY(%s)
                 """,
@@ -285,12 +285,12 @@ class JobRepository:
                 INSERT INTO jobs (
                     company_id, source_id, external_job_id, title, description,
                     location, city, state, country, remote_type, employment_type,
-                    tech_role, posted_at, source_updated_at, first_seen_at, last_seen_at,
+                    posted_at, source_updated_at, first_seen_at, last_seen_at,
                     job_url, application_url, content_hash, status, job_embedding
                 ) VALUES (
                     %s, %s, %s, %s, %s,
                     %s, %s, %s, %s, %s, %s,
-                    %s, %s, %s, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP,
+                    %s, %s, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP,
                     %s, %s, %s, %s, %s::vector
                 )
                 """,
@@ -306,7 +306,6 @@ class JobRepository:
                     job.country,
                     job.remote_type,
                     job.employment_type,
-                    job.tech_role,
                     job.posted_at,
                     job.source_updated_at,
                     job.job_url,
@@ -333,7 +332,6 @@ class JobRepository:
                     country = %s,
                     remote_type = %s,
                     employment_type = %s,
-                    tech_role = %s,
                     posted_at = COALESCE(%s, posted_at),
                     source_updated_at = COALESCE(%s, source_updated_at),
                     job_url = %s,
@@ -355,7 +353,6 @@ class JobRepository:
                     job.country,
                     job.remote_type,
                     job.employment_type,
-                    job.tech_role,
                     job.posted_at,
                     job.source_updated_at,
                     job.job_url,
@@ -554,17 +551,6 @@ class JobRepository:
             )
             remote_counts = cur.fetchall()
 
-            # Jobs by tech_role
-            cur.execute(
-                """
-                SELECT COALESCE(tech_role, 'Unclassified') as tech_role, count(*) as count
-                FROM jobs
-                GROUP BY tech_role
-                ORDER BY count DESC;
-                """
-            )
-            tech_role_counts = cur.fetchall()
-
             return {
                 "total_companies": total_companies,
                 "active_sources": active_sources,
@@ -572,5 +558,4 @@ class JobRepository:
                 "by_industry": industry_counts,
                 "by_employment_type": employment_counts,
                 "by_remote_type": remote_counts,
-                "by_tech_role": tech_role_counts,
             }

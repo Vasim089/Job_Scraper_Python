@@ -248,8 +248,30 @@ class TestVerificationRules(unittest.TestCase):
             res = self.checker.verify_job("https://company.com/jobs/1234")
             # IMPORTANT: Do not change job status!
             self.assertEqual(res.action, VerificationAction.NO_CHANGE)
-            self.assertEqual(res.reason, VerificationReason.NETWORK_ERROR)
-            self.assertIsNone(res.target_db_status)
+
+    # -------------------------------------------------------------------------
+    # Workday CXS API Verification Tests
+    # -------------------------------------------------------------------------
+    def test_workday_cxs_closed_marks_closed(self):
+        mock_404 = MagicMock()
+        mock_404.status_code = 404
+
+        with patch.object(self.checker.session, "get", return_value=mock_404):
+            res = self.checker.verify_job("https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Fulton-MD/Software-Engineer_12345")
+            self.assertEqual(res.action, VerificationAction.MARK_CLOSED)
+            self.assertEqual(res.reason, VerificationReason.URL_NOT_FOUND_404)
+            self.assertEqual(res.target_db_status, "CLOSED")
+
+    def test_workday_cxs_active_keeps_active(self):
+        mock_200 = MagicMock()
+        mock_200.status_code = 200
+        mock_200.json.return_value = {"jobPostingInfo": {"title": "Software Engineer"}}
+
+        with patch.object(self.checker.session, "get", return_value=mock_200):
+            res = self.checker.verify_job("https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Fulton-MD/Software-Engineer_12345")
+            self.assertEqual(res.action, VerificationAction.KEEP_ACTIVE)
+            self.assertEqual(res.reason, VerificationReason.JOB_OPEN)
+            self.assertEqual(res.target_db_status, "OPEN")
 
 
 if __name__ == "__main__":

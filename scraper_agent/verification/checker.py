@@ -59,6 +59,10 @@ CLOSED_PHRASES = [
     r"\bthis\s+listing\s+has\s+been\s+archived\b",
     r"\bjob\s+requisition\s+is\s+no\s+longer\s+active\b",
     r"\bthis\s+job\s+is\s+not\s+active\b",
+    r"\bcontact\s+workday\s+support\b",
+    r"\bplease\s+contact\s+workday\s+support\b",
+    r"\ban\s+error\s+occurred\b",
+    r"\bworkday\s+support\b",
 ]
 
 # Paths for general career portals where removed jobs redirect
@@ -419,6 +423,58 @@ class JobAvailabilityChecker:
         return False, False, None
 
     # =========================================================================
+    # Workday CXS API Verification
+    # =========================================================================
+    def verify_workday_cxs(self, job_url: str) -> Optional[Tuple[bool, str]]:
+        """
+        Specialized Workday CXS API verification.
+        Directly queries Workday's background CXS REST API:
+          https://{host}/wday/cxs/{tenant}/{board}/job/...
+        Returns:
+          (True, "Job is active (Workday CXS 200)") if active
+          (False, "Job is closed (Workday CXS 404)") if confirmed closed
+          None if URL format doesn't match or unable to parse
+        """
+        if "myworkdayjobs.com" not in job_url or "/job/" not in job_url:
+            return None
+
+        wd_m = re.search(r"https://([^/]+)/(?:[a-zA-Z-]+/)?([^/?#]+)(/job/.+)", job_url)
+        if not wd_m:
+            return None
+
+        host, board, ext_path = wd_m.group(1), wd_m.group(2), wd_m.group(3)
+        tenant = host.split(".")[0]
+        clean_path = ext_path.split("?")[0]
+        api_url = f"https://{host}/wday/cxs/{tenant}/{board}{clean_path}"
+
+        try:
+            resp = self.session.get(
+                api_url,
+                headers={
+                    "Accept": "application/json",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+                },
+                timeout=self.request_timeout,
+            )
+            if resp.status_code == 200:
+                try:
+                    data = resp.json()
+                    if isinstance(data, dict) and data.get("jobPostingInfo"):
+                        return True, "Job active (Workday CXS API verified)"
+                except Exception:
+                    return True, "Job active (Workday CXS HTTP 200)"
+            elif resp.status_code in (404, 410):
+                return False, f"Job closed (Workday CXS HTTP {resp.status_code})"
+            elif resp.status_code in (400,):
+                return False, f"Job requisition inactive (Workday CXS HTTP {resp.status_code})"
+            elif resp.status_code == 521 or ("workday support" in (resp.text or "").lower()):
+                return False, f"Job closed (Workday CXS HTTP {resp.status_code} 'Support')"
+        except Exception as e:
+            logger.debug(f"Workday CXS verification failed for {api_url}: {e}")
+
+        return None
+
+    # =========================================================================
     # Master Decision Engine: Strict 6 Database Rules
     # =========================================================================
     def verify_job(
@@ -453,6 +509,39 @@ class JobAvailabilityChecker:
                 company_name=company_name,
                 external_job_id=external_job_id,
             )
+
+        # Specialized Workday CXS API Verification
+        # Workday is an SPA that hides real job status behind /wday/cxs/ JSON API.
+        if "myworkdayjobs.com" in job_url and "/job/" in job_url:
+            wd_status = self.verify_workday_cxs(job_url)
+            if wd_status is not None:
+                is_active, wd_notes = wd_status
+                details.notes = wd_notes
+                if not is_active:
+                    details.url_opens = False
+                    return JobVerificationResult(
+                        job_id=job_id,
+                        job_url=job_url,
+                        action=VerificationAction.MARK_CLOSED,
+                        reason=VerificationReason.URL_NOT_FOUND_404,
+                        details=details,
+                        title=title,
+                        company_name=company_name,
+                        external_job_id=external_job_id,
+                    )
+                else:
+                    details.url_opens = True
+                    details.job_status_active = True
+                    return JobVerificationResult(
+                        job_id=job_id,
+                        job_url=job_url,
+                        action=VerificationAction.KEEP_ACTIVE,
+                        reason=VerificationReason.JOB_OPEN,
+                        details=details,
+                        title=title,
+                        company_name=company_name,
+                        external_job_id=external_job_id,
+                    )
 
         # Rule 4: URL Inaccessible -> Retry verification before changing status
         resp, retries, exc = self.fetch_with_retry(job_url)
@@ -514,6 +603,20 @@ class JobAvailabilityChecker:
                 job_url=job_url,
                 action=VerificationAction.NO_CHANGE,
                 reason=VerificationReason.RATE_LIMITED,
+                details=details,
+                title=title,
+                company_name=company_name,
+                external_job_id=external_job_id,
+            )
+
+        # Check if 5xx is specifically Workday's closed error screen (HTTP 521 with "contact workday support")
+        if "workday" in job_url.lower() and ("workday support" in (resp.text or "").lower() or "an error occurred" in (resp.text or "").lower()):
+            details.notes = f"Workday confirmed closed (HTTP {resp.status_code} 'An error occurred / Support')"
+            return JobVerificationResult(
+                job_id=job_id,
+                job_url=job_url,
+                action=VerificationAction.MARK_CLOSED,
+                reason=VerificationReason.JOB_CLOSED_MESSAGE,
                 details=details,
                 title=title,
                 company_name=company_name,

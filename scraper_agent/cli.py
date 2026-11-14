@@ -221,6 +221,16 @@ def main():
         default=0,
         help="Maximum companies to scrape per industry",
     )
+    parser.add_argument(
+        "--freshness-daemon",
+        action="store_true",
+        help="Run continuous job availability & freshness verification daemon (marks closed/expired jobs as CLOSED in DB)",
+    )
+    parser.add_argument(
+        "--verify-freshness",
+        action="store_true",
+        help="Run single-pass job availability & freshness verification across database jobs",
+    )
 
     args = parser.parse_args()
 
@@ -244,6 +254,35 @@ def main():
     if args.stats:
         print_database_stats()
         return
+
+    # Single-pass Job Availability & Freshness Verification
+    if args.verify_freshness:
+        from scraper_agent.verification.verifier import JobBatchVerifier
+        console.print("[bold cyan]▶ Starting Job Freshness & Availability Verification...[/bold cyan]")
+        verifier = JobBatchVerifier(max_workers=10)
+        verifier.run_verification(
+            limit=args.target_jobs if args.target_jobs > 0 else None,
+            dry_run=False,
+            status_filter="OPEN",
+        )
+        return
+
+    # Continuous Freshness Daemon Mode
+    if args.freshness_daemon:
+        from scraper_agent.verification.verifier import JobBatchVerifier
+        console.print(
+            f"[bold cyan]▶ Starting Job Freshness Daemon (Verifying availability every {args.interval} hours)...[/bold cyan]"
+        )
+        while True:
+            verifier = JobBatchVerifier(max_workers=10)
+            verifier.run_verification(
+                limit=args.target_jobs if args.target_jobs > 0 else None,
+                dry_run=False,
+                status_filter="OPEN",
+            )
+            sleep_secs = args.interval * 3600
+            console.print(f"[dim]Next freshness check in {args.interval} hour(s). Sleeping...[/dim]")
+            time.sleep(sleep_secs)
 
     enforce_dates = not args.all_dates
     dynamic_disc = not args.no_discovery

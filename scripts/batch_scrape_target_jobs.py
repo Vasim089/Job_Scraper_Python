@@ -15,7 +15,6 @@ os.environ["TMP"] = "D:\\Temp"
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT_DIR))
 
-import psycopg
 from rich.console import Console
 from rich.table import Table
 from scraper_agent.db.repository import JobRepository
@@ -25,25 +24,25 @@ from scraper_agent.agent.scraper_agent import ScraperAgent
 console = Console(highlight=False)
 
 
+from scraper_agent.db.connection import get_dict_cursor
+
 def get_current_stats():
-    conn = psycopg.connect('postgresql://postgres:root@localhost:5433/scraperAgent')
-    cur = conn.cursor()
-    cur.execute("SELECT count(*) FROM jobs;")
-    total_jobs = cur.fetchone()[0]
-    
-    cur.execute("""
-        SELECT c.industry, count(j.id) 
-        FROM companies c 
-        JOIN jobs j ON j.company_id = c.id 
-        GROUP BY c.industry;
-    """)
-    ind_breakdown = dict(cur.fetchall())
-    
-    cur.execute("SELECT company_id, count(*) FROM jobs GROUP BY company_id;")
-    company_job_counts = dict(cur.fetchall())
-    
-    conn.close()
-    return total_jobs, ind_breakdown, company_job_counts
+    with get_dict_cursor() as cur:
+        cur.execute("SELECT count(*) as cnt FROM jobs;")
+        total_jobs = cur.fetchone()["cnt"]
+        
+        cur.execute("""
+            SELECT c.industry, count(j.id) as cnt
+            FROM companies c 
+            JOIN jobs j ON j.company_id = c.id 
+            GROUP BY c.industry;
+        """)
+        ind_breakdown = {r["industry"]: r["cnt"] for r in cur.fetchall()}
+        
+        cur.execute("SELECT company_id, count(*) as cnt FROM jobs GROUP BY company_id;")
+        company_job_counts = {r["company_id"]: r["cnt"] for r in cur.fetchall()}
+        
+        return total_jobs, ind_breakdown, company_job_counts
 
 
 def run_batch_scrape(target_total_jobs: int = 1000):

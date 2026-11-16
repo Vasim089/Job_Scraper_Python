@@ -251,27 +251,36 @@ python scripts/run_rapid_12000_dice.py
 
 ```
 Job_Scraper_Python/
-├── main.py                     # Primary application entrypoint
+├── main.py                     # Primary CLI application entrypoint
 ├── pyproject.toml              # Modern Python package specification (PEP 517/621)
 ├── requirements.txt            # Production dependencies
 ├── .env.example                # Example environment configuration
+├── ATS_PLATFORMS.md            # Comprehensive 21 ATS Platforms & 14 Job Portals specification
+├── COMPANIES.md                # Human-readable catalog of 2,720 tracked companies
+├── data/
+│   └── companies.json          # Machine-readable dataset of all tracked companies
 ├── scraper_agent/              # Core application package
 │   ├── agent/                  # Scraper agent orchestration
+│   ├── ats_platforms.py        # Central registry of 21 ATS platforms & 14 Job Portals
 │   ├── classifiers/            # Tech filtering, date windows, JD analysis, location parsing
+│   ├── config.py               # Database and scraper configuration
 │   ├── db/                     # PostgreSQL connection, schema manager, repository
 │   ├── discovery/              # Zero-hardcoding dynamic company and ATS finder
 │   ├── embeddings/             # 768-dim vector embedding generator (BAAI/bge-base-en-v1.5)
 │   ├── models/                 # Dataclasses and domain models
-│   ├── scrapers/               # Playwright and HTML career scrapers
+│   ├── scrapers/               # Workday CXS, Playwright, and HTML career scrapers
 │   └── verification/           # Real-time job freshness and availability checker
-├── scripts/                    # Essential utility scripts
-│   ├── audit_and_clean_db_urls.py
-│   ├── backfill_embeddings.py
-│   ├── batch_scrape_target_jobs.py
-│   ├── discover_active_ats.py
-│   ├── generate_seed_data.py
-│   ├── run_rapid_12000_dice.py
-│   └── scrape_contract_jobs.py
+├── scripts/                    # Essential utility scripts & pipelines
+│   ├── audit_and_clean_db_urls.py   # Database integrity checker & URL repair
+│   ├── backfill_embeddings.py       # pgvector embedding generator
+│   ├── batch_scrape_target_jobs.py  # Multi-industry batch scraper
+│   ├── db_summary_stats.py          # Database inventory statistics reporter
+│   ├── discover_active_ats.py       # ATS board discovery utility
+│   ├── export_companies.py          # Company catalog exporter (Markdown & JSON)
+│   ├── generate_seed_data.py        # Target industry seed data generator
+│   ├── load_workday_jobs_5000.py    # High-volume Workday ingestion pipeline (5,000+ jobs)
+│   ├── run_rapid_12000_dice.py      # High-speed Dice ATS pipeline
+│   └── scrape_contract_jobs.py      # C2C & contract job scraper
 ├── sql/                        # Database schema and seed data
 │   ├── schema.sql
 │   └── seed_data.sql
@@ -280,14 +289,17 @@ Job_Scraper_Python/
 
 ---
 
-## 📊 Database Scale & Verified Metrics (12,000+ Milestone)
+## 📊 Database Scale & Verified Metrics (20,000+ Milestone)
 
-- **Total Verified Jobs in PostgreSQL**: **12,351+**
-- **Total Unique Hiring Companies**: **1,604+**
-- **Pgvector Embeddings (768-dim `BAAI/bge-base-en-v1.5`)**: **12,351 / 12,351 (100% Vectorized)**
-- **Supported ATS Platforms**: Dice (`dice.com`), Workday CXS, Greenhouse, Lever, Ashby, SmartRecruiters, Jobvite, Taleo, BambooHR, iCIMS
-- **Freshness Window**: Strictly enforced to **Current Month & Previous Month** (October & November 2026)
-- **Employment Type Classification**: Full-Time (`11,719`) and Contract (`632`)
+- **Total Active Jobs in PostgreSQL**: **20,139** (all `OPEN`, zero `CLOSED`)
+- **Workday ATS Jobs**: **5,100** (100% verified active via CXS; zero dead / 404 links)
+- **Greenhouse Jobs**: **7,757**
+- **Dice Jobs**: **5,791**
+- **Ashby, SmartRecruiters, Lever, & Others**: **1,491**
+- **Total Unique Hiring Companies**: **2,720**
+- **Supported Platforms**: **21 Enterprise ATS Platforms** & **14 Global Job Portals** (detailed in `ATS_PLATFORMS.md`)
+- **Freshness Window**: Strictly enforced to **Current Month & Previous Month**
+- **Anti-Dead Requisition Rules**: Expired or closed jobs are **directly removed from the database** (no `CLOSED` status left in DB) to ensure auto-apply agents never fail.
 
 ---
 

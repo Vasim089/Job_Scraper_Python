@@ -62,7 +62,7 @@ DICE_TARGETS = [
 
 def run():
     if not test_connection():
-        console.print("[bold red]Error: PostgreSQL is not reachable on port 5433.[/bold red]")
+        console.print("[bold red]Error: PostgreSQL is not reachable.[/bold red]")
         sys.exit(1)
 
     repo = JobRepository()

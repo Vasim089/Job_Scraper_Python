@@ -30,48 +30,76 @@ TARGET_INDUSTRIES = [
     "Pharma & Biotechnology",
 ]
 
-# Supported ATS Platforms for Target Filtering
+# The 21 ATS Platforms and 14 Job Portals
 SUPPORTED_ATS_PLATFORMS = [
     "ALL",
-    "Dice",
-    "Workday",
-    "Greenhouse",
+    # 21 ATS Platforms
+    "GreenHouse",
     "Lever",
     "Ashby",
+    "ICIMS",
     "SmartRecruiters",
-    "Jobvite",
-    "Taleo",
+    "Workday",
+    "SAP SuccessFactors",
+    "Oracle Recruiting Cloud",
+    "Workable",
     "BambooHR",
-    "iCIMS",
+    "Breezy HR",
+    "Rippling",
+    "Teamtailor",
+    "Recruitee",
+    "JazzHR",
+    "Jobvite",
+    "Oracle Taleo",
+    "UKG Pro Recruiting",
+    "Paycom",
+    "Paylocity",
+    "Phenom",
+    # 14 Job Portals
+    "TheLadders",
+    "Glassdoor",
+    "SimplyHired",
+    "Hired",
+    "GitHub Jobs",
+    "Stack Overflow Jobs",
+    "CyberCoders",
+    "TechCareers",
+    "ITJobPro",
+    "JobServe",
+    "Dice",
+    "Monster",
+    "ZipRecruiter",
+    "Indeed",
 ]
 
 
 def matches_ats(url: str, ats: Optional[str]) -> bool:
-    """Checks whether a URL matches a specified ATS platform filter."""
+    """Checks whether a URL matches a specified ATS platform or Job Portal filter."""
     if not ats or ats.strip().upper() in ("ALL", ""):
         return True
+
+    ats_clean = ats.strip().lower().replace(" ", "").replace("_", "")
+    if ats_clean in ("dice", "dise"):
+        ats_clean = "dice"
+    elif ats_clean in ("workday", "wd"):
+        ats_clean = "workday"
+    elif ats_clean in ("greenhouse", "gh"):
+        ats_clean = "greenhouse"
+
+    from scraper_agent.ats_platforms import classify_source_url
+    cfg = classify_source_url(url)
+    if cfg:
+        cfg_key_clean = cfg.key.lower().replace(" ", "").replace("_", "")
+        cfg_name_clean = cfg.name.lower().replace(" ", "").replace("_", "")
+        return (ats_clean in cfg_key_clean) or (ats_clean in cfg_name_clean) or (cfg_key_clean in ats_clean)
+    
+    # Fallback substring check
     a = ats.strip().lower()
     u = (url or "").lower()
-    if a in ("dice", "dise"):
-        return "dice.com" in u
-    if a in ("workday", "wd"):
-        return "myworkdayjobs.com" in u
-    if a == "greenhouse":
-        return "greenhouse.io" in u
-    if a == "lever":
-        return "lever.co" in u
-    if a == "ashby":
-        return "ashbyhq.com" in u
-    if a in ("smartrecruiters", "smart_recruiters"):
-        return "smartrecruiters.com" in u
-    if a == "jobvite":
-        return "jobvite.com" in u
-    if a == "taleo":
-        return "taleo.net" in u
-    if a == "bamboohr":
-        return "bamboohr.com" in u
-    if a == "icims":
-        return "icims.com" in u
+    if a in ("dice", "dise") and "dice.com" in u:
+        return True
+    if a in ("workday", "wd") and "myworkdayjobs.com" in u:
+        return True
     return a in u
 
 

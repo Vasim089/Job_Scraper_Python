@@ -19,7 +19,6 @@ os.environ["TMP"] = "D:\\Temp"
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT_DIR))
 
-import psycopg
 from scraper_agent.scrapers.base import BaseScraper
 
 DEAD_INDICATORS = BaseScraper.DEAD_JOB_INDICATORS
@@ -64,40 +63,39 @@ def check_and_fix_url(item):
         return (jid, "VALID_OR_TIMEOUT", err_str)
 
 
+from scraper_agent.db.connection import get_db_connection
+
 def main():
-    conn = psycopg.connect("postgresql://postgres:root@localhost:5433/scraperAgent")
-    cur = conn.cursor()
-    cur.execute("""
-        SELECT j.id, c.name, j.title, j.job_url
-        FROM jobs j
-        JOIN companies c ON c.id = j.company_id
-        ORDER BY j.id;
-    """)
-    rows = cur.fetchall()
-    total = len(rows)
-    print(f"Auditing {total} job URLs in PostgreSQL for active status & availability...")
+    with get_db_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute("""
+                SELECT j.id, c.name, j.title, j.job_url
+                FROM jobs j
+                JOIN companies c ON c.id = j.company_id
+                ORDER BY j.id;
+            """)
+            rows = cur.fetchall()
+            total = len(rows)
+            print(f"Auditing {total} job URLs in PostgreSQL for active status & availability...")
 
-    with ThreadPoolExecutor(max_workers=20) as executor:
-        results = list(executor.map(check_and_fix_url, rows))
+            with ThreadPoolExecutor(max_workers=20) as executor:
+                results = list(executor.map(check_and_fix_url, rows))
 
-    repaired = 0
-    deleted = 0
-    valid = 0
+            repaired = 0
+            deleted = 0
+            valid = 0
 
-    for jid, status, detail in results:
-        if status == "REPAIRED":
-            cur.execute("UPDATE jobs SET job_url = %s, application_url = %s WHERE id = %s", (detail, detail, jid))
-            repaired += 1
-            print(f"  [REPAIRED] ID {jid} -> {detail}")
-        elif status.startswith("DELETE"):
-            cur.execute("DELETE FROM jobs WHERE id = %s", (jid,))
-            deleted += 1
-            print(f"  [DELETED DEAD URL] ID {jid} ({status}): {detail}")
-        else:
-            valid += 1
-
-    conn.commit()
-    conn.close()
+            for jid, status, detail in results:
+                if status == "REPAIRED":
+                    cur.execute("UPDATE jobs SET job_url = %s, application_url = %s WHERE id = %s", (detail, detail, jid))
+                    repaired += 1
+                    print(f"  [REPAIRED] ID {jid} -> {detail}")
+                elif status.startswith("DELETE"):
+                    cur.execute("DELETE FROM jobs WHERE id = %s", (jid,))
+                    deleted += 1
+                    print(f"  [DELETED DEAD URL] ID {jid} ({status}): {detail}")
+                else:
+                    valid += 1
 
     print(f"\nAudit complete: {valid} valid active URLs, {repaired} repaired, {deleted} purged dead URLs.")
 

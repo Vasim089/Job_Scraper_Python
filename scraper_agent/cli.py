@@ -227,6 +227,12 @@ def main():
         action="store_true",
         help="Run single-pass job availability & freshness verification across database jobs (deletes expired jobs from DB)",
     )
+    parser.add_argument(
+        "--daily-quota",
+        type=int,
+        default=0,
+        help="Run daily multi-platform scraper targeting at least N fresh jobs per ATS/board (e.g. 1000)",
+    )
 
     args = parser.parse_args()
 
@@ -289,6 +295,23 @@ def main():
             sleep_secs = args.interval * 3600
             console.print(f"[dim]Next freshness check in {args.interval} hour(s). Sleeping...[/dim]")
             time.sleep(sleep_secs)
+
+    # Daily Multi-Platform Scraper (targeting >= N jobs per ATS platform & job board)
+    if args.daily_quota > 0:
+        from scripts.daily_multi_platform_scraper import DailyMultiPlatformScraper
+        scraper = DailyMultiPlatformScraper(quota_per_platform=args.daily_quota)
+        if args.daily:
+            console.print(
+                f"[bold cyan]▶ Starting Continuous Daily Multi-Platform Scraper Daemon (Interval: {args.interval}h, Quota: {args.daily_quota}+ jobs/platform)...[/bold cyan]"
+            )
+            while True:
+                scraper.run_daily_cycle()
+                sleep_secs = args.interval * 3600
+                console.print(f"[dim]Next daily cycle in {args.interval} hour(s). Sleeping...[/dim]")
+                time.sleep(sleep_secs)
+        else:
+            scraper.run_daily_cycle()
+            return
 
     enforce_dates = not args.all_dates
     dynamic_disc = not args.no_discovery

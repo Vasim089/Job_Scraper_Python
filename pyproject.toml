@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scraper-agent"
+version = "1.0.0"
+description = "Scalable multi-platform career scraper and freshness verifier"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Developer" }
+]
+dependencies = [
+    "psycopg[binary]>=3.2.0",
+    "requests>=2.31.0",
+    "beautifulsoup4>=4.12.0",
+    "python-dotenv>=1.0.0",
+    "rich>=13.7.0",
+    "playwright>=1.40.0",
+    "sentence-transformers>=3.0.0",
+    "torch>=2.0.0",
+]
+
+[project.scripts]
+scraper-agent = "scraper_agent.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["scraper_agent*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"

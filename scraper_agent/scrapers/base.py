@@ -58,6 +58,23 @@ class BaseScraper(ABC):
         return cleaned
 
     DEAD_JOB_INDICATORS = [
+        "the page you are looking for doesn't exist",
+        "the page you are looking for does not exist",
+        "page you are looking for doesn't exist",
+        "page you are looking for does not exist",
+        "the job you are looking for doesn't exist",
+        "the job you are looking for does not exist",
+        "job you are looking for doesn't exist",
+        "job you are looking for does not exist",
+        "page doesn't exist",
+        "page does not exist",
+        "job doesn't exist",
+        "job does not exist",
+        "this job does not exist",
+        "this job doesn't exist",
+        "we can't find the page you're looking for",
+        "can't find the page you're looking for",
+        "page you requested cannot be found",
         "sorry, but we can't find that page",
         "can't find that page",
         "page not found",
@@ -67,6 +84,9 @@ class BaseScraper(ABC):
         "posting has expired",
         "this position has been filled",
         "no longer accepting applications",
+        "contact workday support",
+        "workday support",
+        "an error occurred",
     ]
 
     @staticmethod
@@ -240,16 +260,23 @@ class BaseScraper(ABC):
                     r = requests.get(api_u, headers={"User-Agent": SCRAPER_CONFIG.user_agent, "Accept": "application/json"}, timeout=6)
                     if r.status_code == 200:
                         data = r.json()
-                        info = data.get("jobPostingInfo") or {}
+                        info = data.get("jobPostingInfo")
+                        if not info:
+                            result["is_active"] = False
+                            return result
+                        title = (info.get("title") or "").strip()
+                        if any(err in title.lower() for err in ["doesn't exist", "does not exist", "page not found"]):
+                            result["is_active"] = False
+                            return result
                         result["is_active"] = True
-                        result["title"] = (info.get("title") or "").strip()
+                        result["title"] = title
                         result["location"] = (info.get("location") or "").strip()
                         result["employment_type"] = info.get("timeType") or ""
                         jd_html = info.get("jobDescription") or ""
                         if jd_html:
                             result["description"] = BaseScraper.clean_html(jd_html)
                         return result
-                    elif r.status_code == 404:
+                    elif r.status_code in (404, 410, 400, 521):
                         result["is_active"] = False
                         return result
                 except Exception:

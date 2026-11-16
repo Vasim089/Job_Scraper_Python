@@ -226,10 +226,56 @@ python main.py --interactive
 ```
 Allows selecting or typing any custom industry domain and target ATS platform.
 
-### 6. Boost Target to 12,000+ Jobs
+### 6. Job Freshness & Availability Verification
+Audits database postings and directly removes expired or inaccessible postings (preventing apply agent errors):
+```powershell
+# Run a single-pass freshness verification across active jobs
+python main.py --verify-freshness
+
+# Run continuous background freshness verification daemon (every 6 hours)
+python main.py --freshness-daemon --interval 6
+
+# Remove any lingering closed jobs directly from database
+python main.py --clean-closed
+```
+
+### 7. Boost Target to 12,000+ Jobs
 Run the rapid target booster script:
 ```powershell
 python scripts/run_rapid_12000_dice.py
+```
+
+---
+
+## 📂 Project Structure
+
+```
+Job_Scraper_Python/
+├── main.py                     # Primary application entrypoint
+├── pyproject.toml              # Modern Python package specification (PEP 517/621)
+├── requirements.txt            # Production dependencies
+├── .env.example                # Example environment configuration
+├── scraper_agent/              # Core application package
+│   ├── agent/                  # Scraper agent orchestration
+│   ├── classifiers/            # Tech filtering, date windows, JD analysis, location parsing
+│   ├── db/                     # PostgreSQL connection, schema manager, repository
+│   ├── discovery/              # Zero-hardcoding dynamic company and ATS finder
+│   ├── embeddings/             # 768-dim vector embedding generator (BAAI/bge-base-en-v1.5)
+│   ├── models/                 # Dataclasses and domain models
+│   ├── scrapers/               # Playwright and HTML career scrapers
+│   └── verification/           # Real-time job freshness and availability checker
+├── scripts/                    # Essential utility scripts
+│   ├── audit_and_clean_db_urls.py
+│   ├── backfill_embeddings.py
+│   ├── batch_scrape_target_jobs.py
+│   ├── discover_active_ats.py
+│   ├── generate_seed_data.py
+│   ├── run_rapid_12000_dice.py
+│   └── scrape_contract_jobs.py
+├── sql/                        # Database schema and seed data
+│   ├── schema.sql
+│   └── seed_data.sql
+└── tests/                      # Automated test suite (unit & integration tests)
 ```
 
 ---

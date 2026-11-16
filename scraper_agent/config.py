@@ -11,14 +11,18 @@ load_dotenv(BASE_DIR / ".env")
 @dataclass(frozen=True)
 class DatabaseConfig:
     host: str = os.getenv("DB_HOST", "localhost")
-    port: int = int(os.getenv("DB_PORT", "5433"))
+    port: int = int(os.getenv("DB_PORT", "5432"))
     name: str = os.getenv("DB_NAME", "scraperAgent")
     user: str = os.getenv("DB_USER", "postgres")
     password: str = os.getenv("DB_PASSWORD", "root")
+    connect_timeout: int = int(os.getenv("DB_CONNECT_TIMEOUT", "5"))
 
     @property
     def connection_string(self) -> str:
-        return f"host={self.host} port={self.port} dbname={self.name} user={self.user} password={self.password}"
+        return (
+            f"host={self.host} port={self.port} dbname={self.name} "
+            f"user={self.user} password={self.password} connect_timeout={self.connect_timeout}"
+        )
 
 
 @dataclass(frozen=True)

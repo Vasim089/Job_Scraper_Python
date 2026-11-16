@@ -1083,9 +1083,15 @@ class PlaywrightCareerScraper(BaseScraper):
                 if not title:
                     continue
 
-                # Check if anchor is an action button (e.g. "Apply", "View Job", "Read More")
-                # and retrieve the actual job title from the enclosing card heading
-                if any(bad in title.lower() for bad in ["view all", "back to", "search jobs", "all jobs"]):
+                # Filter out generic navigation or error/404 messages
+                bad_title_fragments = [
+                    "view all", "back to", "search jobs", "all jobs",
+                    "doesn't exist", "does not exist", "page not found",
+                    "looking for doesn't exist", "looking for does not exist",
+                    "page you are looking for", "can't find that page",
+                    "an error occurred", "workday support",
+                ]
+                if any(bad in title.lower() for bad in bad_title_fragments):
                     continue
 
                 if title.lower() in ["apply", "apply now", "view", "view job", "details", "read more", "learn more"] or len(title) < 4:

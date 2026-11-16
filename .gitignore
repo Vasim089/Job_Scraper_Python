@@ -36,6 +36,12 @@ wheels/
 # Database & logs
 *.log
 
+# Scratch and temporary exploratory files
+scratch/
+.pytest_cache/
+.coverage
+htmlcov/
+
 # Playwright browsers
 .playwright_browsers/
 job-scraper-agent/

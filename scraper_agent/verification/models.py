@@ -5,11 +5,13 @@ from typing import Optional, Dict, Any
 
 
 class VerificationAction(str, Enum):
-    """Action to take in the database based on the 6 Important Database Rules."""
+    """Action to take in the database based on the verification rules."""
     KEEP_ACTIVE = "KEEP_ACTIVE"        # URL Active + Job Open -> Keep job Active (status = OPEN)
-    MARK_CLOSED = "MARK_CLOSED"        # URL Active + Job Closed / Confirmed Closed -> Mark job Closed (status = CLOSED)
-    KEEP_STATUS = "KEEP_STATUS"        # URL Active + Status Unclear -> Keep existing status; do not mark Closed
-    NO_CHANGE = "NO_CHANGE"            # CAPTCHA / Login / Network Error -> Do not change job status
+    MARK_CLOSED = "MARK_CLOSED"        # URL Active + Job Closed / Expired -> Remove/Delete job directly from DB
+    REMOVE_CLOSED = "MARK_CLOSED"      # Alias: Directly remove expired/closed job from database
+    KEEP_STATUS = "KEEP_STATUS"        # URL Active + Status Unclear -> Keep existing status; do not remove or mark Closed
+    NO_CHANGE = "NO_CHANGE"            # CAPTCHA / Login / Network Error -> Remove/Delete job directly from DB (prevents apply errors)
+    REMOVE_ERROR = "NO_CHANGE"         # Alias: Remove inaccessible/error jobs from DB
 
 
 class VerificationReason(str, Enum):
@@ -65,13 +67,24 @@ class JobVerificationResult:
     def target_db_status(self) -> Optional[str]:
         """
         Database status to set.
-        Returns 'CLOSED' only if action is MARK_CLOSED.
         Returns 'OPEN' if KEEP_ACTIVE.
-        Returns None if KEEP_STATUS or NO_CHANGE (do not modify status).
+        Returns None for deleted jobs (closed/expired or error/inaccessible), and None for KEEP_STATUS.
         """
-        if self.action == VerificationAction.MARK_CLOSED:
-            return "CLOSED"
-        elif self.action == VerificationAction.KEEP_ACTIVE:
+        if self.action == VerificationAction.KEEP_ACTIVE:
             return "OPEN"
-        return None  # KEEP_STATUS or NO_CHANGE -> preserve existing status untouched
+        return None  # Expired and inaccessible error jobs are deleted directly, never set to CLOSED status.
+
+    @property
+    def should_delete(self) -> bool:
+        """
+        Returns True if the job should be deleted directly from DB.
+        Includes confirmed closed/expired jobs and inaccessible error jobs
+        (CAPTCHA, login wall, network failure) so they do not cause applicant agent failures.
+        """
+        return self.action in (
+            VerificationAction.MARK_CLOSED,
+            VerificationAction.REMOVE_CLOSED,
+            VerificationAction.NO_CHANGE,
+            VerificationAction.REMOVE_ERROR,
+        )
 

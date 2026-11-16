@@ -53,6 +53,14 @@ CLOSED_PHRASES = [
     r"\bthis\s+position\s+is\s+no\s+longer\s+available\b",
     r"\bposting\s+is\s+no\s+longer\s+available\b",
     r"\bno\s+longer\s+available\b",
+    r"\bthe\s+page\s+you\s+are\s+looking\s+for\s+(?:doesn't|does\s+not)\s+exist\b",
+    r"\bpage\s+you\s+are\s+looking\s+for\s+(?:doesn't|does\s+not)\s+exist\b",
+    r"\bthe\s+job\s+you\s+are\s+looking\s+for\s+(?:doesn't|does\s+not)\s+exist\b",
+    r"\bjob\s+you\s+are\s+looking\s+for\s+(?:doesn't|does\s+not)\s+exist\b",
+    r"\b(?:page|job|position|role|posting)\s+(?:doesn't|does\s+not)\s+exist\b",
+    r"\bwe\s+can't\s+find\s+the\s+page\s+you're\s+looking\s+for\b",
+    r"\bcan't\s+find\s+the\s+page\s+you're\s+looking\s+for\b",
+    r"\bpage\s+you\s+requested\s+cannot\s+be\s+found\b",
     r"\bsorry,\s+but\s+we\s+can't\s+find\s+that\s+page\b",
     r"\bpage\s+not\s+found\b",
     r"\b404\s+not\s+found\b",
@@ -131,13 +139,13 @@ FORM_FIELD_SIGNATURES = [
 
 class JobAvailabilityChecker:
     """
-    Evaluates job listings against the 6 Important Database Rules:
+    Evaluates job listings against the Important Database Rules:
       1. URL Active + Job Open -> Keep job Active.
-      2. URL Active + Job Closed -> Mark job Closed.
-      3. URL Active + Status Unclear -> Keep existing status; do not mark Closed.
-      4. URL Inaccessible -> Retry verification before changing status.
-      5. CAPTCHA / Login / Network Error -> Do not change job status.
-      6. Confirmed Closed -> Update the database to Closed.
+      2. URL Active + Job Closed / Expired -> Directly remove/delete job from data (do NOT set status to CLOSED).
+      3. URL Active + Status Unclear -> Keep existing status; do not remove or mark Closed.
+      4. URL Inaccessible -> Retry verification before deciding action.
+      5. CAPTCHA / Login / Network Error -> Inaccessible for agent to apply -> Remove/delete job from database (re-scraped if active again later).
+      6. Confirmed Closed -> Directly remove/delete job from the database.
     """
 
     def __init__(
@@ -459,9 +467,19 @@ class JobAvailabilityChecker:
             if resp.status_code == 200:
                 try:
                     data = resp.json()
-                    if isinstance(data, dict) and data.get("jobPostingInfo"):
-                        return True, "Job active (Workday CXS API verified)"
+                    if isinstance(data, dict):
+                        info = data.get("jobPostingInfo")
+                        if info and isinstance(info, dict) and info.get("title"):
+                            title_lower = (info.get("title") or "").lower()
+                            if any(err in title_lower for err in ["doesn't exist", "does not exist", "page not found"]):
+                                return False, "Job closed (Workday title indicates page does not exist)"
+                            return True, "Job active (Workday CXS API verified)"
+                        # Workday CXS returned 200 without active jobPostingInfo (requisition closed/removed)
+                        return False, "Job closed (Workday CXS returned 200 without active jobPostingInfo)"
                 except Exception:
+                    text_lower = (resp.text or "").lower()
+                    if any(err in text_lower for err in ["doesn't exist", "does not exist", "workday support", "page you are looking for"]):
+                        return False, "Job closed (Workday response indicates page does not exist)"
                     return True, "Job active (Workday CXS HTTP 200)"
             elif resp.status_code in (404, 410):
                 return False, f"Job closed (Workday CXS HTTP {resp.status_code})"
@@ -488,11 +506,11 @@ class JobAvailabilityChecker:
         """
         Executes verification strictly enforcing the user's database rules:
           - URL Active + Job Open: Keep job Active.
-          - URL Active + Job Closed: Mark job Closed.
-          - URL Active + Status Unclear: Keep existing status; do not mark Closed.
-          - URL Inaccessible: Retry verification before changing status.
-          - CAPTCHA/Login/Network Error: Do not change job status.
-          - Confirmed Closed: Update the database to Closed.
+          - URL Active + Job Closed / Expired: Directly remove/delete job from data (do NOT set status to CLOSED).
+          - URL Active + Status Unclear: Keep existing status; do not remove or mark Closed.
+          - URL Inaccessible: Retry verification before deciding action.
+          - CAPTCHA/Login/Network Error: Remove/delete job from DB to prevent agent apply failures.
+          - Confirmed Closed: Directly remove/delete job from the database.
         """
         details = JobVerificationDetails()
 

@@ -559,3 +559,66 @@ class JobRepository:
                 "by_employment_type": employment_counts,
                 "by_remote_type": remote_counts,
             }
+
+    @staticmethod
+    def delete_closed_jobs() -> int:
+        """
+        Deletes all jobs from the database where status is 'CLOSED' (case-insensitive).
+        Returns the count of deleted jobs.
+        """
+        with get_db_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute("DELETE FROM jobs WHERE LOWER(status) = 'closed';")
+                count = cur.rowcount
+                logger.info(f"Deleted {count} closed jobs from database.")
+                return count
+
+    @staticmethod
+    def purge_invalid_error_jobs() -> int:
+        """
+        Deletes any jobs from the database that have 404/error titles or descriptions
+        such as 'The page you are looking for doesn't exist.', 'Page Not Found', etc.
+        """
+        patterns = [
+            "%page you are looking for%",
+            "%doesn%exist%",
+            "%does not exist%",
+            "%page not found%",
+            "%job not found%",
+            "%404 not found%",
+            "%can't find that page%",
+            "%can't find the page%",
+            "%an error occurred%",
+            "%contact workday support%",
+        ]
+        with get_db_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute(
+                    """
+                    DELETE FROM jobs
+                    WHERE title ILIKE ANY(%s)
+                       OR (length(description) < 300 AND description ILIKE ANY(%s));
+                    """,
+                    (patterns, patterns),
+                )
+                count = cur.rowcount
+                logger.info(f"Purged {count} invalid/error jobs from database.")
+                return count
+
+    @staticmethod
+    def delete_job(job_id: int) -> bool:
+        """Deletes a single job by id from the database."""
+        with get_db_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute("DELETE FROM jobs WHERE id = %s;", (job_id,))
+                return cur.rowcount > 0
+
+    @staticmethod
+    def delete_jobs_batch(job_ids: List[int]) -> int:
+        """Batch deletes jobs by IDs."""
+        if not job_ids:
+            return 0
+        with get_db_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute("DELETE FROM jobs WHERE id = ANY(%s);", (job_ids,))
+                return cur.rowcount

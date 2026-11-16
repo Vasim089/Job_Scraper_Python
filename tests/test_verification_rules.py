@@ -72,7 +72,8 @@ class TestVerificationRules(unittest.TestCase):
             res = self.checker.verify_job("https://company.com/jobs/1234")
             self.assertEqual(res.action, VerificationAction.MARK_CLOSED)
             self.assertEqual(res.reason, VerificationReason.JOB_CLOSED_MESSAGE)
-            self.assertEqual(res.target_db_status, "CLOSED")
+            self.assertTrue(res.should_delete)
+            self.assertIsNone(res.target_db_status)
 
     def test_rule_2_closed_phrase_no_longer_accepting(self):
         html_doc = """
@@ -92,7 +93,8 @@ class TestVerificationRules(unittest.TestCase):
             res = self.checker.verify_job("https://company.com/jobs/1234")
             self.assertEqual(res.action, VerificationAction.MARK_CLOSED)
             self.assertEqual(res.reason, VerificationReason.JOB_CLOSED_MESSAGE)
-            self.assertEqual(res.target_db_status, "CLOSED")
+            self.assertTrue(res.should_delete)
+            self.assertIsNone(res.target_db_status)
 
     def test_rule_2_closed_phrase_position_filled(self):
         html_doc = """
@@ -112,7 +114,8 @@ class TestVerificationRules(unittest.TestCase):
             res = self.checker.verify_job("https://company.com/jobs/1234")
             self.assertEqual(res.action, VerificationAction.MARK_CLOSED)
             self.assertEqual(res.reason, VerificationReason.JOB_CLOSED_MESSAGE)
-            self.assertEqual(res.target_db_status, "CLOSED")
+            self.assertTrue(res.should_delete)
+            self.assertIsNone(res.target_db_status)
 
     def test_rule_2_closed_via_redirect_to_career_home(self):
         mock_resp = MagicMock()
@@ -124,7 +127,8 @@ class TestVerificationRules(unittest.TestCase):
             res = self.checker.verify_job("https://company.com/careers/staff-engineer-5432")
             self.assertEqual(res.action, VerificationAction.MARK_CLOSED)
             self.assertEqual(res.reason, VerificationReason.REDIRECTED_TO_CAREER_HOME)
-            self.assertEqual(res.target_db_status, "CLOSED")
+            self.assertTrue(res.should_delete)
+            self.assertIsNone(res.target_db_status)
 
     def test_rule_2_closed_via_schema_expiration(self):
         expired = (datetime.now(timezone.utc) - timedelta(days=5)).isoformat()
@@ -154,7 +158,8 @@ class TestVerificationRules(unittest.TestCase):
             res = self.checker.verify_job("https://company.com/jobs/1234")
             self.assertEqual(res.action, VerificationAction.MARK_CLOSED)
             self.assertEqual(res.reason, VerificationReason.SCHEMA_EXPIRED)
-            self.assertEqual(res.target_db_status, "CLOSED")
+            self.assertTrue(res.should_delete)
+            self.assertIsNone(res.target_db_status)
 
     # -------------------------------------------------------------------------
     # Rule 3: URL Active + Status Unclear -> Keep existing status; do not mark Closed
@@ -211,10 +216,11 @@ class TestVerificationRules(unittest.TestCase):
             res = self.checker.verify_job("https://company.com/jobs/9999")
             self.assertEqual(res.action, VerificationAction.MARK_CLOSED)
             self.assertEqual(res.reason, VerificationReason.URL_NOT_FOUND_404)
-            self.assertEqual(res.target_db_status, "CLOSED")
+            self.assertTrue(res.should_delete)
+            self.assertIsNone(res.target_db_status)
 
     # -------------------------------------------------------------------------
-    # Rule 5: CAPTCHA / Login / Network Error -> Do not change job status
+    # Rule 5: CAPTCHA / Login / Network Error -> Inaccessible for apply agent -> Remove from DB
     # -------------------------------------------------------------------------
     def test_rule_5_captcha_blocked_does_not_change_status(self):
         mock_resp = MagicMock()
@@ -224,9 +230,9 @@ class TestVerificationRules(unittest.TestCase):
 
         with patch.object(self.checker, "fetch_with_retry", return_value=(mock_resp, 0, None)):
             res = self.checker.verify_job("https://company.com/jobs/1234")
-            # IMPORTANT: Do not change job status!
             self.assertEqual(res.action, VerificationAction.NO_CHANGE)
             self.assertEqual(res.reason, VerificationReason.CAPTCHA_BLOCKED)
+            self.assertTrue(res.should_delete)
             self.assertIsNone(res.target_db_status)
 
     def test_rule_5_login_required_does_not_change_status(self):
@@ -237,17 +243,18 @@ class TestVerificationRules(unittest.TestCase):
 
         with patch.object(self.checker, "fetch_with_retry", return_value=(mock_resp, 0, None)):
             res = self.checker.verify_job("https://company.com/jobs/1234")
-            # IMPORTANT: Do not change job status!
             self.assertEqual(res.action, VerificationAction.NO_CHANGE)
             self.assertEqual(res.reason, VerificationReason.LOGIN_REQUIRED)
+            self.assertTrue(res.should_delete)
             self.assertIsNone(res.target_db_status)
 
     def test_rule_5_network_error_after_retries_does_not_change_status(self):
         exc = requests.exceptions.Timeout("Connection timed out after retries")
         with patch.object(self.checker, "fetch_with_retry", return_value=(None, 3, exc)):
             res = self.checker.verify_job("https://company.com/jobs/1234")
-            # IMPORTANT: Do not change job status!
             self.assertEqual(res.action, VerificationAction.NO_CHANGE)
+            self.assertTrue(res.should_delete)
+            self.assertIsNone(res.target_db_status)
 
     # -------------------------------------------------------------------------
     # Workday CXS API Verification Tests
@@ -260,7 +267,8 @@ class TestVerificationRules(unittest.TestCase):
             res = self.checker.verify_job("https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Fulton-MD/Software-Engineer_12345")
             self.assertEqual(res.action, VerificationAction.MARK_CLOSED)
             self.assertEqual(res.reason, VerificationReason.URL_NOT_FOUND_404)
-            self.assertEqual(res.target_db_status, "CLOSED")
+            self.assertTrue(res.should_delete)
+            self.assertIsNone(res.target_db_status)
 
     def test_workday_cxs_active_keeps_active(self):
         mock_200 = MagicMock()
@@ -272,6 +280,129 @@ class TestVerificationRules(unittest.TestCase):
             self.assertEqual(res.action, VerificationAction.KEEP_ACTIVE)
             self.assertEqual(res.reason, VerificationReason.JOB_OPEN)
             self.assertEqual(res.target_db_status, "OPEN")
+
+    # -------------------------------------------------------------------------
+    # Batch Verifier and Repository Direct Deletion Tests
+    # -------------------------------------------------------------------------
+    def test_batch_verifier_deletes_expired_job_directly(self):
+        from scraper_agent.verification.models import JobVerificationDetails
+        verifier = JobBatchVerifier(checker=self.checker)
+        sample_jobs = [{"id": 101, "job_url": "https://company.com/jobs/101"}]
+
+        mock_result = JobVerificationResult(
+            job_id=101,
+            job_url="https://company.com/jobs/101",
+            action=VerificationAction.MARK_CLOSED,
+            reason=VerificationReason.URL_NOT_FOUND_404,
+            details=JobVerificationDetails(notes="404 Not Found"),
+        )
+
+        mock_cur = MagicMock()
+        mock_conn = MagicMock()
+        mock_conn.__enter__.return_value = mock_conn
+        mock_conn.cursor.return_value.__enter__.return_value = mock_cur
+
+        with patch.object(verifier, "get_jobs_for_check", return_value=sample_jobs), \
+             patch.object(verifier, "verify_single_job", return_value=mock_result), \
+             patch("scraper_agent.db.connection.get_db_connection", return_value=mock_conn):
+            stats = verifier.run_verification(dry_run=False)
+
+            self.assertEqual(stats["deleted"], 1)
+            # Ensure DELETE query is issued and NOT an UPDATE to CLOSED
+            mock_cur.execute.assert_called_once()
+            called_sql = mock_cur.execute.call_args[0][0]
+            self.assertIn("DELETE FROM jobs", called_sql)
+            self.assertNotIn("SET status = 'CLOSED'", called_sql)
+            self.assertEqual(mock_cur.execute.call_args[0][1], (101,))
+
+    def test_batch_verifier_deletes_error_jobs_directly(self):
+        from scraper_agent.verification.models import JobVerificationDetails
+        verifier = JobBatchVerifier(checker=self.checker)
+        sample_jobs = [{"id": 202, "job_url": "https://company.com/jobs/202"}]
+
+        mock_result = JobVerificationResult(
+            job_id=202,
+            job_url="https://company.com/jobs/202",
+            action=VerificationAction.NO_CHANGE,
+            reason=VerificationReason.CAPTCHA_BLOCKED,
+            details=JobVerificationDetails(notes="Cloudflare CAPTCHA blocked"),
+        )
+
+        mock_cur = MagicMock()
+        mock_conn = MagicMock()
+        mock_conn.__enter__.return_value = mock_conn
+        mock_conn.cursor.return_value.__enter__.return_value = mock_cur
+
+        with patch.object(verifier, "get_jobs_for_check", return_value=sample_jobs), \
+             patch.object(verifier, "verify_single_job", return_value=mock_result), \
+             patch("scraper_agent.db.connection.get_db_connection", return_value=mock_conn):
+            stats = verifier.run_verification(dry_run=False)
+
+            self.assertEqual(stats["deleted"], 1)
+            mock_cur.execute.assert_called_once()
+            called_sql = mock_cur.execute.call_args[0][0]
+            self.assertIn("DELETE FROM jobs", called_sql)
+            self.assertEqual(mock_cur.execute.call_args[0][1], (202,))
+
+    def test_repository_delete_closed_jobs(self):
+        from scraper_agent.db.repository import JobRepository
+        mock_cur = MagicMock()
+        mock_cur.rowcount = 42
+        mock_conn = MagicMock()
+        mock_conn.__enter__.return_value = mock_conn
+        mock_conn.cursor.return_value.__enter__.return_value = mock_cur
+
+        with patch("scraper_agent.db.repository.get_db_connection", return_value=mock_conn):
+            deleted = JobRepository.delete_closed_jobs()
+            self.assertEqual(deleted, 42)
+            mock_cur.execute.assert_called_once_with("DELETE FROM jobs WHERE LOWER(status) = 'closed';")
+
+    def test_repository_purge_invalid_error_jobs(self):
+        from scraper_agent.db.repository import JobRepository
+        mock_cur = MagicMock()
+        mock_cur.rowcount = 12
+        mock_conn = MagicMock()
+        mock_conn.__enter__.return_value = mock_conn
+        mock_conn.cursor.return_value.__enter__.return_value = mock_cur
+
+        with patch("scraper_agent.db.repository.get_db_connection", return_value=mock_conn):
+            purged = JobRepository.purge_invalid_error_jobs()
+            self.assertEqual(purged, 12)
+            self.assertTrue(mock_cur.execute.called)
+            sql = mock_cur.execute.call_args[0][0]
+            self.assertIn("DELETE FROM jobs", sql)
+            self.assertIn("ILIKE ANY", sql)
+
+    def test_rule_2_workday_page_does_not_exist_phrase(self):
+        html_doc = """
+        <html>
+            <body>
+                <h1>Error</h1>
+                <div class="notice">The page you are looking for doesn't exist.</div>
+            </body>
+        </html>
+        """
+        mock_resp = MagicMock()
+        mock_resp.status_code = 200
+        mock_resp.url = "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/12345"
+        mock_resp.text = html_doc
+
+        with patch.object(self.checker, "fetch_with_retry", return_value=(mock_resp, 0, None)):
+            res = self.checker.verify_job("https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/12345")
+            self.assertEqual(res.action, VerificationAction.MARK_CLOSED)
+            self.assertEqual(res.reason, VerificationReason.JOB_CLOSED_MESSAGE)
+            self.assertTrue(res.should_delete)
+
+    def test_workday_cxs_empty_jobpostinginfo_marks_closed(self):
+        mock_200 = MagicMock()
+        mock_200.status_code = 200
+        # Workday returns 200 without jobPostingInfo when requisition is closed
+        mock_200.json.return_value = {"error": "Requisition not found"}
+
+        with patch.object(self.checker.session, "get", return_value=mock_200):
+            res = self.checker.verify_job("https://cisco.wd5.myworkdayjobs.com/Cisco_Careers/job/Fulton-MD/Software-Engineer_12345")
+            self.assertEqual(res.action, VerificationAction.MARK_CLOSED)
+            self.assertTrue(res.should_delete)
 
 
 if __name__ == "__main__":

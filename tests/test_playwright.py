@@ -18,8 +18,14 @@ class TestPlaywrightScraper(unittest.TestCase):
         self.assertIsNotNone(scraper)
 
     def test_playwright_real_career_page(self):
+        import socket
+        # Quick check if live internet is reachable before invoking browser
+        try:
+            socket.create_connection(("boards.greenhouse.io", 443), timeout=1.0).close()
+        except Exception:
+            raise unittest.SkipTest("Live network unreachable (skipping live Playwright scrape)")
+
         scraper = PlaywrightCareerScraper(headless=True)
-        # Test scraping a live Greenhouse board via Playwright
         jobs = scraper.scrape_career_page("https://boards.greenhouse.io/oscar", max_jobs=5)
         self.assertTrue(len(jobs) > 0, "Expected Playwright to extract jobs from Oscar Health career page")
         job = jobs[0]

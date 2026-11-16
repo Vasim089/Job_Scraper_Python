@@ -213,14 +213,19 @@ def main():
         help="Maximum companies to scrape per industry",
     )
     parser.add_argument(
+        "--clean-closed",
+        action="store_true",
+        help="Find and delete all jobs in the database where status is 'CLOSED'",
+    )
+    parser.add_argument(
         "--freshness-daemon",
         action="store_true",
-        help="Run continuous job availability & freshness verification daemon (marks closed/expired jobs as CLOSED in DB)",
+        help="Run continuous job availability & freshness verification daemon (directly deletes expired/closed jobs from DB)",
     )
     parser.add_argument(
         "--verify-freshness",
         action="store_true",
-        help="Run single-pass job availability & freshness verification across database jobs",
+        help="Run single-pass job availability & freshness verification across database jobs (deletes expired jobs from DB)",
     )
 
     args = parser.parse_args()
@@ -244,6 +249,16 @@ def main():
 
     if args.stats:
         print_database_stats()
+        return
+
+    # Delete all closed jobs from database
+    if args.clean_closed:
+        console.print("[bold cyan]▶ Checking and removing closed and invalid/error jobs in database...[/bold cyan]")
+        deleted = JobRepository.delete_closed_jobs()
+        purged = JobRepository.purge_invalid_error_jobs()
+        console.print(
+            f"[bold green]✔ Successfully removed {deleted} closed jobs and {purged} invalid/error postings from database![/bold green]"
+        )
         return
 
     # Single-pass Job Availability & Freshness Verification

@@ -24,11 +24,11 @@ class JobBatchVerifier:
     """
     Coordinates batch verification across database jobs strictly enforcing the Important Database Rules:
       - URL Active + Job Open: Keep job Active.
-      - URL Active + Job Closed: Mark job Closed.
-      - URL Active + Status Unclear: Keep existing status; do not mark Closed.
+      - URL Active + Job Closed / Expired: Directly remove/delete job from data (do NOT set status to CLOSED).
+      - URL Active + Status Unclear: Keep existing status; do not remove or mark Closed.
       - URL Inaccessible: Retry verification before changing status.
-      - CAPTCHA/Login/Network Error: Do not change job status.
-      - Confirmed Closed: Update the database to Closed.
+      - CAPTCHA/Login/Network Error: Directly remove/delete job from DB (prevents apply agent errors; re-scraped if active later).
+      - Confirmed Closed: Directly remove/delete job from the database.
     """
 
     def __init__(
@@ -110,7 +110,7 @@ class JobBatchVerifier:
         elapsed = round(time.time() - start_time, 2)
 
         # Database Update Step according to rules
-        updated_db_counts = {"CLOSED": 0, "OPEN": 0, "UNTOUCHED": 0}
+        updated_db_counts = {"DELETED": 0, "DELETED_CLOSED": 0, "DELETED_ERROR": 0, "CLOSED": 0, "OPEN": 0, "UNTOUCHED": 0}
 
         if not dry_run:
             console.print("\n[cyan]Applying Database Rules...[/cyan]")
@@ -119,18 +119,27 @@ class JobBatchVerifier:
             with get_db_connection() as conn:
                 with conn.cursor() as cur:
                     for res in results:
-                        if res.action == VerificationAction.MARK_CLOSED:
-                            # Confirmed Closed: Update the database to Closed
+                        if res.should_delete or res.action in (
+                            VerificationAction.MARK_CLOSED,
+                            VerificationAction.REMOVE_CLOSED,
+                            VerificationAction.NO_CHANGE,
+                            VerificationAction.REMOVE_ERROR,
+                        ):
+                            # Confirmed Closed / Expired OR Error / Inaccessible (CAPTCHA / Login / Network Error):
+                            # Directly remove/delete job from the database to prevent applicant agent failures.
                             cur.execute(
                                 """
-                                UPDATE jobs
-                                SET status = 'CLOSED',
-                                    updated_at = CURRENT_TIMESTAMP
+                                DELETE FROM jobs
                                 WHERE id = %s
                                 """,
                                 (res.job_id,),
                             )
-                            updated_db_counts["CLOSED"] += 1
+                            updated_db_counts["DELETED"] += 1
+                            if res.action in (VerificationAction.NO_CHANGE, VerificationAction.REMOVE_ERROR):
+                                updated_db_counts["DELETED_ERROR"] += 1
+                            else:
+                                updated_db_counts["DELETED_CLOSED"] += 1
+                                updated_db_counts["CLOSED"] += 1
 
                         elif res.action == VerificationAction.KEEP_ACTIVE:
                             # URL Active + Job Open: Keep job Active
@@ -147,8 +156,7 @@ class JobBatchVerifier:
                             updated_db_counts["OPEN"] += 1
 
                         else:
-                            # URL Active + Status Unclear: Keep existing status; do not mark Closed
-                            # CAPTCHA/Login/Network Error: Do not change job status
+                            # URL Active + Status Unclear (KEEP_STATUS): Keep existing status untouched
                             updated_db_counts["UNTOUCHED"] += 1
 
         # Summary Display
@@ -164,6 +172,7 @@ class JobBatchVerifier:
             "total": total_jobs,
             "active": action_counts[VerificationAction.KEEP_ACTIVE.value],
             "closed": action_counts[VerificationAction.MARK_CLOSED.value],
+            "deleted": updated_db_counts["DELETED"],
             "unclear": action_counts[VerificationAction.KEEP_STATUS.value],
             "no_change": action_counts[VerificationAction.NO_CHANGE.value],
             "updated_db_counts": updated_db_counts,
@@ -218,24 +227,24 @@ class JobBatchVerifier:
             "Keep job Active (status = OPEN maintained)",
         )
         table.add_row(
-            "URL Active + Job Closed (Confirmed)",
+            "URL Active + Job Closed / Expired",
             str(counts[VerificationAction.MARK_CLOSED.value]),
-            "Mark job Closed (status = CLOSED updated)",
-        )
-        table.add_row(
-            "URL Active + Status Unclear",
-            str(counts[VerificationAction.KEEP_STATUS.value]),
-            "[bold green]Kept existing status; NOT marked closed[/bold green]",
+            "[bold red]Directly Removed / Deleted from DB (no CLOSED status)[/bold red]",
         )
         table.add_row(
             "CAPTCHA / Login / Network Error",
             str(counts[VerificationAction.NO_CHANGE.value]),
-            "[bold green]Do not change job status (untouched)[/bold green]",
+            "[bold red]Directly Removed / Deleted from DB (prevents apply errors)[/bold red]",
+        )
+        table.add_row(
+            "URL Active + Status Unclear",
+            str(counts[VerificationAction.KEEP_STATUS.value]),
+            "[bold green]Kept existing status; NOT deleted[/bold green]",
         )
         table.add_row(
             "Total Jobs Processed",
             str(total),
-            f"Updated in DB: {updated_db_counts['CLOSED']} Closed | {updated_db_counts['OPEN']} Active Refreshed",
+            f"DB Actions: {updated_db_counts.get('DELETED', 0)} Deleted (Removed) | {updated_db_counts.get('OPEN', 0)} Active Refreshed | {updated_db_counts.get('UNTOUCHED', 0)} Untouched",
         )
         table.add_row(
             "Execution Time",
@@ -244,16 +253,16 @@ class JobBatchVerifier:
         )
         console.print(table)
 
-        # Print sample closed jobs if any
-        closed_samples = [r for r in results if r.action == VerificationAction.MARK_CLOSED][:5]
-        if closed_samples:
-            ct = Table(title="Sample Confirmed Closed Jobs", border_style="red")
+        # Print sample removed/deleted jobs if any
+        deleted_samples = [r for r in results if r.should_delete][:5]
+        if deleted_samples:
+            ct = Table(title="Sample Removed / Deleted Jobs (Closed or Inaccessible)", border_style="red")
             ct.add_column("ID", style="dim")
             ct.add_column("Company / Title", style="cyan")
             ct.add_column("Reason", style="yellow")
-            for cs in closed_samples:
-                disp = f"{cs.company_name or 'Company'} - {cs.title or 'Job'}"
-                ct.add_row(str(cs.job_id), disp[:45], cs.details.notes[:60])
+            for ds in deleted_samples:
+                disp = f"{ds.company_name or 'Company'} - {ds.title or 'Job'}"
+                ct.add_row(str(ds.job_id), disp[:45], ds.details.notes[:60])
             console.print(ct)
         console.print()
 

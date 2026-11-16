@@ -522,6 +522,40 @@ class ScraperAgent:
         if not raw_job.job_url or "boards.greenhouse.io/company/" in raw_job.job_url:
             return None
 
+        # Reject error/404 postings (e.g. Workday "The page you are looking for doesn't exist.")
+        title_lower = (raw_job.title or "").lower().strip()
+        desc_lower = (raw_job.raw_description or "").lower().strip()
+        non_existent_indicators = [
+            "the page you are looking for doesn't exist",
+            "the page you are looking for does not exist",
+            "page you are looking for doesn't exist",
+            "page you are looking for does not exist",
+            "page you are looking for",
+            "page doesn't exist",
+            "page does not exist",
+            "job doesn't exist",
+            "job does not exist",
+            "this job does not exist",
+            "this job doesn't exist",
+            "page not found",
+            "job not found",
+            "404 not found",
+            "can't find that page",
+            "can't find the page",
+            "page you requested cannot be found",
+            "this job is no longer available",
+            "job is no longer available",
+            "posting has expired",
+            "an error occurred",
+            "contact workday support",
+            "workday support",
+        ]
+        if any(err in title_lower for err in non_existent_indicators) or (
+            len(desc_lower) < 250 and any(err in desc_lower for err in non_existent_indicators)
+        ):
+            logger.warning(f"Rejecting non-existent / 404 error job posting: '{raw_job.title}' ({raw_job.job_url})")
+            return None
+
         city, state, country, remote_type = parse_location(
             raw_location=raw_job.raw_location,
             title=raw_job.title,

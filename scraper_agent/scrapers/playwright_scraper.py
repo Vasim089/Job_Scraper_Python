@@ -1,9 +1,16 @@
 import os
 import re
 import logging
+import threading
 from datetime import datetime, timezone, timedelta
 from typing import List, Optional, Dict, Any
 from urllib.parse import urljoin, urlparse, quote_plus
+
+# Limit concurrent full Chromium browser instances across threads to prevent RAM exhaustion and Node heap crashes
+PLAYWRIGHT_SEMAPHORE = threading.Semaphore(2)
+
+# Ensure Node.js V8 engine has sufficient heap memory
+os.environ["NODE_OPTIONS"] = "--max-old-space-size=4096"
 
 # Ensure temporary files stay on D: if available to prevent disk space exhaustion
 temp_dir = "D:\\Temp"
@@ -299,7 +306,7 @@ class PlaywrightCareerScraper(BaseScraper):
                 api_url,
                 headers={"User-Agent": SCRAPER_CONFIG.user_agent, "Accept": "application/json"}
             )
-            with urllib.request.urlopen(req, timeout=8) as resp:
+            with urllib.request.urlopen(req, timeout=3) as resp:
                 data = json.loads(resp.read().decode())
                 raw_list = data.get("result", []) if isinstance(data, dict) else []
                 for item in raw_list[:max_jobs]:
@@ -860,6 +867,64 @@ class PlaywrightCareerScraper(BaseScraper):
 
         return None
 
+    def _probe_career_page_http(self, career_url: str, max_jobs: int = 250) -> Optional[List[RawJobPost]]:
+        """
+        Fast lightweight probe: checks HTTP redirect destination, ATS iframes,
+        and direct ATS links without launching heavy Chromium browser.
+        Returns None if dynamic JS rendering is required.
+        """
+        import urllib.request
+        from bs4 import BeautifulSoup
+        try:
+            req = urllib.request.Request(
+                career_url,
+                headers={
+                    "User-Agent": SCRAPER_CONFIG.user_agent,
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                }
+            )
+            with urllib.request.urlopen(req, timeout=3) as resp:
+                final_url = resp.geturl()
+                # 1. If HTTP redirected to a recognized ATS platform
+                if final_url != career_url:
+                    ats_jobs = self._route_ats_url(final_url, max_jobs=max_jobs)
+                    if ats_jobs:
+                        logger.info(f"HTTP Redirect to ATS {final_url} -> {len(ats_jobs)} jobs")
+                        return ats_jobs
+
+                # Read HTML chunk (first 512KB is plenty to inspect iframes and links)
+                html_bytes = resp.read(1024 * 512)
+                html_text = html_bytes.decode("utf-8", errors="ignore")
+                soup = BeautifulSoup(html_text, "html.parser")
+
+                # 2. Check for embedded ATS iframes
+                for iframe in soup.find_all("iframe", src=True):
+                    src = iframe["src"]
+                    full_src = urljoin(final_url, src)
+                    ats_jobs = self._route_ats_url(full_src, max_jobs=max_jobs)
+                    if ats_jobs:
+                        logger.info(f"Found ATS iframe {full_src} -> {len(ats_jobs)} jobs")
+                        return ats_jobs
+
+                # 3. Check for prominent direct ATS links
+                for a in soup.find_all("a", href=True):
+                    href = a["href"]
+                    full_href = urljoin(final_url, href)
+                    if any(ats in full_href for ats in [
+                        "greenhouse.io", "lever.co", "ashbyhq.com", "myworkdayjobs.com",
+                        "smartrecruiters.com", "bamboohr.com", "jobvite.com", "icims.com",
+                        "taleo.net", "dice.com"
+                    ]):
+                        ats_jobs = self._route_ats_url(full_href, max_jobs=max_jobs)
+                        if ats_jobs:
+                            logger.info(f"Found ATS link {full_href} -> {len(ats_jobs)} jobs")
+                            return ats_jobs
+
+        except Exception as e:
+            logger.debug(f"Fast HTTP probe skipped for {career_url}: {e}")
+
+        return None
+
     def fetch_jobs(self, source_url: str) -> List[RawJobPost]:
         """Navigates to the real company career URL and extracts live job postings."""
         return self.scrape_career_page(source_url, max_jobs=1000)
@@ -869,121 +934,138 @@ class PlaywrightCareerScraper(BaseScraper):
     ) -> List[RawJobPost]:
         """
         Extracts jobs from career page using fast ATS API routing first,
-        falling back to Playwright headless browser for custom landing pages & SPAs.
+        followed by lightweight HTTP probe (redirects/iframes/static HTML),
+        and guarded Playwright headless browser for custom landing pages & SPAs.
         """
         # Fast direct ATS routing check
         direct_jobs = self._route_ats_url(career_url, max_jobs=max_jobs)
         if direct_jobs:
             return direct_jobs
 
-        logger.info(f"Opening career page with Playwright: {career_url}")
-        job_posts: List[RawJobPost] = []
+        # Fast HTTP probe (checks redirects and embedded ATS before launching browser)
+        probe_jobs = self._probe_career_page_http(career_url, max_jobs=max_jobs)
+        if probe_jobs:
+            return probe_jobs
 
-        try:
-            with sync_playwright() as p:
-                browser = self._launch_browser(p)
-                context = browser.new_context(
-                    user_agent=SCRAPER_CONFIG.user_agent,
-                    viewport={"width": 1280, "height": 800},
-                    ignore_https_errors=True,
-                )
-                page = context.new_page()
+        # Guarded Playwright execution with semaphore to prevent memory exhaustion
+        with PLAYWRIGHT_SEMAPHORE:
+            logger.info(f"Opening career page with Playwright: {career_url}")
+            job_posts: List[RawJobPost] = []
 
-                try:
-                    # Navigate to career page with sensible timeout
-                    page.goto(career_url, wait_until="domcontentloaded", timeout=20000)
-                    page.wait_for_timeout(2000)
+            try:
+                with sync_playwright() as p:
+                    browser = self._launch_browser(p)
+                    context = browser.new_context(
+                        user_agent=SCRAPER_CONFIG.user_agent,
+                        viewport={"width": 1280, "height": 800},
+                        ignore_https_errors=True,
+                    )
+                    page = context.new_page()
 
-                    # 1. Check if redirected to a recognized ATS platform
-                    if page.url and page.url != career_url:
-                        redirect_jobs = self._route_ats_url(page.url, max_jobs=max_jobs)
-                        if redirect_jobs:
-                            logger.info(f"Page redirected to ATS {page.url} -> {len(redirect_jobs)} jobs")
-                            return redirect_jobs
-
-                    # Trigger lazy-load / scroll safely
+                    # Block heavy images, fonts, and media to minimize RAM usage
                     try:
-                        page.evaluate("window.scrollTo(0, document.body.scrollHeight / 2)")
+                        page.route(
+                            re.compile(r"\.(?:png|jpg|jpeg|gif|svg|webp|woff|woff2|ttf|eot|mp4|webm|avi|mp3|ico)(?:\?.*)?$", re.I),
+                            lambda route: route.abort()
+                        )
+                    except Exception:
+                        pass
+
+                    try:
+                        # Navigate to career page with fast 3.5s timeout - skip dead/slow sites immediately
+                        page.goto(career_url, wait_until="domcontentloaded", timeout=3500)
                         page.wait_for_timeout(800)
-                        page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-                        page.wait_for_timeout(1200)
-                    except Exception:
-                        pass
 
-                    # 2. Check for embedded ATS iframes (Greenhouse, Lever, Ashby, Workday, BambooHR, etc.)
-                    try:
-                        for frame in page.frames:
-                            frame_api_jobs = self._route_ats_url(frame.url, max_jobs=max_jobs)
-                            if frame_api_jobs:
-                                logger.info(f"Extracted {len(frame_api_jobs)} jobs from ATS iframe API: {frame.url}")
-                                job_posts.extend(frame_api_jobs)
-                                break
-                            if any(ats in frame.url for ats in [
-                                "greenhouse.io", "lever.co", "ashbyhq.com", "myworkdayjobs.com",
-                                "icims.com", "taleo.net", "smartrecruiters.com", "bamboohr.com", "jobvite.com"
-                            ]):
-                                logger.info(f"Detected embedded ATS iframe: {frame.url}")
-                                job_posts.extend(self._extract_jobs_from_frame(frame, career_url))
-                    except Exception:
-                        pass
+                        # 1. Check if redirected to a recognized ATS platform
+                        if page.url and page.url != career_url:
+                            redirect_jobs = self._route_ats_url(page.url, max_jobs=max_jobs)
+                            if redirect_jobs:
+                                logger.info(f"Page redirected to ATS {page.url} -> {len(redirect_jobs)} jobs")
+                                return redirect_jobs
 
-                    # 3. Check for prominent direct ATS links on landing page
-                    if not job_posts:
+                        # Trigger lazy-load / scroll safely
                         try:
-                            anchors = page.query_selector_all("a[href]")
-                            for a in anchors:
-                                href = (a.get_attribute("href") or "").strip()
-                                if any(ats in href for ats in [
-                                    "greenhouse.io", "lever.co", "myworkdayjobs.com", "ashbyhq.com",
-                                    "icims.com", "taleo.net", "smartrecruiters.com", "bamboohr.com", "jobvite.com"
-                                ]):
-                                    full_ats_url = urljoin(career_url, href)
-                                    ats_anchor_jobs = self._route_ats_url(full_ats_url, max_jobs=max_jobs)
-                                    if ats_anchor_jobs:
-                                        logger.info(f"Discovered ATS link on landing page: {full_ats_url} -> {len(ats_anchor_jobs)} jobs")
-                                        job_posts.extend(ats_anchor_jobs)
-                                        break
+                            page.evaluate("window.scrollTo(0, document.body.scrollHeight / 2)")
+                            page.wait_for_timeout(400)
+                            page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+                            page.wait_for_timeout(500)
                         except Exception:
                             pass
 
-                    # 4. If not extracted from ATS router/iframe, extract from rendered DOM
-                    if not job_posts:
-                        job_posts = self._extract_jobs_from_page(page, career_url, max_jobs)
+                        # 2. Check for embedded ATS iframes (Greenhouse, Lever, Ashby, Workday, BambooHR, etc.)
+                        try:
+                            for frame in page.frames:
+                                frame_api_jobs = self._route_ats_url(frame.url, max_jobs=max_jobs)
+                                if frame_api_jobs:
+                                    logger.info(f"Extracted {len(frame_api_jobs)} jobs from ATS iframe API: {frame.url}")
+                                    job_posts.extend(frame_api_jobs)
+                                    break
+                                if any(ats in frame.url for ats in [
+                                    "greenhouse.io", "lever.co", "ashbyhq.com", "myworkdayjobs.com",
+                                    "icims.com", "taleo.net", "smartrecruiters.com", "bamboohr.com", "jobvite.com"
+                                ]):
+                                    logger.info(f"Detected embedded ATS iframe: {frame.url}")
+                                    job_posts.extend(self._extract_jobs_from_frame(frame, career_url))
+                        except Exception:
+                            pass
 
-                    # 5. If still 0 jobs, navigate to open openings subpage
-                    if not job_posts:
-                        subpage_link = self._find_openings_subpage(page, career_url)
-                        if subpage_link and subpage_link != career_url and not subpage_link.endswith(career_url):
-                            # Check if subpage link is an ATS URL
-                            sub_ats_jobs = self._route_ats_url(subpage_link, max_jobs=max_jobs)
-                            if sub_ats_jobs:
-                                job_posts.extend(sub_ats_jobs)
-                            else:
-                                logger.info(f"Navigating to openings subpage: {subpage_link}")
-                                try:
-                                    page.goto(subpage_link, wait_until="domcontentloaded", timeout=20000)
-                                    page.wait_for_timeout(2500)
-                                    page.evaluate("window.scrollTo(0, document.body.scrollHeight / 2)")
-                                    page.wait_for_timeout(600)
-                                    page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-                                    page.wait_for_timeout(1000)
-                                    job_posts = self._extract_jobs_from_page(page, subpage_link, max_jobs)
-                                except Exception as sub_exc:
-                                    logger.warning(f"Error navigating to openings subpage {subpage_link}: {sub_exc}")
+                        # 3. Check for prominent direct ATS links on landing page
+                        if not job_posts:
+                            try:
+                                anchors = page.query_selector_all("a[href]")
+                                for a in anchors:
+                                    href = (a.get_attribute("href") or "").strip()
+                                    if any(ats in href for ats in [
+                                        "greenhouse.io", "lever.co", "myworkdayjobs.com", "ashbyhq.com",
+                                        "icims.com", "taleo.net", "smartrecruiters.com", "bamboohr.com", "jobvite.com"
+                                    ]):
+                                        full_ats_url = urljoin(career_url, href)
+                                        ats_anchor_jobs = self._route_ats_url(full_ats_url, max_jobs=max_jobs)
+                                        if ats_anchor_jobs:
+                                            logger.info(f"Discovered ATS link on landing page: {full_ats_url} -> {len(ats_anchor_jobs)} jobs")
+                                            job_posts.extend(ats_anchor_jobs)
+                                            break
+                            except Exception:
+                                pass
 
-                except Exception as nav_exc:
-                    logger.warning(f"Unable to scrape career page {career_url}: {nav_exc}")
-                finally:
-                    try:
-                        browser.close()
-                    except Exception:
-                        pass
+                        # 4. If not extracted from ATS router/iframe, extract from rendered DOM
+                        if not job_posts:
+                            job_posts = self._extract_jobs_from_page(page, career_url, max_jobs)
 
-        except Exception as exc:
-            logger.warning(f"Playwright error initializing for {career_url}: {exc}")
+                        # 5. If still 0 jobs, navigate to open openings subpage
+                        if not job_posts:
+                            subpage_link = self._find_openings_subpage(page, career_url)
+                            if subpage_link and subpage_link != career_url and not subpage_link.endswith(career_url):
+                                sub_ats_jobs = self._route_ats_url(subpage_link, max_jobs=max_jobs)
+                                if sub_ats_jobs:
+                                    job_posts.extend(sub_ats_jobs)
+                                else:
+                                    logger.info(f"Navigating to openings subpage: {subpage_link}")
+                                    try:
+                                        page.goto(subpage_link, wait_until="domcontentloaded", timeout=2500)
+                                        page.wait_for_timeout(800)
+                                        page.evaluate("window.scrollTo(0, document.body.scrollHeight / 2)")
+                                        page.wait_for_timeout(300)
+                                        page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+                                        page.wait_for_timeout(400)
+                                        job_posts = self._extract_jobs_from_page(page, subpage_link, max_jobs)
+                                    except Exception as sub_exc:
+                                        logger.debug(f"Openings subpage {subpage_link} skipped: {str(sub_exc).splitlines()[0]}")
 
-        logger.info(f"Extracted {len(job_posts)} jobs from {career_url}")
-        return job_posts
+                    except Exception as nav_exc:
+                        err_line = str(nav_exc).splitlines()[0]
+                        logger.debug(f"Skipping unresponsive/dead career page {career_url}: {err_line}")
+                    finally:
+                        try:
+                            browser.close()
+                        except Exception:
+                            pass
+
+            except Exception as exc:
+                logger.warning(f"Playwright error initializing for {career_url}: {exc}")
+
+            logger.info(f"Extracted {len(job_posts)} jobs from {career_url}")
+            return job_posts
 
     def _find_openings_subpage(self, page: Page, base_url: str) -> Optional[str]:
         """Looks for links to open jobs, openings, or ATS boards on landing pages."""
@@ -1025,6 +1107,9 @@ class PlaywrightCareerScraper(BaseScraper):
                         "--disable-dev-shm-usage",
                         "--no-sandbox",
                         "--disable-gpu",
+                        "--disable-extensions",
+                        "--disable-http2",
+                        "--js-flags=--max-old-space-size=512",
                     ],
                 )
             except Exception:

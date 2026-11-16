@@ -1,26 +1,26 @@
 # Tracked Companies Directory
-This document catalogs all **2,960 companies** tracked in the database, organized by target industry, career URL, ATS platform, and current active jobs inventory in PostgreSQL.
+This document catalogs all **2,966 companies** tracked in the database, organized by target industry, career URL, ATS platform, and current active jobs inventory in PostgreSQL.
 
 ## Summary by Industry
 
 | Industry | Total Companies | Companies with Active Jobs | Total Jobs in DB |
 | :--- | :--- | :--- | :--- |
-| IT, Software & Technology | 1,840 | 1,364 | 28,772 |
+| IT, Software & Technology | 1,841 | 1,366 | 28,827 |
 | Healthcare | 231 | 120 | 1,891 |
-| Solar, Energy & Utilities | 219 | 118 | 1,162 |
-| Finance & Banking | 162 | 82 | 8,190 |
+| Solar, Energy & Utilities | 219 | 118 | 1,195 |
+| Finance & Banking | 162 | 82 | 8,196 |
 | Pharma & Biotechnology | 148 | 49 | 274 |
 | Insurance | 145 | 42 | 182 |
-| Aerospace & Defense | 144 | 65 | 7,721 |
-| Finance & Cloud | 20 | 17 | 22 |
-| Enterprise IT & Cloud | 14 | 13 | 27 |
-| IT & Fintech | 10 | 9 | 13 |
-| Enterprise & Healthcare | 6 | 4 | 14 |
-| Aerospace & Software | 5 | 2 | 10 |
-| FinTech & AI | 5 | 4 | 20 |
-| Healthcare & Technology | 4 | 2 | 4 |
-| Tech Staffing & Portals | 4 | 1 | 3 |
-| Software & Defense | 2 | 0 | 0 |
+| Aerospace & Defense | 144 | 65 | 7,851 |
+| Finance & Cloud | 21 | 19 | 33 |
+| Enterprise IT & Cloud | 17 | 17 | 38 |
+| IT & Fintech | 11 | 11 | 24 |
+| Enterprise & Healthcare | 6 | 6 | 31 |
+| Aerospace & Software | 5 | 4 | 36 |
+| FinTech & AI | 5 | 5 | 27 |
+| Healthcare & Technology | 4 | 4 | 18 |
+| Tech Staffing & Portals | 4 | 4 | 26 |
+| Software & Defense | 2 | 1 | 7 |
 | Retail & Technology | 1 | 1 | 1,198 |
 
 ---
@@ -41,6 +41,7 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Applied Intuition Defense | `appliedintuition.com` | Direct Career Portal | **225** | [Careers](https://www.appliedintuition.com/careers) |
 | Firefly Aerospace | `fireflyspace.com` | Direct Career Portal | **222** | [Careers](https://fireflyspace.com/careers/) |
 | BlackSky Technology | `blacksky.com` | GreenHouse | **180** | [Careers](https://boards.greenhouse.io/blacksky) |
+| SAIC | `saic.com` | Direct Career Portal | **164** | [Careers](https://jobs.saic.com/) |
 | Two Six Technologies | `twosixtechnologies.com` | GreenHouse | **152** | [Careers](https://boards.greenhouse.io/twosixtechnologies) |
 | Apex Space | `apexspace.com` | Direct Career Portal | **147** | [Careers](https://www.apexspace.com/careers) |
 | Leidos | `leidos.com` | Direct Career Portal | **99** | [Careers](https://www.leidos.com/careers) |
@@ -48,14 +49,13 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | General Dynamics | `generaldynamics.com` | Direct Career Portal | **57** | [Careers](https://www.gd.com/careers) |
 | HawkEye 360 | `he360.com` | Direct Career Portal | **45** | [Careers](https://www.he360.com/careers/) |
 | Hermeus | `hermeus.com` | Direct Career Portal | **45** | [Careers](https://www.hermeus.com/careers) |
-| SAIC | `saic.com` | Direct Career Portal | **40** | [Careers](https://jobs.saic.com/) |
 | Planet Labs | `planet.com` | GreenHouse | **30** | [Careers](https://boards.greenhouse.io/planetlabs) |
 | Northrop Grumman | `northropgrumman.com` | Direct Career Portal | **21** | [Careers](https://www.northropgrumman.com/careers) |
-| Aerospace Corporation | `aerospace.org` | Direct Career Portal | **12** | [Careers](https://aerospace.org/careers) |
+| Aerospace Corporation | `aerospace.org` | Direct Career Portal | **14** | [Careers](https://aerospace.org/careers) |
 | Curtiss-Wright | `curtisswright.com` | Direct Career Portal | **12** | [Careers](https://www.curtisswright.com/careers/) |
 | Dice DefenseTech | `dice.com` | Dice | **12** | [Careers](https://www.dice.com/jobs?q=defense+software) |
+| Mach Industries | `machindustries.com` | Direct Career Portal | **12** | [Careers](https://www.machindustries.com/careers) |
 | Redwire Space | `redwirespace.com` | Direct Career Portal | **12** | [Careers](https://redwirespace.com/careers/) |
-| Mach Industries | `machindustries.com` | Direct Career Portal | **10** | [Careers](https://www.machindustries.com/careers) |
 | Boeing | `boeing.com` | Workday | **9** | [Careers](https://boeing.wd1.myworkdayjobs.com/EXTERNAL_CAREERS) |
 | Axiom Space | `axiomspace.com` | Direct Career Portal | **8** | [Careers](https://www.axiomspace.com/careers) |
 | Varda Space Industries | `varda.com` | Lever | **7** | [Careers](https://jobs.lever.co/varda) |
@@ -64,9 +64,9 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Dice Avionics Developer | `dice.com` | Dice | **5** | [Careers](https://www.dice.com/jobs?q=avionics) |
 | CesiumAstro | `cesiumastro.com` | Direct Career Portal | **4** | [Careers](https://www.cesiumastro.com/careers) |
 | Chaos Industries | `chaosindustries.com` | Direct Career Portal | **4** | [Careers](https://www.chaosindustries.com/careers) |
+| Credence Management Solutions | `-` | Direct Career Portal | **4** | - |
 | Sierra Nevada Corporation | `sncorp.com` | Direct Career Portal | **4** | [Careers](https://www.sncorp.com/careers/) |
 | AeroVironment | `avinc.com` | Direct Career Portal | **2** | [Careers](https://www.avinc.com/about/careers) |
-| Credence Management Solutions | `-` | Direct Career Portal | **2** | - |
 | HX5, LLC | `-` | Direct Career Portal | **2** | - |
 | Oshkosh Corporation | `-` | Direct Career Portal | **2** | - |
 | Perrygo Consulting Group, LLC | `-` | Direct Career Portal | **2** | - |
@@ -178,28 +178,29 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 
 | Company Name | Domain | ATS Platform | Active Jobs in DB | Career URL |
 | :--- | :--- | :--- | :--- | :--- |
-| ICIMS Cloud & DevOps | `icims.com` | Dice | **9** | [Careers](https://www.dice.com/jobs?q=icims) |
+| ICIMS Cloud & DevOps | `icims.com` | Dice | **22** | [Careers](https://www.dice.com/jobs?q=icims) |
+| Breezy HR Tech Roles | `breezy.hr` | Breezy HR | **7** | [Careers](https://www.dice.com/jobs?q=breezy.hr) |
+| Breezy HR Developer | `breezy.hr` | Dice | **6** | [Careers](https://www.dice.com/jobs?q=breezyhr) |
 | Advantage Solutions | `-` | Direct Career Portal | **1** | - |
-| Breezy HR Developer | `breezy.hr` | Dice | 0 | [Careers](https://www.dice.com/jobs?q=breezyhr) |
-| Breezy HR Tech Roles | `breezy.hr` | Breezy HR | 0 | [Careers](https://www.dice.com/jobs?q=breezy.hr) |
 | ICIMS Systems Engineering | `icims.com` | ICIMS | 0 | [Careers](https://www.dice.com/jobs?q=icims.com) |
 
 ## Enterprise & Healthcare (6 Companies)
 
 | Company Name | Domain | ATS Platform | Active Jobs in DB | Career URL |
 | :--- | :--- | :--- | :--- | :--- |
+| Taleo Software Careers | `taleo.net` | Oracle Taleo | **10** | [Careers](https://www.dice.com/jobs?q=taleo.net) |
 | Texas Workforce Commission | `-` | Direct Career Portal | **10** | - |
+| Teamtailor Cloud Eng | `teamtailor.com` | Teamtailor | **7** | [Careers](https://www.dice.com/jobs?q=teamtailor.com) |
 | Taleo Enterprise Systems | `taleo.net` | Dice | **2** | [Careers](https://www.dice.com/jobs?q=taleo) |
 | MHP - A Porsche Company | `-` | Direct Career Portal | **1** | - |
 | Teamtailor Tech Jobs | `teamtailor.com` | Dice | **1** | [Careers](https://www.dice.com/jobs?q=teamtailor) |
-| Taleo Software Careers | `taleo.net` | Oracle Taleo | 0 | [Careers](https://www.dice.com/jobs?q=taleo.net) |
-| Teamtailor Cloud Eng | `teamtailor.com` | Teamtailor | 0 | [Careers](https://www.dice.com/jobs?q=teamtailor.com) |
 
-## Enterprise IT & Cloud (14 Companies)
+## Enterprise IT & Cloud (17 Companies)
 
 | Company Name | Domain | ATS Platform | Active Jobs in DB | Career URL |
 | :--- | :--- | :--- | :--- | :--- |
 | Illinois Workers' Compensation Commission | `-` | Direct Career Portal | **9** | - |
+| Workday Enterprise CXS | `myworkdayjobs.com` | Dice | **8** | [Careers](https://www.dice.com/jobs?q=myworkdayjobs) |
 | SuccessFactors Tech | `successfactors.com` | Dice | **3** | [Careers](https://www.dice.com/jobs?q=successfactors) |
 | Data-Core Systems, Inc. | `-` | Direct Career Portal | **2** | - |
 | Duke University | `-` | Direct Career Portal | **2** | - |
@@ -210,25 +211,27 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Cyber Resource Provider LLC | `-` | Direct Career Portal | **1** | - |
 | Data Wave Technologies Inc | `-` | Direct Career Portal | **1** | - |
 | Idexcel Inc. | `-` | Direct Career Portal | **1** | - |
+| Illinois Secretary of State | `-` | Direct Career Portal | **1** | - |
 | Lumen | `-` | Direct Career Portal | **1** | - |
 | SRI Resources | `-` | Direct Career Portal | **1** | - |
-| Workday Enterprise CXS | `myworkdayjobs.com` | Dice | 0 | [Careers](https://www.dice.com/jobs?q=myworkdayjobs) |
+| Vistra Corp | `-` | Direct Career Portal | **1** | - |
+| Washington Metroplitan Area Transit Authority | `-` | Direct Career Portal | **1** | - |
 
 ## FinTech & AI (5 Companies)
 
 | Company Name | Domain | ATS Platform | Active Jobs in DB | Career URL |
 | :--- | :--- | :--- | :--- | :--- |
 | Bertelsmann | `-` | Direct Career Portal | **15** | - |
+| Ashby AI & Software | `ashbyhq.com` | Dice | **7** | [Careers](https://www.dice.com/jobs?q=ashbyhq) |
 | Coca-Cola Southwest Beverages | `-` | Direct Career Portal | **2** | - |
 | SmartRecruiters Portal | `smartrecruiters.com` | Dice | **2** | [Careers](https://www.dice.com/jobs?q=smartrecruiters) |
 | Netsynk | `-` | Direct Career Portal | **1** | - |
-| Ashby AI & Software | `ashbyhq.com` | Dice | 0 | [Careers](https://www.dice.com/jobs?q=ashbyhq) |
 
 ## Finance & Banking (162 Companies)
 
 | Company Name | Domain | ATS Platform | Active Jobs in DB | Career URL |
 | :--- | :--- | :--- | :--- | :--- |
-| Capital One | `capitalone.com` | Direct Career Portal | **5,276** | [Careers](https://www.capitalonecareers.com/) |
+| Capital One | `capitalone.com` | Direct Career Portal | **5,280** | [Careers](https://www.capitalonecareers.com/) |
 | Brex | `brex.com` | GreenHouse | **592** | [Careers](https://boards.greenhouse.io/brex) |
 | Affirm | `affirm.com` | GreenHouse | **432** | [Careers](https://boards.greenhouse.io/affirm) |
 | Coinbase | `coinbase.com` | GreenHouse | **364** | [Careers](https://boards.greenhouse.io/coinbase) |
@@ -238,7 +241,7 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Discover Financial Services | `discover.com` | Direct Career Portal | **110** | [Careers](https://jobs.discover.com/) |
 | Upstart | `upstart.com` | GreenHouse | **92** | [Careers](https://boards.greenhouse.io/upstart) |
 | Blend | `blend.com` | GreenHouse | **52** | [Careers](https://boards.greenhouse.io/blend) |
-| Ripple | `ripple.com` | GreenHouse | **46** | [Careers](https://boards.greenhouse.io/ripple) |
+| Ripple | `ripple.com` | GreenHouse | **48** | [Careers](https://boards.greenhouse.io/ripple) |
 | FNB Corporation | `fnb-online.com` | Direct Career Portal | **36** | [Careers](https://www.fnb-online.com/careers) |
 | FactSet | `factset.com` | Direct Career Portal | **36** | [Careers](https://www.factset.com/careers) |
 | SoFi | `sofi.com` | GreenHouse | **32** | [Careers](https://boards.greenhouse.io/sofi) |
@@ -391,10 +394,11 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Wintrust Financial | `wintrust.com` | Direct Career Portal | 0 | [Careers](https://www.wintrust.com/careers.html) |
 | Zions Bancorporation | `zionsbancorporation.com` | Direct Career Portal | 0 | [Careers](https://zionsbancorporation.com/careers/) |
 
-## Finance & Cloud (20 Companies)
+## Finance & Cloud (21 Companies)
 
 | Company Name | Domain | ATS Platform | Active Jobs in DB | Career URL |
 | :--- | :--- | :--- | :--- | :--- |
+| Oracle HCM Systems | `oraclecloud.com` | Dice | **10** | [Careers](https://www.dice.com/jobs?q=oraclecloud.com) |
 | Estuate Inc. | `-` | Direct Career Portal | **2** | - |
 | Krostech Solutions, LLC | `-` | Direct Career Portal | **2** | - |
 | OVS Technologies Inc | `-` | Direct Career Portal | **2** | - |
@@ -407,12 +411,12 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Oracle Cloud Careers | `oraclecloud.com` | Dice | **1** | [Careers](https://www.dice.com/jobs?q=oracle+recruiting+cloud) |
 | RedSalsa Technologies, Inc. | `-` | Direct Career Portal | **1** | - |
 | SRS Consulting Inc | `-` | Direct Career Portal | **1** | - |
+| Seneca Resources, LLC | `-` | Direct Career Portal | **1** | - |
 | Summa Health System | `-` | Direct Career Portal | **1** | - |
 | TechWish | `-` | Direct Career Portal | **1** | - |
 | Transdev North America, Inc | `-` | Direct Career Portal | **1** | - |
 | VERGE IT | `-` | Direct Career Portal | **1** | - |
 | Vankay Systems | `-` | Direct Career Portal | **1** | - |
-| Oracle HCM Systems | `oraclecloud.com` | Dice | 0 | [Careers](https://www.dice.com/jobs?q=oraclecloud.com) |
 | Paycom Software | `paycom.com` | Dice | 0 | [Careers](https://www.dice.com/jobs?q=paycom) |
 | UKG Pro Tech | `ukg.com` | Dice | 0 | [Careers](https://www.dice.com/jobs?q=ukg+pro) |
 
@@ -656,33 +660,34 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 
 | Company Name | Domain | ATS Platform | Active Jobs in DB | Career URL |
 | :--- | :--- | :--- | :--- | :--- |
+| JazzHR Software Developer | `jazzhr.com` | Dice | **7** | [Careers](https://www.dice.com/jobs?q=jazzhr) |
+| JazzHR Tech Systems | `applytojob.com` | Dice | **7** | [Careers](https://www.dice.com/jobs?q=applytojob) |
 | Jobvite Enterprise Roles | `jobvite.com` | Dice | **3** | [Careers](https://www.dice.com/jobs?q=jobvite) |
 | Metropolitan Transportation Authority | `-` | Direct Career Portal | **1** | - |
-| JazzHR Software Developer | `jazzhr.com` | Dice | 0 | [Careers](https://www.dice.com/jobs?q=jazzhr) |
-| JazzHR Tech Systems | `applytojob.com` | Dice | 0 | [Careers](https://www.dice.com/jobs?q=applytojob) |
 
-## IT & Fintech (10 Companies)
+## IT & Fintech (11 Companies)
 
 | Company Name | Domain | ATS Platform | Active Jobs in DB | Career URL |
 | :--- | :--- | :--- | :--- | :--- |
-| Rippling Platform Roles | `rippling.com` | Dice | **4** | [Careers](https://www.dice.com/jobs?q=rippling) |
+| Recruitee Software | `recruitee.com` | Recruitee | **7** | [Careers](https://www.dice.com/jobs?q=recruitee.com) |
+| Rippling Platform Roles | `rippling.com` | Dice | **6** | [Careers](https://www.dice.com/jobs?q=rippling) |
 | LogRocket | `-` | Direct Career Portal | **2** | - |
+| Recruitee Tech Offers | `recruitee.com` | Dice | **2** | [Careers](https://www.dice.com/jobs?q=recruitee) |
 | Cartesia | `-` | Direct Career Portal | **1** | - |
 | Istari Digital | `-` | Direct Career Portal | **1** | - |
 | KE Staffing | `-` | Direct Career Portal | **1** | - |
-| Recruitee Tech Offers | `recruitee.com` | Dice | **1** | [Careers](https://www.dice.com/jobs?q=recruitee) |
 | Retell AI | `-` | Direct Career Portal | **1** | - |
 | Snorkel AI | `-` | Direct Career Portal | **1** | - |
+| Steel &amp; O\'Brien Manufacturing | `-` | Direct Career Portal | **1** | - |
 | XA.net | `-` | Direct Career Portal | **1** | - |
-| Recruitee Software | `recruitee.com` | Recruitee | 0 | [Careers](https://www.dice.com/jobs?q=recruitee.com) |
 
-## IT, Software & Technology (1840 Companies)
+## IT, Software & Technology (1841 Companies)
 
 | Company Name | Domain | ATS Platform | Active Jobs in DB | Career URL |
 | :--- | :--- | :--- | :--- | :--- |
 | Stripe | `stripe.com` | Direct Career Portal | **5,075** | [Careers](https://stripe.com/jobs) |
-| NVIDIA | `nvidia.com` | Workday | **2,444** | [Careers](https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite) |
-| Anthropic | `anthropic.com` | Lever | **1,404** | [Careers](https://jobs.lever.co/anthropic) |
+| NVIDIA | `nvidia.com` | Workday | **2,456** | [Careers](https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite) |
+| Anthropic | `anthropic.com` | Lever | **1,408** | [Careers](https://jobs.lever.co/anthropic) |
 | Databricks | `databricks.com` | GreenHouse | **1,356** | [Careers](https://boards.greenhouse.io/databricks) |
 | Cloudflare | `cloudflare.com` | Direct Career Portal | **1,216** | [Careers](https://www.cloudflare.com/careers/) |
 | Micron | `micron.com` | Workday | **1,200** | [Careers](https://micron.wd1.myworkdayjobs.com/external) |
@@ -724,8 +729,8 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Toast | `pos.toasttab.com` | Direct Career Portal | **102** | [Careers](https://careers.toasttab.com/) |
 | Accenture LLP | `-` | Direct Career Portal | **90** | - |
 | JPMorgan Chase & Co. | `-` | Direct Career Portal | **89** | - |
+| Square / Block | `squareup.com` | SmartRecruiters | **85** | [Careers](https://jobs.smartrecruiters.com/Square) |
 | Twilio | `twilio.com` | GreenHouse | **78** | [Careers](https://boards.greenhouse.io/twilio) |
-| Square / Block | `squareup.com` | SmartRecruiters | **77** | [Careers](https://jobs.smartrecruiters.com/Square) |
 | Airbnb | `airbnb.com` | GreenHouse | **70** | [Careers](https://boards.greenhouse.io/airbnb) |
 | Box | `box.com` | GreenHouse | **68** | [Careers](https://boards.greenhouse.io/box) |
 | Apple, Inc. | `-` | Direct Career Portal | **67** | - |
@@ -733,7 +738,7 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Qualcomm | `qualcomm.com` | Workday | **64** | [Careers](https://qualcomm.wd5.myworkdayjobs.com/External) |
 | Grafana Labs | `grafana.com` | GreenHouse | **62** | [Careers](https://boards.greenhouse.io/grafanalabs) |
 | Mixpanel | `mixpanel.com` | Direct Career Portal | **56** | [Careers](https://mixpanel.com/careers/) |
-| Apex Systems | `-` | Direct Career Portal | **50** | - |
+| Apex Systems | `-` | Direct Career Portal | **51** | - |
 | Nava PBC | `navapbc.com` | GreenHouse | **50** | [Careers](https://boards.greenhouse.io/navapbc) |
 | Kforce Technology Staffing | `-` | Direct Career Portal | **45** | - |
 | CACI International, Inc. | `-` | Direct Career Portal | **44** | - |
@@ -776,12 +781,12 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Snowflake Inc. | `-` | Direct Career Portal | **15** | - |
 | Boeing Company | `-` | Direct Career Portal | **14** | - |
 | Katalyst Healthcares and Lifesciences | `-` | Direct Career Portal | **14** | - |
+| PaloAlto Networks | `-` | Direct Career Portal | **14** | - |
 | Perplexity | `perplexity.ai` | Ashby | **14** | [Careers](https://jobs.ashbyhq.com/perplexity) |
 | Akina, Inc. | `-` | Direct Career Portal | **13** | - |
 | Ascensus | `-` | Direct Career Portal | **13** | - |
 | Harris Corporation | `-` | Direct Career Portal | **13** | - |
 | Instacart | `instacart.com` | GreenHouse | **13** | [Careers](https://boards.greenhouse.io/instacart) |
-| PaloAlto Networks | `-` | Direct Career Portal | **13** | - |
 | Parsons Services Company | `-` | Direct Career Portal | **13** | - |
 | Shield Consulting Solutions, Inc. | `-` | Direct Career Portal | **13** | - |
 | Agile Defense | `-` | Direct Career Portal | **12** | - |
@@ -806,6 +811,7 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Intuit | `intuit.com` | Direct Career Portal | **10** | [Careers](https://www.intuit.com/careers/) |
 | Motorola Solutions | `-` | Direct Career Portal | **10** | - |
 | Sumitomo Mitsui Financial Group, Inc. | `-` | Direct Career Portal | **10** | - |
+| Workable Software | `workable.com` | Dice | **10** | [Careers](https://www.dice.com/jobs?q=workable) |
 | Xoriant Corporation | `-` | Direct Career Portal | **10** | - |
 | Dassault Systems Americas Corp. | `-` | Direct Career Portal | **9** | - |
 | Deloitte | `-` | Direct Career Portal | **9** | - |
@@ -814,6 +820,7 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | MphasiS Corporation USA | `-` | Direct Career Portal | **9** | - |
 | North Point Technology | `-` | Direct Career Portal | **9** | - |
 | Omni Federal | `-` | Direct Career Portal | **9** | - |
+| State Street Corporation | `-` | Direct Career Portal | **9** | - |
 | TIAA | `-` | Direct Career Portal | **9** | - |
 | The MITRE Corporation | `-` | Direct Career Portal | **9** | - |
 | VTG | `-` | Direct Career Portal | **9** | - |
@@ -829,7 +836,6 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Nationwide Mutual Insurance Company | `-` | Direct Career Portal | **8** | - |
 | Navigant Consulting | `-` | Direct Career Portal | **8** | - |
 | Qualcomm Technologies | `-` | Direct Career Portal | **8** | - |
-| State Street Corporation | `-` | Direct Career Portal | **8** | - |
 | US Venture, Inc. | `-` | Direct Career Portal | **8** | - |
 | Virtusa Corporation | `-` | Direct Career Portal | **8** | - |
 | Allstate Insurance Company | `-` | Direct Career Portal | **7** | - |
@@ -840,6 +846,7 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Fiserv, Inc. | `-` | Direct Career Portal | **7** | - |
 | General Motors | `-` | Direct Career Portal | **7** | - |
 | HTC Global Services | `-` | Direct Career Portal | **7** | - |
+| Huntington Bank | `-` | Direct Career Portal | **7** | - |
 | INSPYR Solutions | `-` | Direct Career Portal | **7** | - |
 | Ledgent Technology | `-` | Direct Career Portal | **7** | - |
 | Noblis | `-` | Direct Career Portal | **7** | - |
@@ -850,16 +857,20 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | TURING ENTERPRISES, INC. | `-` | Direct Career Portal | **7** | - |
 | Tech Genius, Inc | `-` | Direct Career Portal | **7** | - |
 | Thomson Reuters U.S. Inc. | `-` | Direct Career Portal | **7** | - |
+| Washington State Department of Transportation | `-` | Direct Career Portal | **7** | - |
+| Workable Cloud Eng | `workable.com` | Workable | **7** | [Careers](https://www.dice.com/jobs?q=apply.workable.com) |
 | AgileEngine | `-` | Direct Career Portal | **6** | - |
 | Airtable | `airtable.com` | GreenHouse | **6** | [Careers](https://airtable.com/careers) |
 | Asana | `asana.com` | GreenHouse | **6** | [Careers](https://asana.com/jobs) |
 | Aziro Technologies LLC | `-` | Direct Career Portal | **6** | - |
+| BambooHR Tech Roles | `bamboohr.com` | Dice | **6** | [Careers](https://www.dice.com/jobs?q=bamboohr) |
 | BigBear.ai | `-` | Direct Career Portal | **6** | - |
 | Brillio, LLC | `-` | Direct Career Portal | **6** | - |
+| City of New York | `-` | Direct Career Portal | **6** | - |
 | Cox Communications | `-` | Direct Career Portal | **6** | - |
 | Etsy, Inc | `-` | Direct Career Portal | **6** | - |
 | GE Aerospace | `-` | Direct Career Portal | **6** | - |
-| Huntington Bank | `-` | Direct Career Portal | **6** | - |
+| HEB Grocery Company, LP | `-` | Direct Career Portal | **6** | - |
 | ION Group | `-` | Direct Career Portal | **6** | - |
 | Intercontinental Exchange, Inc | `-` | Direct Career Portal | **6** | - |
 | MSYS Inc. | `-` | Direct Career Portal | **6** | - |
@@ -884,7 +895,6 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Blackstone | `-` | Direct Career Portal | **5** | - |
 | Chenega MIOS | `-` | Direct Career Portal | **5** | - |
 | Cimarron | `-` | Direct Career Portal | **5** | - |
-| City of New York | `-` | Direct Career Portal | **5** | - |
 | Computer Merchant, Ltd., The | `-` | Direct Career Portal | **5** | - |
 | Fitch Group | `-` | Direct Career Portal | **5** | - |
 | GDH | `-` | Direct Career Portal | **5** | - |
@@ -892,7 +902,6 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Goldman Sachs & Co. | `-` | Direct Career Portal | **5** | - |
 | GovCIO | `-` | Direct Career Portal | **5** | - |
 | Guidewire Software Inc. | `-` | Direct Career Portal | **5** | - |
-| HEB Grocery Company, LP | `-` | Direct Career Portal | **5** | - |
 | HigherEchelon | `-` | Direct Career Portal | **5** | - |
 | HyrUS Inc. | `-` | Direct Career Portal | **5** | - |
 | IBM | `-` | Direct Career Portal | **5** | - |
@@ -915,6 +924,7 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Torch Technologies Inc. | `-` | Direct Career Portal | **5** | - |
 | Toyota Material Handling North America | `-` | Direct Career Portal | **5** | - |
 | UKG Careers | `-` | Direct Career Portal | **5** | - |
+| Valkyrie Enterprises | `-` | Direct Career Portal | **5** | - |
 | WinMax Systems Corporation | `-` | Direct Career Portal | **5** | - |
 | athenahealth, Inc. | `-` | Direct Career Portal | **5** | - |
 | iSpace, Inc | `-` | Direct Career Portal | **5** | - |
@@ -929,6 +939,7 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Castalia Systems | `-` | Direct Career Portal | **4** | - |
 | CliftonLarsonAllen, LLP | `-` | Direct Career Portal | **4** | - |
 | Comcast Corp | `-` | Direct Career Portal | **4** | - |
+| DCS Corporation | `-` | Direct Career Portal | **4** | - |
 | DataArt Solutions | `-` | Direct Career Portal | **4** | - |
 | Decisionpoint Corporation | `-` | Direct Career Portal | **4** | - |
 | Dice Python Developer | `dice.com` | Dice | **4** | [Careers](https://www.dice.com/jobs?q=python+engineer) |
@@ -975,8 +986,6 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | VYNYL | `-` | Direct Career Portal | **4** | - |
 | Vast | `-` | Direct Career Portal | **4** | - |
 | Voto Consulting LLC | `-` | Direct Career Portal | **4** | - |
-| Washington State Department of Transportation | `-` | Direct Career Portal | **4** | - |
-| Workable Software | `workable.com` | Dice | **4** | [Careers](https://www.dice.com/jobs?q=workable) |
 | YORK SPACE SYSTEMS LLC | `-` | Direct Career Portal | **4** | - |
 | iCapital | `-` | Direct Career Portal | **4** | - |
 | ALIS Software | `-` | Direct Career Portal | **3** | - |
@@ -1002,7 +1011,6 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Cyber Sphere LLC | `-` | Direct Career Portal | **3** | - |
 | Cyma Systems Inc | `-` | Direct Career Portal | **3** | - |
 | DAT Solutions | `-` | Direct Career Portal | **3** | - |
-| DCS Corporation | `-` | Direct Career Portal | **3** | - |
 | DXC Technology Services LLC | `-` | Direct Career Portal | **3** | - |
 | Davis Strategic Innovations Inc | `-` | Direct Career Portal | **3** | - |
 | Decision Six Inc. | `-` | Direct Career Portal | **3** | - |
@@ -1074,7 +1082,6 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | University Of Utah | `-` | Direct Career Portal | **3** | - |
 | University of Illinois | `-` | Direct Career Portal | **3** | - |
 | V-Soft Consulting Group, Inc | `-` | Direct Career Portal | **3** | - |
-| Valkyrie Enterprises | `-` | Direct Career Portal | **3** | - |
 | VeridianTech | `-` | Direct Career Portal | **3** | - |
 | Viasat, Inc. | `-` | Direct Career Portal | **3** | - |
 | Visa Inc. | `-` | Direct Career Portal | **3** | - |
@@ -1437,7 +1444,6 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Baer | `-` | Direct Career Portal | **1** | - |
 | Bain & Company | `-` | Direct Career Portal | **1** | - |
 | Bally's Interactive | `-` | Direct Career Portal | **1** | - |
-| BambooHR Tech Roles | `bamboohr.com` | Dice | **1** | [Careers](https://www.dice.com/jobs?q=bamboohr) |
 | Barrios Technology | `-` | Direct Career Portal | **1** | - |
 | Battelle Memorial Institute | `-` | Direct Career Portal | **1** | - |
 | Baxter Healthcare | `-` | Direct Career Portal | **1** | - |
@@ -1588,6 +1594,7 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | FSTONE Technologies | `-` | Direct Career Portal | **1** | - |
 | Fairfax County Public Schools | `-` | Direct Career Portal | **1** | - |
 | FedWriters, Inc. | `-` | Direct Career Portal | **1** | - |
+| Five Stones Research Corporation | `-` | Direct Career Portal | **1** | - |
 | Fivetran | `-` | Direct Career Portal | **1** | - |
 | FlairTech Solutions | `-` | Direct Career Portal | **1** | - |
 | Flexstaf I.T. Inc. | `-` | Direct Career Portal | **1** | - |
@@ -2496,7 +2503,6 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | Wiz | `wiz.io` | Ashby | 0 | [Careers](https://jobs.ashbyhq.com/wiz) |
 | Wiz, Inc. | `-` | Direct Career Portal | 0 | - |
 | Work From Home | `-` | Direct Career Portal | 0 | - |
-| Workable Cloud Eng | `workable.com` | Workable | 0 | [Careers](https://www.dice.com/jobs?q=apply.workable.com) |
 | Workday | `workday.com` | Workday | 0 | [Careers](https://workday.wd5.myworkdayjobs.com/Workday) |
 | Workiva | `-` | Direct Career Portal | 0 | - |
 | Xenith Solutions LLC | `-` | Direct Career Portal | 0 | - |
@@ -2834,18 +2840,18 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 
 | Company Name | Domain | ATS Platform | Active Jobs in DB | Career URL |
 | :--- | :--- | :--- | :--- | :--- |
+| Lever Career Portals | `lever.co` | Lever | **7** | [Careers](https://www.dice.com/jobs?q=lever.co) |
 | Greenhouse Boards Tech | `greenhouse.io` | GreenHouse | 0 | [Careers](https://www.dice.com/jobs?q=greenhouse.io) |
-| Lever Career Portals | `lever.co` | Lever | 0 | [Careers](https://www.dice.com/jobs?q=lever.co) |
 
 ## Solar, Energy & Utilities (219 Companies)
 
 | Company Name | Domain | ATS Platform | Active Jobs in DB | Career URL |
 | :--- | :--- | :--- | :--- | :--- |
 | Redwood Materials | `redwoodmaterials.com` | GreenHouse | **435** | [Careers](https://boards.greenhouse.io/redwoodmaterials) |
-| Rivian | `rivian.com` | Direct Career Portal | **165** | [Careers](https://rivian.com/careers) |
+| Rivian | `rivian.com` | Direct Career Portal | **180** | [Careers](https://rivian.com/careers) |
 | Sargent & Lundy LLC. | `-` | Direct Career Portal | **85** | - |
-| Palmetto | `palmetto.com` | Direct Career Portal | **80** | [Careers](https://palmetto.com/careers) |
-| Schneider Electric | `se.com` | SmartRecruiters | **71** | [Careers](https://jobs.smartrecruiters.com/SchneiderElectric) |
+| Palmetto | `palmetto.com` | Direct Career Portal | **84** | [Careers](https://palmetto.com/careers) |
+| Schneider Electric | `se.com` | SmartRecruiters | **83** | [Careers](https://jobs.smartrecruiters.com/SchneiderElectric) |
 | Dice CleanTech | `dice.com` | Dice | **51** | [Careers](https://www.dice.com/jobs?q=energy+software) |
 | Span | `span.com` | Ashby | **24** | [Careers](https://jobs.ashbyhq.com/span) |
 | Aurora Solar | `aurorasolar.com` | GreenHouse | **16** | [Careers](https://boards.greenhouse.io/aurorasolar) |
@@ -2854,13 +2860,13 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 | LevelTen Energy | `leveltenenergy.com` | Direct Career Portal | **9** | [Careers](https://www.leveltenenergy.com/careers) |
 | City of Austin | `-` | Direct Career Portal | **6** | - |
 | Dice Utilities Tech | `dice.com` | Dice | **6** | [Careers](https://www.dice.com/jobs?q=smart+grid) |
+| GoodLeap | `goodleap.com` | Direct Career Portal | **6** | [Careers](https://goodleap.com/careers/) |
 | PPL Corporation | `pplweb.com` | Direct Career Portal | **6** | [Careers](https://careers.pplweb.com/) |
 | Coffman Engineers, Inc. | `-` | Direct Career Portal | **5** | - |
 | Dice Renewable Energy | `dice.com` | Dice | **5** | [Careers](https://www.dice.com/jobs?q=renewable+energy+software) |
 | Burns &amp; McDonnell | `-` | Direct Career Portal | **4** | - |
 | CLEAResult, Inc. | `-` | Direct Career Portal | **4** | - |
 | Form Energy | `formenergy.com` | GreenHouse | **4** | [Careers](https://boards.greenhouse.io/formenergy) |
-| GoodLeap | `goodleap.com` | Direct Career Portal | **4** | [Careers](https://goodleap.com/careers/) |
 | PG&E Corporation | `pge.com` | Direct Career Portal | **4** | [Careers](https://jobs.pge.com/) |
 | Ramboll Environ | `-` | Direct Career Portal | **4** | - |
 | Silicon Ranch | `siliconranch.com` | Direct Career Portal | **4** | [Careers](https://siliconranch.com/careers/) |
@@ -3065,8 +3071,8 @@ This document catalogs all **2,960 companies** tracked in the database, organize
 
 | Company Name | Domain | ATS Platform | Active Jobs in DB | Career URL |
 | :--- | :--- | :--- | :--- | :--- |
+| Phenom People Tech | `phenom.com` | Dice | **9** | [Careers](https://www.dice.com/jobs?q=phenom+people) |
+| CyberCoders Tech | `cybercoders.com` | Dice | **7** | [Careers](https://www.dice.com/jobs?q=cybercoders) |
+| JobServe IT Roles | `jobserve.com` | Dice | **7** | [Careers](https://www.dice.com/jobs?q=contract+c2c+tech) |
 | Paylocity Tech | `paylocity.com` | Dice | **3** | [Careers](https://www.dice.com/jobs?q=paylocity) |
-| CyberCoders Tech | `cybercoders.com` | Dice | 0 | [Careers](https://www.dice.com/jobs?q=cybercoders) |
-| JobServe IT Roles | `jobserve.com` | Dice | 0 | [Careers](https://www.dice.com/jobs?q=contract+c2c+tech) |
-| Phenom People Tech | `phenom.com` | Dice | 0 | [Careers](https://www.dice.com/jobs?q=phenom+people) |
 

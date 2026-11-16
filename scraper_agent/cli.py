@@ -233,6 +233,12 @@ def main():
         default=0,
         help="Run daily multi-platform scraper targeting at least N fresh jobs per ATS/board (e.g. 1000)",
     )
+    parser.add_argument(
+        "--parallel-workers",
+        type=int,
+        default=0,
+        help="Run N parallel workers concurrently across all 7 target industries (e.g. 10)",
+    )
 
     args = parser.parse_args()
 
@@ -312,6 +318,16 @@ def main():
         else:
             scraper.run_daily_cycle()
             return
+
+    # Parallel Multi-Industry Scraper (targeting balanced growth across all 7 target industries)
+    if args.parallel_workers > 0:
+        from scripts.parallel_multi_industry_scraper import MultiIndustryWorkerCoordinator
+        coordinator = MultiIndustryWorkerCoordinator(
+            max_workers=args.parallel_workers,
+            max_jobs_per_target=150,
+        )
+        coordinator.run(selected_industry=args.industry)
+        return
 
     enforce_dates = not args.all_dates
     dynamic_disc = not args.no_discovery

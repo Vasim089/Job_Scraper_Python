@@ -6,17 +6,39 @@ sys.path.insert(0, str(ROOT_DIR))
 from scraper_agent.db.connection import get_dict_cursor
 
 with get_dict_cursor() as cur:
-    # 1. Total jobs by ATS type
+    # 1. Total jobs by ATS Platform / Job Portal (Full 21 ATS & 14 Portals Registry)
     cur.execute("""
         SELECT 
             CASE 
+                -- 1. Targeted ATS Platforms
+                WHEN job_url LIKE '%greenhouse.io%' THEN 'GreenHouse'
                 WHEN job_url LIKE '%myworkdayjobs.com%' THEN 'Workday'
-                WHEN job_url LIKE '%greenhouse.io%' THEN 'Greenhouse'
-                WHEN job_url LIKE '%lever.co%' THEN 'Lever'
                 WHEN job_url LIKE '%ashbyhq.com%' THEN 'Ashby'
                 WHEN job_url LIKE '%smartrecruiters.com%' THEN 'SmartRecruiters'
+                WHEN job_url LIKE '%lever.co%' THEN 'Lever'
+                WHEN job_url LIKE '%icims%' THEN 'ICIMS'
+                WHEN job_url LIKE '%taleo%' THEN 'Oracle Taleo'
+                WHEN job_url LIKE '%bamboohr%' THEN 'BambooHR'
+                WHEN job_url LIKE '%jobvite%' THEN 'Jobvite'
+                WHEN job_url LIKE '%workable%' THEN 'Workable'
+                WHEN job_url LIKE '%applytojob%' OR job_url LIKE '%jazzhr%' THEN 'JazzHR'
+                WHEN job_url LIKE '%breezy%' THEN 'Breezy HR'
+                WHEN job_url LIKE '%teamtailor%' THEN 'Teamtailor'
+                WHEN job_url LIKE '%recruitee%' THEN 'Recruitee'
+                WHEN job_url LIKE '%rippling%' THEN 'Rippling'
+                WHEN job_url LIKE '%successfactors%' THEN 'SAP SuccessFactors'
+                WHEN job_url LIKE '%oraclecloud%' THEN 'Oracle Recruiting Cloud'
+                WHEN job_url LIKE '%ukg%' THEN 'UKG Pro Recruiting'
+                WHEN job_url LIKE '%paycom%' THEN 'Paycom'
+                WHEN job_url LIKE '%paylocity%' THEN 'Paylocity'
+                WHEN job_url LIKE '%phenom%' THEN 'Phenom'
+                -- 2. Targeted Job Portals
+                WHEN job_url LIKE '%jobserve%' THEN 'JobServe'
+                WHEN job_url LIKE '%cybercoders%' THEN 'CyberCoders'
+                WHEN job_url LIKE '%ziprecruiter%' THEN 'ZipRecruiter'
+                WHEN job_url LIKE '%indeed%' THEN 'Indeed'
                 WHEN job_url LIKE '%dice.com%' THEN 'Dice'
-                ELSE 'Other'
+                ELSE 'Direct Employer / Other'
             END as ats_type,
             COUNT(id) as count
         FROM jobs
@@ -24,12 +46,12 @@ with get_dict_cursor() as cur:
         ORDER BY count DESC;
     """)
     ats_rows = cur.fetchall()
-    print("=== Jobs by ATS Platform ===")
+    print("=== Jobs by ATS Platform & Job Portal ===")
     total = 0
     for r in ats_rows:
-        print(f"  {r['ats_type']:16}: {r['count']:,}")
+        print(f"  {r['ats_type']:28}: {r['count']:,}")
         total += r['count']
-    print(f"  TOTAL ALL JOBS  : {total:,}\n")
+    print(f"  TOTAL ALL JOBS              : {total:,}\n")
 
     # 2. Workday jobs breakdown by Company
     cur.execute("""

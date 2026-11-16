@@ -537,49 +537,83 @@ class DynamicJobDiscovery:
                     scraper_type="playwright",
                 )
 
-        # 2. Retrieve matched companies from the database
-        matched_companies: List[Company] = []
-        if company_filter:
-            comp = self.repo.get_company_by_name(company_filter)
-            if comp:
-                matched_companies.append(comp)
-        else:
-            matched_companies = self.repo.get_companies_by_industry(ind_clean)
+        # 2. Retrieve matched companies and sources from the database in a single fast query
+        from scraper_agent.db.connection import get_dict_cursor
+        with get_dict_cursor() as cur:
+            query = """
+                SELECT 
+                    c.id as comp_id, c.name as comp_name, c.domain as comp_domain,
+                    c.career_url as comp_career_url, c.industry as comp_industry,
+                    c.active as comp_active, c.created_at as comp_created_at, c.updated_at as comp_updated_at,
+                    s.id as src_id, s.source_url, s.scraper_type, s.active as src_active,
+                    s.last_run_at, s.last_success_at, s.last_failure_at, s.created_at as src_created_at, s.updated_at as src_updated_at
+                FROM companies c
+                LEFT JOIN job_sources s ON s.company_id = c.id AND s.active = TRUE
+                WHERE c.active = TRUE
+            """
+            params = []
+            if company_filter:
+                query += " AND LOWER(c.name) = LOWER(%s)"
+                params.append(company_filter)
+            else:
+                query += " AND LOWER(c.industry) = LOWER(%s)"
+                params.append(ind_clean)
+
+            query += " ORDER BY c.id ASC"
+            cur.execute(query, params)
+            rows = cur.fetchall()
 
         # 3. Build (Company, JobSource) pairs and prioritize high-yield ATS sources first
         verified_names = {c["name"].lower() for c in VERIFIED_INDUSTRY_COMPANIES.get(ind_clean, [])}
         verified_results: List[Tuple[Company, JobSource]] = []
         other_results: List[Tuple[Company, JobSource]] = []
+        seen_companies = set()
 
-        for comp in matched_companies:
-            sources = self.repo.get_active_sources_for_company(comp.id)
-            pair = None
-            for src in sources:
-                if src.scraper_type == "playwright" or "career" in src.source_url or "job" in src.source_url:
-                    pair = (comp, src)
-                    break
+        for r in rows:
+            cid = r["comp_id"]
+            if cid in seen_companies:
+                continue
+            seen_companies.add(cid)
+
+            comp = Company(
+                id=cid,
+                name=r["comp_name"],
+                domain=r["comp_domain"],
+                career_url=r["comp_career_url"],
+                industry=r["comp_industry"],
+                active=r["comp_active"],
+                created_at=r["comp_created_at"],
+                updated_at=r["comp_updated_at"],
+            )
+            src_url = r["source_url"] or r["comp_career_url"]
+            if not src_url:
+                continue
+
+            src = JobSource(
+                id=r["src_id"] or 0,
+                company_id=cid,
+                source_url=src_url,
+                scraper_type=r["scraper_type"] or "playwright",
+                active=r["src_active"] if r["src_active"] is not None else True,
+                last_run_at=r["last_run_at"],
+                last_success_at=r["last_success_at"],
+                last_failure_at=r["last_failure_at"],
+                created_at=r["src_created_at"],
+                updated_at=r["src_updated_at"],
+            )
+
+            if ats_filter and ats_filter.upper() != "ALL":
+                if not matches_ats(src.source_url, ats_filter):
+                    continue
+
+            if comp.name.lower() in verified_names or any(ats in src.source_url.lower() for ats in [
+                "greenhouse.io", "lever.co", "ashbyhq.com", "myworkdayjobs.com",
+                "smartrecruiters.com", "bamboohr.com", "jobvite.com", "icims.com", "taleo.net",
+                "dice.com"
+            ]):
+                verified_results.append((comp, src))
             else:
-                if comp.career_url:
-                    src = self.repo.get_or_create_job_source(
-                        company_id=comp.id,
-                        source_url=comp.career_url,
-                        scraper_type="playwright",
-                    )
-                    pair = (comp, src)
-
-            if pair:
-                if ats_filter and ats_filter.upper() != "ALL":
-                    if not matches_ats(pair[1].source_url, ats_filter):
-                        continue
-
-                if comp.name.lower() in verified_names or any(ats in pair[1].source_url for ats in [
-                    "greenhouse.io", "lever.co", "ashbyhq.com", "myworkdayjobs.com",
-                    "smartrecruiters.com", "bamboohr.com", "jobvite.com", "icims.com", "taleo.net",
-                    "dice.com"
-                ]):
-                    verified_results.append(pair)
-                else:
-                    other_results.append(pair)
+                other_results.append((comp, src))
 
         # Prioritize verified high-yield ATS boards first, followed by others
         return verified_results + other_results

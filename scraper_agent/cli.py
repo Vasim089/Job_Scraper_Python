@@ -236,8 +236,20 @@ def main():
     parser.add_argument(
         "--parallel-workers",
         type=int,
-        default=0,
-        help="Run N parallel workers concurrently across all 7 target industries (e.g. 10)",
+        default=10,
+        help="Run N parallel workers concurrently (default: 10)",
+    )
+    parser.add_argument(
+        "--mode",
+        type=str,
+        default="all",
+        choices=["all", "ats", "direct", "industry", "sequential"],
+        help="Parallel execution mode: 'all' (Master pipeline covering ATS, Direct Career Pages & 7 Industries in ONE command - DEFAULT), 'ats' (10 workers, 2 ATS each), 'direct' (10 workers, 2,680+ direct company pages), 'industry' (10 workers across 7 industries), or 'sequential'",
+    )
+    parser.add_argument(
+        "--sequential",
+        action="store_true",
+        help="Run legacy single-threaded sequential scraper instead of 10 parallel workers",
     )
 
     args = parser.parse_args()
@@ -319,15 +331,44 @@ def main():
             scraper.run_daily_cycle()
             return
 
-    # Parallel Multi-Industry Scraper (targeting balanced growth across all 7 target industries)
-    if args.parallel_workers > 0:
-        from scripts.parallel_multi_industry_scraper import MultiIndustryWorkerCoordinator
-        coordinator = MultiIndustryWorkerCoordinator(
-            max_workers=args.parallel_workers,
-            max_jobs_per_target=150,
-        )
-        coordinator.run(selected_industry=args.industry)
-        return
+    # Parallel Workers Execution (Default: 10 concurrent workers covering ALL dimensions)
+    if args.parallel_workers > 0 and not args.sequential and not args.company and not args.url:
+        def execute_pipeline():
+            if args.mode == "all":
+                from scripts.master_scraper_pipeline import MasterScraperCoordinator
+                coordinator = MasterScraperCoordinator(max_workers=args.parallel_workers)
+                coordinator.run_all()
+            elif args.mode == "ats":
+                from scripts.parallel_ats_paired_scraper import PairedATSWorkerCoordinator
+                coordinator = PairedATSWorkerCoordinator(max_jobs_per_target=100)
+                coordinator.run()
+            elif args.mode == "direct":
+                from scripts.parallel_direct_company_scraper import DirectCompanyWorkerCoordinator
+                coordinator = DirectCompanyWorkerCoordinator(
+                    max_workers=args.parallel_workers,
+                    max_jobs_per_company=100,
+                )
+                coordinator.run()
+            elif args.mode == "industry":
+                from scripts.parallel_multi_industry_scraper import MultiIndustryWorkerCoordinator
+                coordinator = MultiIndustryWorkerCoordinator(
+                    max_workers=args.parallel_workers,
+                    max_jobs_per_target=150,
+                )
+                coordinator.run(selected_industry=args.industry)
+
+        if args.daily:
+            console.print(
+                f"[bold cyan]▶ Starting Continuous Scraper Daemon (Repeating every {args.interval} hours, Mode: {args.mode.upper()})...[/bold cyan]"
+            )
+            while True:
+                execute_pipeline()
+                sleep_secs = args.interval * 3600
+                console.print(f"[dim]Next execution in {args.interval} hour(s). Sleeping...[/dim]")
+                time.sleep(sleep_secs)
+        else:
+            execute_pipeline()
+            return
 
     enforce_dates = not args.all_dates
     dynamic_disc = not args.no_discovery

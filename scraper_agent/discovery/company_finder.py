@@ -4,15 +4,6 @@ import logging
 from typing import List, Dict, Any, Optional, Tuple
 from urllib.parse import urlparse
 
-# Ensure temp directory stays on D: if available to prevent disk space exhaustion
-temp_dir = "D:\\Temp"
-try:
-    os.makedirs(temp_dir, exist_ok=True)
-    os.environ["TEMP"] = temp_dir
-    os.environ["TMP"] = temp_dir
-except Exception:
-    pass
-
 from scraper_agent.db.repository import JobRepository
 from scraper_agent.models.job import Company, JobSource, RawJobPost
 from scraper_agent.scrapers.playwright_scraper import PlaywrightCareerScraper

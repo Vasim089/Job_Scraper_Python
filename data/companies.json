@@ -37,7 +37,7 @@
     "industry": "Aerospace & Defense",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 483
+    "active_jobs_count": 504
   },
   {
     "id": 590,
@@ -70,14 +70,14 @@
     "active_jobs_count": 339
   },
   {
-    "id": 598,
-    "name": "Archer Aviation",
-    "domain": "archer.com",
-    "career_url": "https://www.archer.com/careers",
+    "id": 569,
+    "name": "SAIC",
+    "domain": "saic.com",
+    "career_url": "https://jobs.saic.com/",
     "industry": "Aerospace & Defense",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 231
+    "active_jobs_count": 334
   },
   {
     "id": 567,
@@ -87,7 +87,27 @@
     "industry": "Aerospace & Defense",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 228
+    "active_jobs_count": 304
+  },
+  {
+    "id": 605,
+    "name": "Firefly Aerospace",
+    "domain": "fireflyspace.com",
+    "career_url": "https://fireflyspace.com/careers/",
+    "industry": "Aerospace & Defense",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 282
+  },
+  {
+    "id": 598,
+    "name": "Archer Aviation",
+    "domain": "archer.com",
+    "career_url": "https://www.archer.com/careers",
+    "industry": "Aerospace & Defense",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 261
   },
   {
     "id": 625,
@@ -100,16 +120,6 @@
     "active_jobs_count": 225
   },
   {
-    "id": 605,
-    "name": "Firefly Aerospace",
-    "domain": "fireflyspace.com",
-    "career_url": "https://fireflyspace.com/careers/",
-    "industry": "Aerospace & Defense",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 222
-  },
-  {
     "id": 601,
     "name": "BlackSky Technology",
     "domain": "blacksky.com",
@@ -120,14 +130,24 @@
     "active_jobs_count": 180
   },
   {
-    "id": 569,
-    "name": "SAIC",
-    "domain": "saic.com",
-    "career_url": "https://jobs.saic.com/",
+    "id": 618,
+    "name": "Apex Space",
+    "domain": "apexspace.com",
+    "career_url": "https://www.apexspace.com/careers",
     "industry": "Aerospace & Defense",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 164
+    "active_jobs_count": 156
+  },
+  {
+    "id": 622,
+    "name": "Mach Industries",
+    "domain": "machindustries.com",
+    "career_url": "https://www.machindustries.com/careers",
+    "industry": "Aerospace & Defense",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 152
   },
   {
     "id": 770,
@@ -140,14 +160,24 @@
     "active_jobs_count": 152
   },
   {
-    "id": 618,
-    "name": "Apex Space",
-    "domain": "apexspace.com",
-    "career_url": "https://www.apexspace.com/careers",
+    "id": 609,
+    "name": "Hermeus",
+    "domain": "hermeus.com",
+    "career_url": "https://www.hermeus.com/careers",
     "industry": "Aerospace & Defense",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 147
+    "active_jobs_count": 138
+  },
+  {
+    "id": 628,
+    "name": "CesiumAstro",
+    "domain": "cesiumastro.com",
+    "career_url": "https://www.cesiumastro.com/careers",
+    "industry": "Aerospace & Defense",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 128
   },
   {
     "id": 566,
@@ -158,6 +188,36 @@
     "ats_platform": "Direct Career Portal",
     "active": true,
     "active_jobs_count": 99
+  },
+  {
+    "id": 585,
+    "name": "AeroVironment",
+    "domain": "avinc.com",
+    "career_url": "https://www.avinc.com/about/careers",
+    "industry": "Aerospace & Defense",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 78
+  },
+  {
+    "id": 574,
+    "name": "Curtiss-Wright",
+    "domain": "curtisswright.com",
+    "career_url": "https://www.curtisswright.com/careers/",
+    "industry": "Aerospace & Defense",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 78
+  },
+  {
+    "id": 608,
+    "name": "Axiom Space",
+    "domain": "axiomspace.com",
+    "career_url": "https://www.axiomspace.com/careers",
+    "industry": "Aerospace & Defense",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 64
   },
   {
     "id": 39,
@@ -177,7 +237,7 @@
     "industry": "Aerospace & Defense",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 57
+    "active_jobs_count": 60
   },
   {
     "id": 615,
@@ -187,17 +247,27 @@
     "industry": "Aerospace & Defense",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 45
+    "active_jobs_count": 57
   },
   {
-    "id": 609,
-    "name": "Hermeus",
-    "domain": "hermeus.com",
-    "career_url": "https://www.hermeus.com/careers",
+    "id": 645,
+    "name": "Aerospace Corporation",
+    "domain": "aerospace.org",
+    "career_url": "https://aerospace.org/careers",
     "industry": "Aerospace & Defense",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 45
+    "active_jobs_count": 34
+  },
+  {
+    "id": 561,
+    "name": "Northrop Grumman",
+    "domain": "northropgrumman.com",
+    "career_url": "https://www.northropgrumman.com/careers",
+    "industry": "Aerospace & Defense",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 33
   },
   {
     "id": 38,
@@ -210,34 +280,14 @@
     "active_jobs_count": 30
   },
   {
-    "id": 561,
-    "name": "Northrop Grumman",
-    "domain": "northropgrumman.com",
-    "career_url": "https://www.northropgrumman.com/careers",
+    "id": 642,
+    "name": "Sierra Nevada Corporation",
+    "domain": "sncorp.com",
+    "career_url": "https://www.sncorp.com/careers/",
     "industry": "Aerospace & Defense",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 21
-  },
-  {
-    "id": 645,
-    "name": "Aerospace Corporation",
-    "domain": "aerospace.org",
-    "career_url": "https://aerospace.org/careers",
-    "industry": "Aerospace & Defense",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 14
-  },
-  {
-    "id": 574,
-    "name": "Curtiss-Wright",
-    "domain": "curtisswright.com",
-    "career_url": "https://www.curtisswright.com/careers/",
-    "industry": "Aerospace & Defense",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 12
+    "active_jobs_count": 18
   },
   {
     "id": 3340,
@@ -246,16 +296,6 @@
     "career_url": "https://www.dice.com/jobs?q=defense+software",
     "industry": "Aerospace & Defense",
     "ats_platform": "Dice",
-    "active": true,
-    "active_jobs_count": 12
-  },
-  {
-    "id": 622,
-    "name": "Mach Industries",
-    "domain": "machindustries.com",
-    "career_url": "https://www.machindustries.com/careers",
-    "industry": "Aerospace & Defense",
-    "ats_platform": "Direct Career Portal",
     "active": true,
     "active_jobs_count": 12
   },
@@ -278,16 +318,6 @@
     "ats_platform": "Workday",
     "active": true,
     "active_jobs_count": 9
-  },
-  {
-    "id": 608,
-    "name": "Axiom Space",
-    "domain": "axiomspace.com",
-    "career_url": "https://www.axiomspace.com/careers",
-    "industry": "Aerospace & Defense",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 8
   },
   {
     "id": 1512,
@@ -330,16 +360,6 @@
     "active_jobs_count": 5
   },
   {
-    "id": 628,
-    "name": "CesiumAstro",
-    "domain": "cesiumastro.com",
-    "career_url": "https://www.cesiumastro.com/careers",
-    "industry": "Aerospace & Defense",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 4
-  },
-  {
     "id": 623,
     "name": "Chaos Industries",
     "domain": "chaosindustries.com",
@@ -358,26 +378,6 @@
     "ats_platform": "Direct Career Portal",
     "active": true,
     "active_jobs_count": 4
-  },
-  {
-    "id": 642,
-    "name": "Sierra Nevada Corporation",
-    "domain": "sncorp.com",
-    "career_url": "https://www.sncorp.com/careers/",
-    "industry": "Aerospace & Defense",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 4
-  },
-  {
-    "id": 585,
-    "name": "AeroVironment",
-    "domain": "avinc.com",
-    "career_url": "https://www.avinc.com/about/careers",
-    "industry": "Aerospace & Defense",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 2
   },
   {
     "id": 3564,
@@ -1440,14 +1440,14 @@
     "active_jobs_count": 0
   },
   {
-    "id": 3635,
-    "name": "ICIMS Cloud & DevOps",
-    "domain": "icims.com",
-    "career_url": "https://www.dice.com/jobs?q=icims",
+    "id": 3707,
+    "name": "Breezy HR Developer",
+    "domain": "breezy.hr",
+    "career_url": "https://www.dice.com/jobs?q=breezyhr",
     "industry": "Aerospace & Software",
     "ats_platform": "Dice",
     "active": true,
-    "active_jobs_count": 22
+    "active_jobs_count": 48
   },
   {
     "id": 3684,
@@ -1457,17 +1457,17 @@
     "industry": "Aerospace & Software",
     "ats_platform": "Breezy HR",
     "active": true,
-    "active_jobs_count": 7
+    "active_jobs_count": 43
   },
   {
-    "id": 3707,
-    "name": "Breezy HR Developer",
-    "domain": "breezy.hr",
-    "career_url": "https://www.dice.com/jobs?q=breezyhr",
+    "id": 3635,
+    "name": "ICIMS Cloud & DevOps",
+    "domain": "icims.com",
+    "career_url": "https://www.dice.com/jobs?q=icims",
     "industry": "Aerospace & Software",
     "ats_platform": "Dice",
     "active": true,
-    "active_jobs_count": 6
+    "active_jobs_count": 39
   },
   {
     "id": 3639,
@@ -1497,17 +1497,7 @@
     "industry": "Enterprise & Healthcare",
     "ats_platform": "Oracle Taleo",
     "active": true,
-    "active_jobs_count": 10
-  },
-  {
-    "id": 3648,
-    "name": "Texas Workforce Commission",
-    "domain": null,
-    "career_url": null,
-    "industry": "Enterprise & Healthcare",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 10
+    "active_jobs_count": 47
   },
   {
     "id": 3708,
@@ -1517,7 +1507,27 @@
     "industry": "Enterprise & Healthcare",
     "ats_platform": "Teamtailor",
     "active": true,
-    "active_jobs_count": 7
+    "active_jobs_count": 42
+  },
+  {
+    "id": 3648,
+    "name": "Texas Workforce Commission",
+    "domain": null,
+    "career_url": null,
+    "industry": "Enterprise & Healthcare",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 14
+  },
+  {
+    "id": 3682,
+    "name": "Teamtailor Tech Jobs",
+    "domain": "teamtailor.com",
+    "career_url": "https://www.dice.com/jobs?q=teamtailor",
+    "industry": "Enterprise & Healthcare",
+    "ats_platform": "Dice",
+    "active": true,
+    "active_jobs_count": 6
   },
   {
     "id": 3647,
@@ -1527,7 +1537,7 @@
     "industry": "Enterprise & Healthcare",
     "ats_platform": "Dice",
     "active": true,
-    "active_jobs_count": 2
+    "active_jobs_count": 3
   },
   {
     "id": 3683,
@@ -1540,14 +1550,14 @@
     "active_jobs_count": 1
   },
   {
-    "id": 3682,
-    "name": "Teamtailor Tech Jobs",
-    "domain": "teamtailor.com",
-    "career_url": "https://www.dice.com/jobs?q=teamtailor",
-    "industry": "Enterprise & Healthcare",
+    "id": 3650,
+    "name": "Workday Enterprise CXS",
+    "domain": "myworkdayjobs.com",
+    "career_url": "https://www.dice.com/jobs?q=myworkdayjobs",
+    "industry": "Enterprise IT & Cloud",
     "ats_platform": "Dice",
     "active": true,
-    "active_jobs_count": 1
+    "active_jobs_count": 40
   },
   {
     "id": 3658,
@@ -1557,17 +1567,7 @@
     "industry": "Enterprise IT & Cloud",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 9
-  },
-  {
-    "id": 3650,
-    "name": "Workday Enterprise CXS",
-    "domain": "myworkdayjobs.com",
-    "career_url": "https://www.dice.com/jobs?q=myworkdayjobs",
-    "industry": "Enterprise IT & Cloud",
-    "ats_platform": "Dice",
-    "active": true,
-    "active_jobs_count": 8
+    "active_jobs_count": 14
   },
   {
     "id": 3656,
@@ -1577,7 +1577,27 @@
     "industry": "Enterprise IT & Cloud",
     "ats_platform": "Dice",
     "active": true,
-    "active_jobs_count": 3
+    "active_jobs_count": 13
+  },
+  {
+    "id": 3686,
+    "name": "SAP Enterprise Systems",
+    "domain": "successfactors.com",
+    "career_url": "https://www.dice.com/jobs?q=sap+successfactors",
+    "industry": "Enterprise IT & Cloud",
+    "ats_platform": "Dice",
+    "active": true,
+    "active_jobs_count": 7
+  },
+  {
+    "id": 3758,
+    "name": "Belden, Inc.",
+    "domain": null,
+    "career_url": null,
+    "industry": "Enterprise IT & Cloud",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
   },
   {
     "id": 3657,
@@ -1610,14 +1630,44 @@
     "active_jobs_count": 2
   },
   {
-    "id": 3686,
-    "name": "SAP Enterprise Systems",
-    "domain": "successfactors.com",
-    "career_url": "https://www.dice.com/jobs?q=sap+successfactors",
+    "id": 3716,
+    "name": "Washington Metroplitan Area Transit Authority",
+    "domain": null,
+    "career_url": null,
     "industry": "Enterprise IT & Cloud",
-    "ats_platform": "Dice",
+    "ats_platform": "Direct Career Portal",
     "active": true,
     "active_jobs_count": 2
+  },
+  {
+    "id": 3731,
+    "name": "Acuity Brands",
+    "domain": null,
+    "career_url": null,
+    "industry": "Enterprise IT & Cloud",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
+    "id": 3723,
+    "name": "Advantra Consulting Group",
+    "domain": null,
+    "career_url": null,
+    "industry": "Enterprise IT & Cloud",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
+    "id": 3752,
+    "name": "ASPIRE HR LLC",
+    "domain": null,
+    "career_url": null,
+    "industry": "Enterprise IT & Cloud",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
   },
   {
     "id": 3667,
@@ -1660,6 +1710,26 @@
     "active_jobs_count": 1
   },
   {
+    "id": 3732,
+    "name": "Ekcel Systems",
+    "domain": null,
+    "career_url": null,
+    "industry": "Enterprise IT & Cloud",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
+    "id": 3734,
+    "name": "FREEMAN",
+    "domain": null,
+    "career_url": null,
+    "industry": "Enterprise IT & Cloud",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
     "id": 3688,
     "name": "Idexcel Inc.",
     "domain": null,
@@ -1680,8 +1750,38 @@
     "active_jobs_count": 1
   },
   {
+    "id": 3737,
+    "name": "KKR",
+    "domain": null,
+    "career_url": null,
+    "industry": "Enterprise IT & Cloud",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
     "id": 3668,
     "name": "Lumen",
+    "domain": null,
+    "career_url": null,
+    "industry": "Enterprise IT & Cloud",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
+    "id": 3754,
+    "name": "Metropolitan Water Reclamation Dtr of Gr Chicago",
+    "domain": null,
+    "career_url": null,
+    "industry": "Enterprise IT & Cloud",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
+    "id": 3733,
+    "name": "RMS IT Solutions Inc",
     "domain": null,
     "career_url": null,
     "industry": "Enterprise IT & Cloud",
@@ -1710,8 +1810,8 @@
     "active_jobs_count": 1
   },
   {
-    "id": 3716,
-    "name": "Washington Metroplitan Area Transit Authority",
+    "id": 3751,
+    "name": "VKore Solutions LLC",
     "domain": null,
     "career_url": null,
     "industry": "Enterprise IT & Cloud",
@@ -1727,7 +1827,7 @@
     "industry": "Finance & Banking",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 5280
+    "active_jobs_count": 5832
   },
   {
     "id": 28,
@@ -1780,6 +1880,16 @@
     "active_jobs_count": 260
   },
   {
+    "id": 272,
+    "name": "Discover Financial Services",
+    "domain": "discover.com",
+    "career_url": "https://jobs.discover.com/",
+    "industry": "Finance & Banking",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 232
+  },
+  {
     "id": 31,
     "name": "Chime",
     "domain": "chime.com",
@@ -1788,16 +1898,6 @@
     "ats_platform": "GreenHouse",
     "active": true,
     "active_jobs_count": 196
-  },
-  {
-    "id": 272,
-    "name": "Discover Financial Services",
-    "domain": "discover.com",
-    "career_url": "https://jobs.discover.com/",
-    "industry": "Finance & Banking",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 110
   },
   {
     "id": 768,
@@ -1810,6 +1910,16 @@
     "active_jobs_count": 92
   },
   {
+    "id": 1486,
+    "name": "Ripple",
+    "domain": "ripple.com",
+    "career_url": "https://boards.greenhouse.io/ripple",
+    "industry": "Finance & Banking",
+    "ats_platform": "GreenHouse",
+    "active": true,
+    "active_jobs_count": 65
+  },
+  {
     "id": 57,
     "name": "Blend",
     "domain": "blend.com",
@@ -1820,14 +1930,14 @@
     "active_jobs_count": 52
   },
   {
-    "id": 1486,
-    "name": "Ripple",
-    "domain": "ripple.com",
-    "career_url": "https://boards.greenhouse.io/ripple",
+    "id": 300,
+    "name": "FNB Corporation",
+    "domain": "fnb-online.com",
+    "career_url": "https://www.fnb-online.com/careers",
     "industry": "Finance & Banking",
-    "ats_platform": "GreenHouse",
+    "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 48
+    "active_jobs_count": 44
   },
   {
     "id": 331,
@@ -1837,17 +1947,7 @@
     "industry": "Finance & Banking",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 36
-  },
-  {
-    "id": 300,
-    "name": "FNB Corporation",
-    "domain": "fnb-online.com",
-    "career_url": "https://www.fnb-online.com/careers",
-    "industry": "Finance & Banking",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 36
+    "active_jobs_count": 39
   },
   {
     "id": 32,
@@ -1870,6 +1970,16 @@
     "active_jobs_count": 32
   },
   {
+    "id": 326,
+    "name": "Flywire",
+    "domain": "flywire.com",
+    "career_url": "https://www.flywire.com/careers",
+    "industry": "Finance & Banking",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 28
+  },
+  {
     "id": 30,
     "name": "Block",
     "domain": "block.xyz",
@@ -1878,16 +1988,6 @@
     "ats_platform": "Lever",
     "active": true,
     "active_jobs_count": 27
-  },
-  {
-    "id": 326,
-    "name": "Flywire",
-    "domain": "flywire.com",
-    "career_url": "https://www.flywire.com/careers",
-    "industry": "Finance & Banking",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 22
   },
   {
     "id": 268,
@@ -1970,6 +2070,36 @@
     "active_jobs_count": 10
   },
   {
+    "id": 344,
+    "name": "LPL Financial",
+    "domain": "lpl.com",
+    "career_url": "https://careers.lpl.com/",
+    "industry": "Finance & Banking",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 10
+  },
+  {
+    "id": 281,
+    "name": "Northern Trust",
+    "domain": "northerntrust.com",
+    "career_url": "https://careers.northerntrust.com/",
+    "industry": "Finance & Banking",
+    "ats_platform": "Workday",
+    "active": true,
+    "active_jobs_count": 9
+  },
+  {
+    "id": 1482,
+    "name": "Addepar",
+    "domain": "addepar.com",
+    "career_url": "https://boards.greenhouse.io/addepar",
+    "industry": "Finance & Banking",
+    "ats_platform": "GreenHouse",
+    "active": true,
+    "active_jobs_count": 8
+  },
+  {
     "id": 3485,
     "name": "Dice Financial Engineer",
     "domain": "dice.com",
@@ -1980,14 +2110,24 @@
     "active_jobs_count": 8
   },
   {
-    "id": 1482,
-    "name": "Addepar",
-    "domain": "addepar.com",
-    "career_url": "https://boards.greenhouse.io/addepar",
+    "id": 325,
+    "name": "Shift4 Payments",
+    "domain": "shift4.com",
+    "career_url": "https://www.shift4.com/careers",
     "industry": "Finance & Banking",
-    "ats_platform": "GreenHouse",
+    "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 7
+    "active_jobs_count": 8
+  },
+  {
+    "id": 353,
+    "name": "BlackRock",
+    "domain": "blackrock.com",
+    "career_url": "https://careers.blackrock.com/",
+    "industry": "Finance & Banking",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 6
   },
   {
     "id": 276,
@@ -2010,30 +2150,10 @@
     "active_jobs_count": 6
   },
   {
-    "id": 344,
-    "name": "LPL Financial",
-    "domain": "lpl.com",
-    "career_url": "https://careers.lpl.com/",
-    "industry": "Finance & Banking",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 4
-  },
-  {
     "id": 263,
     "name": "Morgan Stanley",
     "domain": "morganstanley.com",
     "career_url": "https://www.morganstanley.com/about-us/careers",
-    "industry": "Finance & Banking",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 4
-  },
-  {
-    "id": 325,
-    "name": "Shift4 Payments",
-    "domain": "shift4.com",
-    "career_url": "https://www.shift4.com/careers",
     "industry": "Finance & Banking",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -2100,16 +2220,6 @@
     "active_jobs_count": 3
   },
   {
-    "id": 281,
-    "name": "Northern Trust",
-    "domain": "northerntrust.com",
-    "career_url": "https://careers.northerntrust.com/",
-    "industry": "Finance & Banking",
-    "ats_platform": "Workday",
-    "active": true,
-    "active_jobs_count": 3
-  },
-  {
     "id": 3536,
     "name": "SPECTRUM",
     "domain": null,
@@ -2132,6 +2242,16 @@
   {
     "id": 3552,
     "name": "A&M Technologies, Inc.",
+    "domain": null,
+    "career_url": null,
+    "industry": "Finance & Banking",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
+    "id": 3532,
+    "name": "Agile Enterprise Solutions, Inc.",
     "domain": null,
     "career_url": null,
     "industry": "Finance & Banking",
@@ -2200,6 +2320,16 @@
     "active_jobs_count": 2
   },
   {
+    "id": 1483,
+    "name": "Mercury",
+    "domain": "mercury.com",
+    "career_url": "https://jobs.lever.co/mercury",
+    "industry": "Finance & Banking",
+    "ats_platform": "Lever",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
     "id": 333,
     "name": "MSCI",
     "domain": "msci.com",
@@ -2252,16 +2382,6 @@
   {
     "id": 3543,
     "name": "Adyen",
-    "domain": null,
-    "career_url": null,
-    "industry": "Finance & Banking",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 1
-  },
-  {
-    "id": 3532,
-    "name": "Agile Enterprise Solutions, Inc.",
     "domain": null,
     "career_url": null,
     "industry": "Finance & Banking",
@@ -2430,16 +2550,6 @@
     "active_jobs_count": 1
   },
   {
-    "id": 1483,
-    "name": "Mercury",
-    "domain": "mercury.com",
-    "career_url": "https://jobs.lever.co/mercury",
-    "industry": "Finance & Banking",
-    "ats_platform": "Lever",
-    "active": true,
-    "active_jobs_count": 1
-  },
-  {
     "id": 3549,
     "name": "Neuberger Berman Group LLC",
     "domain": null,
@@ -2594,16 +2704,6 @@
     "name": "Bill.com",
     "domain": "bill.com",
     "career_url": "https://www.bill.com/about-us/careers",
-    "industry": "Finance & Banking",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
-    "id": 353,
-    "name": "BlackRock",
-    "domain": "blackrock.com",
-    "career_url": "https://careers.blackrock.com/",
     "industry": "Finance & Banking",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -3347,7 +3447,7 @@
     "industry": "Finance & Cloud",
     "ats_platform": "Dice",
     "active": true,
-    "active_jobs_count": 10
+    "active_jobs_count": 48
   },
   {
     "id": 3643,
@@ -3357,11 +3457,51 @@
     "industry": "Finance & Cloud",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 2
+    "active_jobs_count": 4
+  },
+  {
+    "id": 3629,
+    "name": "Oracle Cloud Careers",
+    "domain": "oraclecloud.com",
+    "career_url": "https://www.dice.com/jobs?q=oracle+recruiting+cloud",
+    "industry": "Finance & Cloud",
+    "ats_platform": "Dice",
+    "active": true,
+    "active_jobs_count": 4
   },
   {
     "id": 3637,
     "name": "Krostech Solutions, LLC",
+    "domain": null,
+    "career_url": null,
+    "industry": "Finance & Cloud",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 3
+  },
+  {
+    "id": 3640,
+    "name": "SVK Technology Solutions",
+    "domain": null,
+    "career_url": null,
+    "industry": "Finance & Cloud",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 3
+  },
+  {
+    "id": 3646,
+    "name": "CESUSA, INC.",
+    "domain": null,
+    "career_url": null,
+    "industry": "Finance & Cloud",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
+    "id": 3638,
+    "name": "GreyMatter Solutions",
     "domain": null,
     "career_url": null,
     "industry": "Finance & Cloud",
@@ -3380,8 +3520,8 @@
     "active_jobs_count": 2
   },
   {
-    "id": 3640,
-    "name": "SVK Technology Solutions",
+    "id": 3750,
+    "name": "Perdue Farms, Inc.",
     "domain": null,
     "career_url": null,
     "industry": "Finance & Cloud",
@@ -3400,8 +3540,18 @@
     "active_jobs_count": 2
   },
   {
-    "id": 3646,
-    "name": "CESUSA, INC.",
+    "id": 3720,
+    "name": "Aquent Talent",
+    "domain": null,
+    "career_url": null,
+    "industry": "Finance & Cloud",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
+    "id": 3725,
+    "name": "Boston Associate Software Systems",
     "domain": null,
     "career_url": null,
     "industry": "Finance & Cloud",
@@ -3430,8 +3580,8 @@
     "active_jobs_count": 1
   },
   {
-    "id": 3638,
-    "name": "GreyMatter Solutions",
+    "id": 3744,
+    "name": "Innovee Consulting LLC",
     "domain": null,
     "career_url": null,
     "industry": "Finance & Cloud",
@@ -3440,12 +3590,22 @@
     "active_jobs_count": 1
   },
   {
-    "id": 3629,
-    "name": "Oracle Cloud Careers",
-    "domain": "oraclecloud.com",
-    "career_url": "https://www.dice.com/jobs?q=oracle+recruiting+cloud",
+    "id": 3729,
+    "name": "NorthBay Health",
+    "domain": null,
+    "career_url": null,
     "industry": "Finance & Cloud",
-    "ats_platform": "Dice",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
+    "id": 3743,
+    "name": "Redrouthu's Inc",
+    "domain": null,
+    "career_url": null,
+    "industry": "Finance & Cloud",
+    "ats_platform": "Direct Career Portal",
     "active": true,
     "active_jobs_count": 1
   },
@@ -3472,6 +3632,16 @@
   {
     "id": 3644,
     "name": "SRS Consulting Inc",
+    "domain": null,
+    "career_url": null,
+    "industry": "Finance & Cloud",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
+    "id": 3745,
+    "name": "StarTechs Inc.",
     "domain": null,
     "career_url": null,
     "industry": "Finance & Cloud",
@@ -3510,6 +3680,16 @@
     "active_jobs_count": 1
   },
   {
+    "id": 3669,
+    "name": "UKG Pro Tech",
+    "domain": "ukg.com",
+    "career_url": "https://www.dice.com/jobs?q=ukg+pro",
+    "industry": "Finance & Cloud",
+    "ats_platform": "Dice",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
     "id": 3642,
     "name": "Vankay Systems",
     "domain": null,
@@ -3530,6 +3710,16 @@
     "active_jobs_count": 1
   },
   {
+    "id": 3726,
+    "name": "Zuplon",
+    "domain": null,
+    "career_url": null,
+    "industry": "Finance & Cloud",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
     "id": 3681,
     "name": "Paycom Software",
     "domain": "paycom.com",
@@ -3540,14 +3730,14 @@
     "active_jobs_count": 0
   },
   {
-    "id": 3669,
-    "name": "UKG Pro Tech",
-    "domain": "ukg.com",
-    "career_url": "https://www.dice.com/jobs?q=ukg+pro",
-    "industry": "Finance & Cloud",
+    "id": 3685,
+    "name": "Ashby AI & Software",
+    "domain": "ashbyhq.com",
+    "career_url": "https://www.dice.com/jobs?q=ashbyhq",
+    "industry": "FinTech & AI",
     "ats_platform": "Dice",
     "active": true,
-    "active_jobs_count": 0
+    "active_jobs_count": 47
   },
   {
     "id": 3654,
@@ -3560,14 +3750,14 @@
     "active_jobs_count": 15
   },
   {
-    "id": 3685,
-    "name": "Ashby AI & Software",
-    "domain": "ashbyhq.com",
-    "career_url": "https://www.dice.com/jobs?q=ashbyhq",
+    "id": 3651,
+    "name": "SmartRecruiters Portal",
+    "domain": "smartrecruiters.com",
+    "career_url": "https://www.dice.com/jobs?q=smartrecruiters",
     "industry": "FinTech & AI",
     "ats_platform": "Dice",
     "active": true,
-    "active_jobs_count": 7
+    "active_jobs_count": 3
   },
   {
     "id": 3653,
@@ -3580,16 +3770,6 @@
     "active_jobs_count": 2
   },
   {
-    "id": 3651,
-    "name": "SmartRecruiters Portal",
-    "domain": "smartrecruiters.com",
-    "career_url": "https://www.dice.com/jobs?q=smartrecruiters",
-    "industry": "FinTech & AI",
-    "ats_platform": "Dice",
-    "active": true,
-    "active_jobs_count": 2
-  },
-  {
     "id": 3652,
     "name": "Netsynk",
     "domain": null,
@@ -3597,7 +3777,7 @@
     "industry": "FinTech & AI",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 1
+    "active_jobs_count": 2
   },
   {
     "id": 1497,
@@ -3627,7 +3807,7 @@
     "industry": "Healthcare",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 150
+    "active_jobs_count": 166
   },
   {
     "id": 36,
@@ -3648,6 +3828,16 @@
     "ats_platform": "GreenHouse",
     "active": true,
     "active_jobs_count": 120
+  },
+  {
+    "id": 244,
+    "name": "Oura Health",
+    "domain": "ouraring.com",
+    "career_url": "https://ouraring.com/careers",
+    "industry": "Healthcare",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 102
   },
   {
     "id": 17,
@@ -3690,16 +3880,6 @@
     "active_jobs_count": 64
   },
   {
-    "id": 244,
-    "name": "Oura Health",
-    "domain": "ouraring.com",
-    "career_url": "https://ouraring.com/careers",
-    "industry": "Healthcare",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 58
-  },
-  {
     "id": 15,
     "name": "BetterHelp",
     "domain": "betterhelp.com",
@@ -3717,7 +3897,17 @@
     "industry": "Healthcare",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 52
+    "active_jobs_count": 56
+  },
+  {
+    "id": 202,
+    "name": "Maven Clinic",
+    "domain": "mavenclinic.com",
+    "career_url": "https://www.mavenclinic.com/careers",
+    "industry": "Healthcare",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 54
   },
   {
     "id": 13,
@@ -3740,6 +3930,16 @@
     "active_jobs_count": 45
   },
   {
+    "id": 252,
+    "name": "Omada Health",
+    "domain": "omadahealth.com",
+    "career_url": "https://www.omadahealth.com/careers",
+    "industry": "Healthcare",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 33
+  },
+  {
     "id": 35,
     "name": "HealthVerity",
     "domain": "healthverity.com",
@@ -3748,26 +3948,6 @@
     "ats_platform": "GreenHouse",
     "active": true,
     "active_jobs_count": 30
-  },
-  {
-    "id": 252,
-    "name": "Omada Health",
-    "domain": "omadahealth.com",
-    "career_url": "https://www.omadahealth.com/careers",
-    "industry": "Healthcare",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 30
-  },
-  {
-    "id": 202,
-    "name": "Maven Clinic",
-    "domain": "mavenclinic.com",
-    "career_url": "https://www.mavenclinic.com/careers",
-    "industry": "Healthcare",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 27
   },
   {
     "id": 2851,
@@ -3800,6 +3980,16 @@
     "active_jobs_count": 26
   },
   {
+    "id": 160,
+    "name": "Elevance Health",
+    "domain": "elevancehealth.com",
+    "career_url": "https://careers.elevancehealth.com/",
+    "industry": "Healthcare",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 24
+  },
+  {
     "id": 209,
     "name": "Flatiron Health",
     "domain": "flatiron.com",
@@ -3807,23 +3997,23 @@
     "industry": "Healthcare",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 18
-  },
-  {
-    "id": 2825,
-    "name": "HDR, Inc.",
-    "domain": null,
-    "career_url": null,
-    "industry": "Healthcare",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 12
+    "active_jobs_count": 21
   },
   {
     "id": 20,
     "name": "Teladoc Health",
     "domain": "teladochealth.com",
     "career_url": "https://www.teladochealth.com/about/careers/",
+    "industry": "Healthcare",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 21
+  },
+  {
+    "id": 2825,
+    "name": "HDR, Inc.",
+    "domain": null,
+    "career_url": null,
     "industry": "Healthcare",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -3870,8 +4060,8 @@
     "active_jobs_count": 7
   },
   {
-    "id": 2867,
-    "name": "Info Dinamica Inc",
+    "id": 3579,
+    "name": "Christus Health",
     "domain": null,
     "career_url": null,
     "industry": "Healthcare",
@@ -3880,14 +4070,24 @@
     "active_jobs_count": 7
   },
   {
-    "id": 3579,
-    "name": "Christus Health",
+    "id": 2849,
+    "name": "EY",
     "domain": null,
     "career_url": null,
     "industry": "Healthcare",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 6
+    "active_jobs_count": 7
+  },
+  {
+    "id": 2867,
+    "name": "Info Dinamica Inc",
+    "domain": null,
+    "career_url": null,
+    "industry": "Healthcare",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 7
   },
   {
     "id": 3484,
@@ -3904,6 +4104,16 @@
     "name": "Patterson Companies",
     "domain": "pattersoncompanies.com",
     "career_url": "https://jobs.pattersoncompanies.com/",
+    "industry": "Healthcare",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 6
+  },
+  {
+    "id": 243,
+    "name": "Solace Health",
+    "domain": "solace.health",
+    "career_url": "https://www.solace.health/careers",
     "industry": "Healthcare",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -3930,14 +4140,14 @@
     "active_jobs_count": 6
   },
   {
-    "id": 2849,
-    "name": "EY",
-    "domain": null,
-    "career_url": null,
+    "id": 225,
+    "name": "McKesson",
+    "domain": "mckesson.com",
+    "career_url": "https://careers.mckesson.com/",
     "industry": "Healthcare",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 5
+    "active_jobs_count": 4
   },
   {
     "id": 19,
@@ -3950,14 +4160,14 @@
     "active_jobs_count": 4
   },
   {
-    "id": 243,
-    "name": "Solace Health",
-    "domain": "solace.health",
-    "career_url": "https://www.solace.health/careers",
+    "id": 2813,
+    "name": "Caris Life Sciences",
+    "domain": null,
+    "career_url": null,
     "industry": "Healthcare",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 4
+    "active_jobs_count": 3
   },
   {
     "id": 257,
@@ -4070,16 +4280,6 @@
     "active_jobs_count": 2
   },
   {
-    "id": 2813,
-    "name": "Caris Life Sciences",
-    "domain": null,
-    "career_url": null,
-    "industry": "Healthcare",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 2
-  },
-  {
     "id": 163,
     "name": "Centene Corporation",
     "domain": "centene.com",
@@ -4096,16 +4296,6 @@
     "career_url": "https://www.dice.com/jobs?q=epic+analyst",
     "industry": "Healthcare",
     "ats_platform": "Dice",
-    "active": true,
-    "active_jobs_count": 2
-  },
-  {
-    "id": 160,
-    "name": "Elevance Health",
-    "domain": "elevancehealth.com",
-    "career_url": "https://careers.elevancehealth.com/",
-    "industry": "Healthcare",
-    "ats_platform": "Direct Career Portal",
     "active": true,
     "active_jobs_count": 2
   },
@@ -4154,16 +4344,6 @@
     "name": "Maagsoft Inc.",
     "domain": null,
     "career_url": null,
-    "industry": "Healthcare",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 2
-  },
-  {
-    "id": 225,
-    "name": "McKesson",
-    "domain": "mckesson.com",
-    "career_url": "https://careers.mckesson.com/",
     "industry": "Healthcare",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -5917,7 +6097,7 @@
     "industry": "Healthcare & Technology",
     "ats_platform": "Dice",
     "active": true,
-    "active_jobs_count": 7
+    "active_jobs_count": 42
   },
   {
     "id": 3710,
@@ -5927,7 +6107,7 @@
     "industry": "Healthcare & Technology",
     "ats_platform": "Dice",
     "active": true,
-    "active_jobs_count": 7
+    "active_jobs_count": 40
   },
   {
     "id": 3703,
@@ -5937,7 +6117,7 @@
     "industry": "Healthcare & Technology",
     "ats_platform": "Dice",
     "active": true,
-    "active_jobs_count": 3
+    "active_jobs_count": 9
   },
   {
     "id": 3706,
@@ -5970,6 +6150,36 @@
     "active_jobs_count": 30
   },
   {
+    "id": 385,
+    "name": "Kemper Corporation",
+    "domain": "kemper.com",
+    "career_url": "https://www.kemper.com/careers",
+    "industry": "Insurance",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 16
+  },
+  {
+    "id": 408,
+    "name": "At-Bay",
+    "domain": "at-bay.com",
+    "career_url": "https://www.at-bay.com/careers/",
+    "industry": "Insurance",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 15
+  },
+  {
+    "id": 439,
+    "name": "Country Financial",
+    "domain": "countryfinancial.com",
+    "career_url": "https://www.countryfinancial.com/en/about-us/careers.html",
+    "industry": "Insurance",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 12
+  },
+  {
     "id": 33,
     "name": "Cowbell Cyber",
     "domain": "cowbell.insure",
@@ -5986,6 +6196,16 @@
     "career_url": "https://boards.greenhouse.io/pieinsurance",
     "industry": "Insurance",
     "ats_platform": "GreenHouse",
+    "active": true,
+    "active_jobs_count": 12
+  },
+  {
+    "id": 445,
+    "name": "Securian Financial",
+    "domain": "securian.com",
+    "career_url": "https://www.securian.com/about-us/careers.html",
+    "industry": "Insurance",
+    "ats_platform": "Direct Career Portal",
     "active": true,
     "active_jobs_count": 12
   },
@@ -6010,6 +6230,26 @@
     "active_jobs_count": 9
   },
   {
+    "id": 358,
+    "name": "Berkshire Hathaway GEICO",
+    "domain": "geico.com",
+    "career_url": "https://careers.geico.com/",
+    "industry": "Insurance",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 8
+  },
+  {
+    "id": 413,
+    "name": "Hagerty",
+    "domain": "hagerty.com",
+    "career_url": "https://www.hagerty.com/corporate/careers",
+    "industry": "Insurance",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 8
+  },
+  {
     "id": 1500,
     "name": "Ethos Life",
     "domain": "ethoslife.com",
@@ -6018,6 +6258,16 @@
     "ats_platform": "GreenHouse",
     "active": true,
     "active_jobs_count": 7
+  },
+  {
+    "id": 455,
+    "name": "Openly",
+    "domain": "openly.com",
+    "career_url": "https://openly.com/careers/",
+    "industry": "Insurance",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 6
   },
   {
     "id": 3238,
@@ -6030,10 +6280,40 @@
     "active_jobs_count": 5
   },
   {
+    "id": 375,
+    "name": "Markel Group",
+    "domain": "markel.com",
+    "career_url": "https://www.markel.com/careers",
+    "industry": "Insurance",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 4
+  },
+  {
     "id": 427,
     "name": "Pacific Life",
     "domain": "pacificlife.com",
     "career_url": "https://www.pacificlife.com/home/careers.html",
+    "industry": "Insurance",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 4
+  },
+  {
+    "id": 393,
+    "name": "Palomar Holdings",
+    "domain": "palomarspecialty.com",
+    "career_url": "https://plmr.com/careers/",
+    "industry": "Insurance",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 4
+  },
+  {
+    "id": 365,
+    "name": "USAA",
+    "domain": "usaa.com",
+    "career_url": "https://www.usaajobs.com/",
     "industry": "Insurance",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -6060,10 +6340,20 @@
     "active_jobs_count": 2
   },
   {
-    "id": 439,
-    "name": "Country Financial",
-    "domain": "countryfinancial.com",
-    "career_url": "https://www.countryfinancial.com/en/about-us/careers.html",
+    "id": 367,
+    "name": "American International Group",
+    "domain": "aig.com",
+    "career_url": "https://www.aig.com/careers",
+    "industry": "Insurance",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
+    "id": 411,
+    "name": "BRP Group",
+    "domain": "baldwinriskpartners.com",
+    "career_url": "https://baldwinriskpartners.com/careers/",
     "industry": "Insurance",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -6094,16 +6384,6 @@
     "name": "Jerry Insurance Agency, LLC",
     "domain": null,
     "career_url": null,
-    "industry": "Insurance",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 2
-  },
-  {
-    "id": 385,
-    "name": "Kemper Corporation",
-    "domain": "kemper.com",
-    "career_url": "https://www.kemper.com/careers",
     "industry": "Insurance",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -6144,6 +6424,26 @@
     "name": "Sammons Financial Group",
     "domain": "sammonsfinancialgroup.com",
     "career_url": "https://www.sammonsfinancialgroup.com/careers",
+    "industry": "Insurance",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
+    "id": 361,
+    "name": "The Allstate Corporation",
+    "domain": "allstate.com",
+    "career_url": "https://www.allstate.jobs/",
+    "industry": "Insurance",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
+    "id": 3515,
+    "name": "The Dignify Solutions, LLC",
+    "domain": null,
+    "career_url": null,
     "industry": "Insurance",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -6350,16 +6650,6 @@
     "active_jobs_count": 1
   },
   {
-    "id": 3515,
-    "name": "The Dignify Solutions, LLC",
-    "domain": null,
-    "career_url": null,
-    "industry": "Insurance",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 1
-  },
-  {
     "id": 3232,
     "name": "Tokio Marine HCC",
     "domain": null,
@@ -6430,16 +6720,6 @@
     "active_jobs_count": 0
   },
   {
-    "id": 367,
-    "name": "American International Group",
-    "domain": "aig.com",
-    "career_url": "https://www.aig.com/careers",
-    "industry": "Insurance",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
     "id": 452,
     "name": "American Modern Insurance",
     "domain": "amig.com",
@@ -6480,30 +6760,10 @@
     "active_jobs_count": 0
   },
   {
-    "id": 408,
-    "name": "At-Bay",
-    "domain": "at-bay.com",
-    "career_url": "https://www.at-bay.com/careers/",
-    "industry": "Insurance",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
     "id": 435,
     "name": "Auto-Owners Insurance",
     "domain": "auto-owners.com",
     "career_url": "https://www.auto-owners.com/careers",
-    "industry": "Insurance",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
-    "id": 358,
-    "name": "Berkshire Hathaway GEICO",
-    "domain": "geico.com",
-    "career_url": "https://careers.geico.com/",
     "industry": "Insurance",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -6544,16 +6804,6 @@
     "name": "Brighthouse Financial",
     "domain": "brighthousefinancial.com",
     "career_url": "https://www.brighthousefinancial.com/about-us/careers/",
-    "industry": "Insurance",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
-    "id": 411,
-    "name": "BRP Group",
-    "domain": "baldwinriskpartners.com",
-    "career_url": "https://baldwinriskpartners.com/careers/",
     "industry": "Insurance",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -6790,16 +7040,6 @@
     "active_jobs_count": 0
   },
   {
-    "id": 413,
-    "name": "Hagerty",
-    "domain": "hagerty.com",
-    "career_url": "https://www.hagerty.com/corporate/careers",
-    "industry": "Insurance",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
     "id": 1531,
     "name": "Hanover Insurance",
     "domain": "hanover.com",
@@ -6940,16 +7180,6 @@
     "active_jobs_count": 0
   },
   {
-    "id": 375,
-    "name": "Markel Group",
-    "domain": "markel.com",
-    "career_url": "https://www.markel.com/careers",
-    "industry": "Insurance",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
     "id": 431,
     "name": "MassMutual",
     "domain": "massmutual.com",
@@ -7054,26 +7284,6 @@
     "name": "OneAmerica Financial",
     "domain": "oneamerica.com",
     "career_url": "https://www.oneamerica.com/about-us/careers",
-    "industry": "Insurance",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
-    "id": 455,
-    "name": "Openly",
-    "domain": "openly.com",
-    "career_url": "https://openly.com/careers/",
-    "industry": "Insurance",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
-    "id": 393,
-    "name": "Palomar Holdings",
-    "domain": "palomarspecialty.com",
-    "career_url": "https://plmr.com/careers/",
     "industry": "Insurance",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -7210,16 +7420,6 @@
     "active_jobs_count": 0
   },
   {
-    "id": 445,
-    "name": "Securian Financial",
-    "domain": "securian.com",
-    "career_url": "https://www.securian.com/about-us/careers.html",
-    "industry": "Insurance",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
     "id": 381,
     "name": "Selective Insurance Group",
     "domain": "selective.com",
@@ -7300,16 +7500,6 @@
     "active_jobs_count": 0
   },
   {
-    "id": 361,
-    "name": "The Allstate Corporation",
-    "domain": "allstate.com",
-    "career_url": "https://www.allstate.jobs/",
-    "industry": "Insurance",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
     "id": 380,
     "name": "The Hanover Insurance Group",
     "domain": "hanover.com",
@@ -7360,16 +7550,6 @@
     "active_jobs_count": 0
   },
   {
-    "id": 365,
-    "name": "USAA",
-    "domain": "usaa.com",
-    "career_url": "https://www.usaajobs.com/",
-    "industry": "Insurance",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
     "id": 1554,
     "name": "Vouch",
     "domain": "vouch.us",
@@ -7407,7 +7587,7 @@
     "industry": "IT & Fintech",
     "ats_platform": "Recruitee",
     "active": true,
-    "active_jobs_count": 7
+    "active_jobs_count": 47
   },
   {
     "id": 3666,
@@ -7417,7 +7597,7 @@
     "industry": "IT & Fintech",
     "ats_platform": "Dice",
     "active": true,
-    "active_jobs_count": 6
+    "active_jobs_count": 20
   },
   {
     "id": 3676,
@@ -7442,6 +7622,26 @@
   {
     "id": 3678,
     "name": "Cartesia",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT & Fintech",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
+    "id": 3757,
+    "name": "Crepes a Latte",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT & Fintech",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
+    "id": 3755,
+    "name": "Erie Insurance Group",
     "domain": null,
     "career_url": null,
     "industry": "IT & Fintech",
@@ -7500,6 +7700,16 @@
     "active_jobs_count": 1
   },
   {
+    "id": 3724,
+    "name": "TEC Group Inc",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT & Fintech",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
     "id": 3628,
     "name": "XA.net",
     "domain": null,
@@ -7527,7 +7737,7 @@
     "industry": "IT, Software & Technology",
     "ats_platform": "Workday",
     "active": true,
-    "active_jobs_count": 2456
+    "active_jobs_count": 2512
   },
   {
     "id": 157,
@@ -7557,7 +7767,7 @@
     "industry": "IT, Software & Technology",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 1216
+    "active_jobs_count": 1268
   },
   {
     "id": 3473,
@@ -7587,7 +7797,7 @@
     "industry": "IT, Software & Technology",
     "ats_platform": "Lever",
     "active": true,
-    "active_jobs_count": 762
+    "active_jobs_count": 768
   },
   {
     "id": 144,
@@ -7597,7 +7807,7 @@
     "industry": "IT, Software & Technology",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 732
+    "active_jobs_count": 735
   },
   {
     "id": 764,
@@ -7607,7 +7817,7 @@
     "industry": "IT, Software & Technology",
     "ats_platform": "Ashby",
     "active": true,
-    "active_jobs_count": 628
+    "active_jobs_count": 632
   },
   {
     "id": 113,
@@ -7627,7 +7837,7 @@
     "industry": "IT, Software & Technology",
     "ats_platform": "GreenHouse",
     "active": true,
-    "active_jobs_count": 504
+    "active_jobs_count": 528
   },
   {
     "id": 4,
@@ -7730,6 +7940,16 @@
     "active_jobs_count": 275
   },
   {
+    "id": 153,
+    "name": "Affirm Tech",
+    "domain": "affirm.com",
+    "career_url": "https://www.affirm.com/careers",
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 272
+  },
+  {
     "id": 133,
     "name": "Notion",
     "domain": "notion.so",
@@ -7748,16 +7968,6 @@
     "ats_platform": "Dice",
     "active": true,
     "active_jobs_count": 254
-  },
-  {
-    "id": 153,
-    "name": "Affirm Tech",
-    "domain": "affirm.com",
-    "career_url": "https://www.affirm.com/careers",
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 242
   },
   {
     "id": 1539,
@@ -7850,6 +8060,16 @@
     "active_jobs_count": 190
   },
   {
+    "id": 150,
+    "name": "Robinhood Tech",
+    "domain": "robinhood.com",
+    "career_url": "https://robinhood.com/careers",
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 172
+  },
+  {
     "id": 2360,
     "name": "Dice Data & AI",
     "domain": "dice.com",
@@ -7860,16 +8080,6 @@
     "active_jobs_count": 170
   },
   {
-    "id": 150,
-    "name": "Robinhood Tech",
-    "domain": "robinhood.com",
-    "career_url": "https://robinhood.com/careers",
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 162
-  },
-  {
     "id": 763,
     "name": "Pinterest",
     "domain": "pinterest.com",
@@ -7878,6 +8088,16 @@
     "ats_platform": "GreenHouse",
     "active": true,
     "active_jobs_count": 140
+  },
+  {
+    "id": 1496,
+    "name": "Square / Block",
+    "domain": "squareup.com",
+    "career_url": "https://jobs.smartrecruiters.com/Square",
+    "industry": "IT, Software & Technology",
+    "ats_platform": "SmartRecruiters",
+    "active": true,
+    "active_jobs_count": 137
   },
   {
     "id": 46,
@@ -7907,7 +8127,7 @@
     "industry": "IT, Software & Technology",
     "ats_platform": "Rippling",
     "active": true,
-    "active_jobs_count": 117
+    "active_jobs_count": 126
   },
   {
     "id": 56,
@@ -7937,7 +8157,7 @@
     "industry": "IT, Software & Technology",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 90
+    "active_jobs_count": 93
   },
   {
     "id": 1576,
@@ -7947,17 +8167,7 @@
     "industry": "IT, Software & Technology",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 89
-  },
-  {
-    "id": 1496,
-    "name": "Square / Block",
-    "domain": "squareup.com",
-    "career_url": "https://jobs.smartrecruiters.com/Square",
-    "industry": "IT, Software & Technology",
-    "ats_platform": "SmartRecruiters",
-    "active": true,
-    "active_jobs_count": 85
+    "active_jobs_count": 90
   },
   {
     "id": 54,
@@ -7980,6 +8190,16 @@
     "active_jobs_count": 70
   },
   {
+    "id": 1610,
+    "name": "Apple, Inc.",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 68
+  },
+  {
     "id": 94,
     "name": "Box",
     "domain": "box.com",
@@ -7990,14 +8210,14 @@
     "active_jobs_count": 68
   },
   {
-    "id": 1610,
-    "name": "Apple, Inc.",
-    "domain": null,
-    "career_url": null,
+    "id": 143,
+    "name": "Mixpanel",
+    "domain": "mixpanel.com",
+    "career_url": "https://mixpanel.com/careers/",
     "industry": "IT, Software & Technology",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 67
+    "active_jobs_count": 64
   },
   {
     "id": 129,
@@ -8030,14 +8250,14 @@
     "active_jobs_count": 62
   },
   {
-    "id": 143,
-    "name": "Mixpanel",
-    "domain": "mixpanel.com",
-    "career_url": "https://mixpanel.com/careers/",
+    "id": 108,
+    "name": "New Relic",
+    "domain": "newrelic.com",
+    "career_url": "https://newrelic.com/about/careers",
     "industry": "IT, Software & Technology",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 56
+    "active_jobs_count": 52
   },
   {
     "id": 1623,
@@ -8067,13 +8287,23 @@
     "industry": "IT, Software & Technology",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 45
+    "active_jobs_count": 48
   },
   {
     "id": 1642,
     "name": "CACI International, Inc.",
     "domain": null,
     "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 44
+  },
+  {
+    "id": 130,
+    "name": "Supabase",
+    "domain": "supabase.com",
+    "career_url": "https://supabase.com/careers",
     "industry": "IT, Software & Technology",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -8110,6 +8340,16 @@
     "active_jobs_count": 41
   },
   {
+    "id": 3712,
+    "name": "Workable Cloud Eng",
+    "domain": "workable.com",
+    "career_url": "https://www.dice.com/jobs?q=apply.workable.com",
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Workable",
+    "active": true,
+    "active_jobs_count": 41
+  },
+  {
     "id": 1648,
     "name": "Burns & McDonnell",
     "domain": null,
@@ -8130,6 +8370,26 @@
     "active_jobs_count": 40
   },
   {
+    "id": 142,
+    "name": "Amplitude",
+    "domain": "amplitude.com",
+    "career_url": "https://amplitude.com/careers",
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 36
+  },
+  {
+    "id": 1715,
+    "name": "Judge Group, Inc.",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 36
+  },
+  {
     "id": 82,
     "name": "Palantir Technologies",
     "domain": "palantir.com",
@@ -8148,36 +8408,6 @@
     "ats_platform": "Ashby",
     "active": true,
     "active_jobs_count": 36
-  },
-  {
-    "id": 1715,
-    "name": "Judge Group, Inc.",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 35
-  },
-  {
-    "id": 142,
-    "name": "Amplitude",
-    "domain": "amplitude.com",
-    "career_url": "https://amplitude.com/careers",
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 34
-  },
-  {
-    "id": 108,
-    "name": "New Relic",
-    "domain": "newrelic.com",
-    "career_url": "https://newrelic.com/about/careers",
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 34
   },
   {
     "id": 1717,
@@ -8220,14 +8450,14 @@
     "active_jobs_count": 28
   },
   {
-    "id": 130,
-    "name": "Supabase",
-    "domain": "supabase.com",
-    "career_url": "https://supabase.com/careers",
+    "id": 3687,
+    "name": "Workable Software",
+    "domain": "workable.com",
+    "career_url": "https://www.dice.com/jobs?q=workable",
     "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
+    "ats_platform": "Dice",
     "active": true,
-    "active_jobs_count": 28
+    "active_jobs_count": 27
   },
   {
     "id": 1616,
@@ -8260,6 +8490,26 @@
     "active_jobs_count": 25
   },
   {
+    "id": 2720,
+    "name": "TIAA",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 23
+  },
+  {
+    "id": 154,
+    "name": "Block Tech",
+    "domain": "block.xyz",
+    "career_url": "https://block.xyz/careers",
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 22
+  },
+  {
     "id": 123,
     "name": "EPAM Systems",
     "domain": "epam.com",
@@ -8276,6 +8526,26 @@
     "career_url": "https://jobs.ashbyhq.com/linear",
     "industry": "IT, Software & Technology",
     "ats_platform": "Ashby",
+    "active": true,
+    "active_jobs_count": 20
+  },
+  {
+    "id": 1635,
+    "name": "Solidigm",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 20
+  },
+  {
+    "id": 116,
+    "name": "Teradata",
+    "domain": "teradata.com",
+    "career_url": "https://careers.teradata.com/",
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
     "active": true,
     "active_jobs_count": 20
   },
@@ -8310,10 +8580,10 @@
     "active_jobs_count": 18
   },
   {
-    "id": 154,
-    "name": "Block Tech",
-    "domain": "block.xyz",
-    "career_url": "https://block.xyz/careers",
+    "id": 1841,
+    "name": "Eliassen Group",
+    "domain": null,
+    "career_url": null,
     "industry": "IT, Software & Technology",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -8330,6 +8600,16 @@
     "active_jobs_count": 18
   },
   {
+    "id": 3130,
+    "name": "Intuitive Research and Technology Corp",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 18
+  },
+  {
     "id": 1574,
     "name": "Photon",
     "domain": null,
@@ -8338,26 +8618,6 @@
     "ats_platform": "Direct Career Portal",
     "active": true,
     "active_jobs_count": 18
-  },
-  {
-    "id": 116,
-    "name": "Teradata",
-    "domain": "teradata.com",
-    "career_url": "https://careers.teradata.com/",
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 18
-  },
-  {
-    "id": 1841,
-    "name": "Eliassen Group",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 17
   },
   {
     "id": 1977,
@@ -8380,14 +8640,14 @@
     "active_jobs_count": 17
   },
   {
-    "id": 1635,
-    "name": "Solidigm",
+    "id": 2084,
+    "name": "Boeing Company",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 17
+    "active_jobs_count": 16
   },
   {
     "id": 2210,
@@ -8440,6 +8700,16 @@
     "active_jobs_count": 15
   },
   {
+    "id": 1618,
+    "name": "PaloAlto Networks",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 15
+  },
+  {
     "id": 2010,
     "name": "Snowflake Inc.",
     "domain": null,
@@ -8450,8 +8720,8 @@
     "active_jobs_count": 15
   },
   {
-    "id": 2084,
-    "name": "Boeing Company",
+    "id": 2955,
+    "name": "Ascensus",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -8462,16 +8732,6 @@
   {
     "id": 2405,
     "name": "Katalyst Healthcares and Lifesciences",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 14
-  },
-  {
-    "id": 1618,
-    "name": "PaloAlto Networks",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -8500,12 +8760,12 @@
     "active_jobs_count": 13
   },
   {
-    "id": 2955,
-    "name": "Ascensus",
-    "domain": null,
-    "career_url": null,
+    "id": 3670,
+    "name": "BambooHR Tech Roles",
+    "domain": "bamboohr.com",
+    "career_url": "https://www.dice.com/jobs?q=bamboohr",
     "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
+    "ats_platform": "Dice",
     "active": true,
     "active_jobs_count": 13
   },
@@ -8550,8 +8810,28 @@
     "active_jobs_count": 13
   },
   {
+    "id": 1577,
+    "name": "Sumitomo Mitsui Financial Group, Inc.",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 13
+  },
+  {
     "id": 2225,
     "name": "Agile Defense",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 12
+  },
+  {
+    "id": 1872,
+    "name": "ApTask",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -8566,16 +8846,6 @@
     "career_url": "https://boards.greenhouse.io/cockroachlabs",
     "industry": "IT, Software & Technology",
     "ats_platform": "GreenHouse",
-    "active": true,
-    "active_jobs_count": 12
-  },
-  {
-    "id": 3130,
-    "name": "Intuitive Research and Technology Corp",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
     "active": true,
     "active_jobs_count": 12
   },
@@ -8640,8 +8910,8 @@
     "active_jobs_count": 12
   },
   {
-    "id": 1872,
-    "name": "ApTask",
+    "id": 1724,
+    "name": "Atlassian Inc.",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -8650,8 +8920,18 @@
     "active_jobs_count": 11
   },
   {
-    "id": 1724,
-    "name": "Atlassian Inc.",
+    "id": 3671,
+    "name": "BambooHR",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 11
+  },
+  {
+    "id": 2229,
+    "name": "Deloitte",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -8720,16 +9000,6 @@
     "active_jobs_count": 10
   },
   {
-    "id": 3671,
-    "name": "BambooHR",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 10
-  },
-  {
     "id": 2604,
     "name": "ICF Consulting Group, Inc.",
     "domain": null,
@@ -8760,8 +9030,8 @@
     "active_jobs_count": 10
   },
   {
-    "id": 1577,
-    "name": "Sumitomo Mitsui Financial Group, Inc.",
+    "id": 1581,
+    "name": "Oracle Corporation",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -8770,12 +9040,12 @@
     "active_jobs_count": 10
   },
   {
-    "id": 3687,
-    "name": "Workable Software",
-    "domain": "workable.com",
-    "career_url": "https://www.dice.com/jobs?q=workable",
+    "id": 3112,
+    "name": "Washington State Department of Transportation",
+    "domain": null,
+    "career_url": null,
     "industry": "IT, Software & Technology",
-    "ats_platform": "Dice",
+    "ats_platform": "Direct Career Portal",
     "active": true,
     "active_jobs_count": 10
   },
@@ -8792,16 +9062,6 @@
   {
     "id": 2726,
     "name": "Dassault Systems Americas Corp.",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 9
-  },
-  {
-    "id": 2229,
-    "name": "Deloitte",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -8880,8 +9140,8 @@
     "active_jobs_count": 9
   },
   {
-    "id": 2720,
-    "name": "TIAA",
+    "id": 2389,
+    "name": "Trans Union LLC",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -9010,8 +9270,38 @@
     "active_jobs_count": 8
   },
   {
+    "id": 1708,
+    "name": "Navy Federal Credit Union",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 8
+  },
+  {
     "id": 1666,
     "name": "Qualcomm Technologies",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 8
+  },
+  {
+    "id": 2180,
+    "name": "SolutionIT, Inc.",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 8
+  },
+  {
+    "id": 1629,
+    "name": "StaffRight Associates, LLC",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -9062,6 +9352,16 @@
   {
     "id": 1835,
     "name": "BCforward",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 7
+  },
+  {
+    "id": 1794,
+    "name": "Brillio, LLC",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -9170,16 +9470,6 @@
     "active_jobs_count": 7
   },
   {
-    "id": 1581,
-    "name": "Oracle Corporation",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 7
-  },
-  {
     "id": 1700,
     "name": "Snapchat",
     "domain": null,
@@ -9190,8 +9480,18 @@
     "active_jobs_count": 7
   },
   {
-    "id": 2180,
-    "name": "SolutionIT, Inc.",
+    "id": 2012,
+    "name": "Tandym Tech",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 7
+  },
+  {
+    "id": 1981,
+    "name": "Tanisha Systems, Inc.",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -9230,24 +9530,14 @@
     "active_jobs_count": 7
   },
   {
-    "id": 3112,
-    "name": "Washington State Department of Transportation",
+    "id": 2518,
+    "name": "3Core Systems, Inc",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 7
-  },
-  {
-    "id": 3712,
-    "name": "Workable Cloud Eng",
-    "domain": "workable.com",
-    "career_url": "https://www.dice.com/jobs?q=apply.workable.com",
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Workable",
-    "active": true,
-    "active_jobs_count": 7
+    "active_jobs_count": 6
   },
   {
     "id": 2472,
@@ -9280,6 +9570,16 @@
     "active_jobs_count": 6
   },
   {
+    "id": 1657,
+    "name": "athenahealth, Inc.",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 6
+  },
+  {
     "id": 1899,
     "name": "Aziro Technologies LLC",
     "domain": null,
@@ -9290,28 +9590,8 @@
     "active_jobs_count": 6
   },
   {
-    "id": 3670,
-    "name": "BambooHR Tech Roles",
-    "domain": "bamboohr.com",
-    "career_url": "https://www.dice.com/jobs?q=bamboohr",
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Dice",
-    "active": true,
-    "active_jobs_count": 6
-  },
-  {
     "id": 1634,
     "name": "BigBear.ai",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 6
-  },
-  {
-    "id": 1794,
-    "name": "Brillio, LLC",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -9390,6 +9670,16 @@
     "active_jobs_count": 6
   },
   {
+    "id": 1976,
+    "name": "Kaiser Permanente",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 6
+  },
+  {
     "id": 2690,
     "name": "Massachusetts Institute of Technology (MIT)",
     "domain": null,
@@ -9414,6 +9704,16 @@
     "name": "MVP Consulting Plus",
     "domain": null,
     "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 6
+  },
+  {
+    "id": 114,
+    "name": "NetApp",
+    "domain": "netapp.com",
+    "career_url": "https://www.netapp.com/company/careers/",
     "industry": "IT, Software & Technology",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -9470,28 +9770,18 @@
     "active_jobs_count": 6
   },
   {
+    "id": 2576,
+    "name": "SPA",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 6
+  },
+  {
     "id": 2660,
     "name": "Starbucks Coffee Company",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 6
-  },
-  {
-    "id": 2012,
-    "name": "Tandym Tech",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 6
-  },
-  {
-    "id": 1981,
-    "name": "Tanisha Systems, Inc.",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -9520,8 +9810,8 @@
     "active_jobs_count": 6
   },
   {
-    "id": 2296,
-    "name": "Truist",
+    "id": 3072,
+    "name": "Toyota Material Handling North America",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -9530,14 +9820,14 @@
     "active_jobs_count": 6
   },
   {
-    "id": 2518,
-    "name": "3Core Systems, Inc",
+    "id": 2296,
+    "name": "Truist",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 5
+    "active_jobs_count": 6
   },
   {
     "id": 1736,
@@ -9552,16 +9842,6 @@
   {
     "id": 2279,
     "name": "AnaVation LLC",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 5
-  },
-  {
-    "id": 1657,
-    "name": "athenahealth, Inc.",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -9652,6 +9932,16 @@
   {
     "id": 1824,
     "name": "GDH",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 5
+  },
+  {
+    "id": 1605,
+    "name": "Genesis10",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -9850,16 +10140,6 @@
     "active_jobs_count": 5
   },
   {
-    "id": 1629,
-    "name": "StaffRight Associates, LLC",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 5
-  },
-  {
     "id": 2734,
     "name": "Strategic Staffing Solutions",
     "domain": null,
@@ -9900,16 +10180,6 @@
     "active_jobs_count": 5
   },
   {
-    "id": 3072,
-    "name": "Toyota Material Handling North America",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 5
-  },
-  {
     "id": 2111,
     "name": "UKG Careers",
     "domain": null,
@@ -9938,6 +10208,16 @@
     "ats_platform": "Direct Career Portal",
     "active": true,
     "active_jobs_count": 5
+  },
+  {
+    "id": 1775,
+    "name": "4 Consulting Inc",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 4
   },
   {
     "id": 1744,
@@ -9972,6 +10252,16 @@
   {
     "id": 2703,
     "name": "Block Inc",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 4
+  },
+  {
+    "id": 1876,
+    "name": "Brains Workgroup, Inc.",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -10150,16 +10440,6 @@
     "active_jobs_count": 4
   },
   {
-    "id": 1605,
-    "name": "Genesis10",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 4
-  },
-  {
     "id": 1599,
     "name": "Hearst Magazines",
     "domain": null,
@@ -10240,16 +10520,6 @@
     "active_jobs_count": 4
   },
   {
-    "id": 1976,
-    "name": "Kaiser Permanente",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 4
-  },
-  {
     "id": 1626,
     "name": "Koniag, Inc.",
     "domain": null,
@@ -10274,16 +10544,6 @@
     "name": "Muon Space",
     "domain": null,
     "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 4
-  },
-  {
-    "id": 114,
-    "name": "NetApp",
-    "domain": "netapp.com",
-    "career_url": "https://www.netapp.com/company/careers/",
     "industry": "IT, Software & Technology",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -10680,6 +10940,16 @@
     "active_jobs_count": 3
   },
   {
+    "id": 2636,
+    "name": "Cetera Financial Group, Inc.",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 3
+  },
+  {
     "id": 2697,
     "name": "Cherokee Federal",
     "domain": null,
@@ -11020,6 +11290,16 @@
     "active_jobs_count": 3
   },
   {
+    "id": 2093,
+    "name": "LexisNexis",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 3
+  },
+  {
     "id": 2373,
     "name": "Lightfeather.io, LLC",
     "domain": null,
@@ -11110,6 +11390,16 @@
     "active_jobs_count": 3
   },
   {
+    "id": 2615,
+    "name": "National Grid",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 3
+  },
+  {
     "id": 1611,
     "name": "NeoMax",
     "domain": null,
@@ -11162,6 +11452,16 @@
   {
     "id": 1590,
     "name": "Oscar Technology",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 3
+  },
+  {
+    "id": 3209,
+    "name": "Parallel Partners",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -11330,16 +11630,6 @@
     "active_jobs_count": 3
   },
   {
-    "id": 2576,
-    "name": "SPA",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 3
-  },
-  {
     "id": 2338,
     "name": "Spar Information Systems",
     "domain": null,
@@ -11432,16 +11722,6 @@
   {
     "id": 2911,
     "name": "The Bison Group",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 3
-  },
-  {
-    "id": 2389,
-    "name": "Trans Union LLC",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -11980,6 +12260,16 @@
     "active_jobs_count": 2
   },
   {
+    "id": 3172,
+    "name": "Blackhawk Network",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
     "id": 2704,
     "name": "Block, Inc",
     "domain": null,
@@ -12022,16 +12312,6 @@
   {
     "id": 3018,
     "name": "Brady Corporation",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 2
-  },
-  {
-    "id": 1876,
-    "name": "Brains Workgroup, Inc.",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -12252,6 +12532,16 @@
   {
     "id": 1958,
     "name": "Connect Tech+Talent",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
+    "id": 3147,
+    "name": "Connexions Data Inc",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -12860,6 +13150,16 @@
     "active_jobs_count": 2
   },
   {
+    "id": 2510,
+    "name": "IRIS Software, Inc.",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
     "id": 2219,
     "name": "iSoftStone",
     "domain": null,
@@ -12922,6 +13222,16 @@
   {
     "id": 2037,
     "name": "JFrog, Inc",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
+    "id": 3015,
+    "name": "Johnson Controls, Inc.",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -13030,8 +13340,8 @@
     "active_jobs_count": 2
   },
   {
-    "id": 2093,
-    "name": "LexisNexis",
+    "id": 3020,
+    "name": "Long Wall",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -13040,8 +13350,8 @@
     "active_jobs_count": 2
   },
   {
-    "id": 3020,
-    "name": "Long Wall",
+    "id": 2269,
+    "name": "Lorven Technologies, Inc.",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -13082,6 +13392,16 @@
   {
     "id": 2249,
     "name": "Marriott International",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
+    "id": 3690,
+    "name": "Maryland Stadium Authority",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -13190,16 +13510,6 @@
     "active_jobs_count": 2
   },
   {
-    "id": 1708,
-    "name": "Navy Federal Credit Union",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 2
-  },
-  {
     "id": 2542,
     "name": "Neos Consulting",
     "domain": null,
@@ -13270,6 +13580,16 @@
     "active_jobs_count": 2
   },
   {
+    "id": 2419,
+    "name": "nTech Solutions",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
     "id": 2977,
     "name": "OASYS, INC.",
     "domain": null,
@@ -13330,16 +13650,6 @@
     "active_jobs_count": 2
   },
   {
-    "id": 3209,
-    "name": "Parallel Partners",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 2
-  },
-  {
     "id": 2124,
     "name": "Paramount Software Solutions, Inc",
     "domain": null,
@@ -13372,6 +13682,16 @@
   {
     "id": 2577,
     "name": "PeopleTec, Inc.",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
+    "id": 1952,
+    "name": "Peterson Technology Partners",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -13432,6 +13752,16 @@
   {
     "id": 2683,
     "name": "Protective",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
+    "id": 2505,
+    "name": "Prutech Solutions",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -13712,6 +14042,16 @@
   {
     "id": 3170,
     "name": "Scotiabank Group",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
+    "id": 3689,
+    "name": "Security Service Federal Credit Union",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -14150,6 +14490,26 @@
     "active_jobs_count": 2
   },
   {
+    "id": 3192,
+    "name": "VISION INFOTECH INC.",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
+    "id": 1755,
+    "name": "Visionary Innovative Technology Solutions",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
     "id": 1951,
     "name": "Visionsoft International",
     "domain": null,
@@ -14290,18 +14650,18 @@
     "active_jobs_count": 2
   },
   {
-    "id": 1773,
-    "name": "3i Infotech Inc.",
+    "id": 2128,
+    "name": "Ztek Consulting",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 1
+    "active_jobs_count": 2
   },
   {
-    "id": 1775,
-    "name": "4 Consulting Inc",
+    "id": 1773,
+    "name": "3i Infotech Inc.",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -15170,16 +15530,6 @@
     "active_jobs_count": 1
   },
   {
-    "id": 3172,
-    "name": "Blackhawk Network",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 1
-  },
-  {
     "id": 2072,
     "name": "Blue Cross Blue Shield of MA",
     "domain": null,
@@ -15500,16 +15850,6 @@
     "active_jobs_count": 1
   },
   {
-    "id": 2636,
-    "name": "Cetera Financial Group, Inc.",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 1
-  },
-  {
     "id": 3068,
     "name": "Chevron Corporation",
     "domain": null,
@@ -15720,6 +16060,16 @@
     "active_jobs_count": 1
   },
   {
+    "id": 1871,
+    "name": "ConfigUSA",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
     "id": 2323,
     "name": "Confiz LLC",
     "domain": null,
@@ -15752,16 +16102,6 @@
   {
     "id": 2665,
     "name": "Connection",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 1
-  },
-  {
-    "id": 3147,
-    "name": "Connexions Data Inc",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -16420,6 +16760,16 @@
     "active_jobs_count": 1
   },
   {
+    "id": 3741,
+    "name": "EnerSys",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
     "id": 1655,
     "name": "Engineering Solutions, LLC",
     "domain": null,
@@ -16650,6 +17000,16 @@
     "active_jobs_count": 1
   },
   {
+    "id": 3739,
+    "name": "Five9, Inc",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
     "id": 2061,
     "name": "Fivetran",
     "domain": null,
@@ -16750,6 +17110,16 @@
     "active_jobs_count": 1
   },
   {
+    "id": 3735,
+    "name": "Galactic Minds Inc.",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
     "id": 3066,
     "name": "Gallin Associates",
     "domain": null,
@@ -16840,6 +17210,16 @@
     "active_jobs_count": 1
   },
   {
+    "id": 3738,
+    "name": "Global Payments, Inc.",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
     "id": 2970,
     "name": "Globus Medical",
     "domain": null,
@@ -16872,6 +17252,16 @@
   {
     "id": 2696,
     "name": "Greenberg Traurig, LLP",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
+    "id": 3753,
+    "name": "Greenbrier & Russel, Inc.",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -17460,16 +17850,6 @@
     "active_jobs_count": 1
   },
   {
-    "id": 2510,
-    "name": "IRIS Software, Inc.",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 1
-  },
-  {
     "id": 2383,
     "name": "ISOFT",
     "domain": null,
@@ -17990,16 +18370,6 @@
     "active_jobs_count": 1
   },
   {
-    "id": 2269,
-    "name": "Lorven Technologies, Inc.",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 1
-  },
-  {
     "id": 1878,
     "name": "Lorvenk Technologies LLC",
     "domain": null,
@@ -18140,16 +18510,6 @@
     "active_jobs_count": 1
   },
   {
-    "id": 3690,
-    "name": "Maryland Stadium Authority",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 1
-  },
-  {
     "id": 2573,
     "name": "Mass General Brigham",
     "domain": null,
@@ -18190,6 +18550,16 @@
     "active_jobs_count": 1
   },
   {
+    "id": 3721,
+    "name": "Mayer Brown LLP",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
     "id": 2672,
     "name": "Mayo Clinic",
     "domain": null,
@@ -18222,6 +18592,16 @@
   {
     "id": 3401,
     "name": "Medical Guardian",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
+    "id": 3742,
+    "name": "Meissner Filtration Products",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -18450,16 +18830,6 @@
     "active_jobs_count": 1
   },
   {
-    "id": 2615,
-    "name": "National Grid",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 1
-  },
-  {
     "id": 3534,
     "name": "NB Ventures, Inc.",
     "domain": null,
@@ -18632,16 +19002,6 @@
   {
     "id": 1843,
     "name": "NSD International, Inc.",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 1
-  },
-  {
-    "id": 2419,
-    "name": "nTech Solutions",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -18910,16 +19270,6 @@
     "active_jobs_count": 1
   },
   {
-    "id": 1952,
-    "name": "Peterson Technology Partners",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 1
-  },
-  {
     "id": 2601,
     "name": "Philip Morris International U.S.",
     "domain": null,
@@ -19112,16 +19462,6 @@
   {
     "id": 3438,
     "name": "Protos IT",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 1
-  },
-  {
-    "id": 2505,
-    "name": "Prutech Solutions",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -19540,6 +19880,16 @@
     "active_jobs_count": 1
   },
   {
+    "id": 2396,
+    "name": "SATCON Inc",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
     "id": 1752,
     "name": "Scadea Solutions Inc",
     "domain": null,
@@ -19592,16 +19942,6 @@
   {
     "id": 2142,
     "name": "SDH Systems",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 1
-  },
-  {
-    "id": 3689,
-    "name": "Security Service Federal Credit Union",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -19682,6 +20022,16 @@
   {
     "id": 1892,
     "name": "Shree Narayani Networking Solutions LLC",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
+    "id": 3740,
+    "name": "Shure Incorporated",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -20680,6 +21030,16 @@
     "active_jobs_count": 1
   },
   {
+    "id": 3736,
+    "name": "UPLERS INC",
+    "domain": null,
+    "career_url": null,
+    "industry": "IT, Software & Technology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
     "id": 3430,
     "name": "Upward Talent",
     "domain": null,
@@ -20860,28 +21220,8 @@
     "active_jobs_count": 1
   },
   {
-    "id": 3192,
-    "name": "VISION INFOTECH INC.",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 1
-  },
-  {
     "id": 1959,
     "name": "Vision Square",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 1
-  },
-  {
-    "id": 1755,
-    "name": "Visionary Innovative Technology Solutions",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -21142,16 +21482,6 @@
   {
     "id": 1800,
     "name": "Zip",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 1
-  },
-  {
-    "id": 2128,
-    "name": "Ztek Consulting",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -22142,16 +22472,6 @@
   {
     "id": 1890,
     "name": "Computer Enterprises, Inc.",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
-    "id": 1871,
-    "name": "ConfigUSA",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -23390,16 +23710,6 @@
     "active_jobs_count": 0
   },
   {
-    "id": 3015,
-    "name": "Johnson Controls, Inc.",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
     "id": 3457,
     "name": "K2 Space",
     "domain": null,
@@ -24542,16 +24852,6 @@
   {
     "id": 2924,
     "name": "Sarum LLC",
-    "domain": null,
-    "career_url": null,
-    "industry": "IT, Software & Technology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
-    "id": 2396,
-    "name": "SATCON Inc",
     "domain": null,
     "career_url": null,
     "industry": "IT, Software & Technology",
@@ -25920,6 +26220,16 @@
     "active_jobs_count": 0
   },
   {
+    "id": 660,
+    "name": "Eli Lilly and Company",
+    "domain": "lilly.com",
+    "career_url": "https://careers.lilly.com/",
+    "industry": "Pharma & Biotechnology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 60
+  },
+  {
     "id": 42,
     "name": "Ginkgo Bioworks",
     "domain": "ginkgobioworks.com",
@@ -25938,6 +26248,26 @@
     "ats_platform": "GreenHouse",
     "active": true,
     "active_jobs_count": 57
+  },
+  {
+    "id": 671,
+    "name": "Alnylam Pharmaceuticals",
+    "domain": "alnylam.com",
+    "career_url": "https://www.alnylam.com/careers",
+    "industry": "Pharma & Biotechnology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 46
+  },
+  {
+    "id": 692,
+    "name": "10x Genomics",
+    "domain": "10xgenomics.com",
+    "career_url": "https://www.10xgenomics.com/careers",
+    "industry": "Pharma & Biotechnology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 30
   },
   {
     "id": 714,
@@ -25960,6 +26290,16 @@
     "active_jobs_count": 15
   },
   {
+    "id": 679,
+    "name": "Agilent Technologies",
+    "domain": "agilent.com",
+    "career_url": "https://careers.agilent.com/",
+    "industry": "Pharma & Biotechnology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 14
+  },
+  {
     "id": 659,
     "name": "Johnson & Johnson",
     "domain": "jnj.com",
@@ -25980,6 +26320,16 @@
     "active_jobs_count": 11
   },
   {
+    "id": 681,
+    "name": "Danaher Corporation",
+    "domain": "danaher.com",
+    "career_url": "https://jobs.danaher.com/",
+    "industry": "Pharma & Biotechnology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 10
+  },
+  {
     "id": 1556,
     "name": "Generate:Biomedicines",
     "domain": "generatebiomedicines.com",
@@ -25990,14 +26340,14 @@
     "active_jobs_count": 10
   },
   {
-    "id": 681,
-    "name": "Danaher Corporation",
-    "domain": "danaher.com",
-    "career_url": "https://jobs.danaher.com/",
+    "id": 700,
+    "name": "BridgeBio Pharma",
+    "domain": "bridgebio.com",
+    "career_url": "https://bridgebio.com/careers/",
     "industry": "Pharma & Biotechnology",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 6
+    "active_jobs_count": 8
   },
   {
     "id": 3479,
@@ -26008,26 +26358,6 @@
     "ats_platform": "Dice",
     "active": true,
     "active_jobs_count": 6
-  },
-  {
-    "id": 660,
-    "name": "Eli Lilly and Company",
-    "domain": "lilly.com",
-    "career_url": "https://careers.lilly.com/",
-    "industry": "Pharma & Biotechnology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 6
-  },
-  {
-    "id": 679,
-    "name": "Agilent Technologies",
-    "domain": "agilent.com",
-    "career_url": "https://careers.agilent.com/",
-    "industry": "Pharma & Biotechnology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 4
   },
   {
     "id": 3510,
@@ -26070,6 +26400,16 @@
     "active_jobs_count": 4
   },
   {
+    "id": 661,
+    "name": "AbbVie",
+    "domain": "abbvie.com",
+    "career_url": "https://careers.abbvie.com/",
+    "industry": "Pharma & Biotechnology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 3
+  },
+  {
     "id": 676,
     "name": "Bio-Rad Laboratories",
     "domain": "bio-rad.com",
@@ -26098,6 +26438,16 @@
     "ats_platform": "Direct Career Portal",
     "active": true,
     "active_jobs_count": 3
+  },
+  {
+    "id": 753,
+    "name": "Amylyx Pharmaceuticals",
+    "domain": "amylyx.com",
+    "career_url": "https://www.amylyx.com/careers/",
+    "industry": "Pharma & Biotechnology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
   },
   {
     "id": 677,
@@ -26192,6 +26542,16 @@
   {
     "id": 3504,
     "name": "Triune Infomatics Inc",
+    "domain": null,
+    "career_url": null,
+    "industry": "Pharma & Biotechnology",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
+    "id": 3527,
+    "name": "University of Florida",
     "domain": null,
     "career_url": null,
     "industry": "Pharma & Biotechnology",
@@ -26370,16 +26730,6 @@
     "active_jobs_count": 1
   },
   {
-    "id": 3527,
-    "name": "University of Florida",
-    "domain": null,
-    "career_url": null,
-    "industry": "Pharma & Biotechnology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 1
-  },
-  {
     "id": 3622,
     "name": "UT Southwestern Medical Center at Dallas",
     "domain": null,
@@ -26408,26 +26758,6 @@
     "ats_platform": "Direct Career Portal",
     "active": true,
     "active_jobs_count": 1
-  },
-  {
-    "id": 692,
-    "name": "10x Genomics",
-    "domain": "10xgenomics.com",
-    "career_url": "https://www.10xgenomics.com/careers",
-    "industry": "Pharma & Biotechnology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
-    "id": 661,
-    "name": "AbbVie",
-    "domain": "abbvie.com",
-    "career_url": "https://careers.abbvie.com/",
-    "industry": "Pharma & Biotechnology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
   },
   {
     "id": 705,
@@ -26470,16 +26800,6 @@
     "active_jobs_count": 0
   },
   {
-    "id": 671,
-    "name": "Alnylam Pharmaceuticals",
-    "domain": "alnylam.com",
-    "career_url": "https://www.alnylam.com/careers",
-    "industry": "Pharma & Biotechnology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
     "id": 1516,
     "name": "Altos Labs",
     "domain": "altoslabs.com",
@@ -26494,16 +26814,6 @@
     "name": "Amgen",
     "domain": "amgen.com",
     "career_url": "https://careers.amgen.com/",
-    "industry": "Pharma & Biotechnology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
-    "id": 753,
-    "name": "Amylyx Pharmaceuticals",
-    "domain": "amylyx.com",
-    "career_url": "https://www.amylyx.com/careers/",
     "industry": "Pharma & Biotechnology",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -26614,16 +26924,6 @@
     "name": "Blueprint Medicines",
     "domain": "blueprintmedicines.com",
     "career_url": "https://blueprintmedicines.com/careers/",
-    "industry": "Pharma & Biotechnology",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
-    "id": 700,
-    "name": "BridgeBio Pharma",
-    "domain": "bridgebio.com",
-    "career_url": "https://bridgebio.com/careers/",
     "industry": "Pharma & Biotechnology",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -27417,7 +27717,7 @@
     "industry": "Software & Defense",
     "ats_platform": "Lever",
     "active": true,
-    "active_jobs_count": 7
+    "active_jobs_count": 43
   },
   {
     "id": 3711,
@@ -27427,7 +27727,7 @@
     "industry": "Software & Defense",
     "ats_platform": "GreenHouse",
     "active": true,
-    "active_jobs_count": 0
+    "active_jobs_count": 10
   },
   {
     "id": 512,
@@ -27447,7 +27747,27 @@
     "industry": "Solar, Energy & Utilities",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 180
+    "active_jobs_count": 231
+  },
+  {
+    "id": 48,
+    "name": "Palmetto",
+    "domain": "palmetto.com",
+    "career_url": "https://palmetto.com/careers",
+    "industry": "Solar, Energy & Utilities",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 104
+  },
+  {
+    "id": 1499,
+    "name": "Schneider Electric",
+    "domain": "se.com",
+    "career_url": "https://jobs.smartrecruiters.com/SchneiderElectric",
+    "industry": "Solar, Energy & Utilities",
+    "ats_platform": "SmartRecruiters",
+    "active": true,
+    "active_jobs_count": 99
   },
   {
     "id": 3276,
@@ -27460,26 +27780,6 @@
     "active_jobs_count": 85
   },
   {
-    "id": 48,
-    "name": "Palmetto",
-    "domain": "palmetto.com",
-    "career_url": "https://palmetto.com/careers",
-    "industry": "Solar, Energy & Utilities",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 84
-  },
-  {
-    "id": 1499,
-    "name": "Schneider Electric",
-    "domain": "se.com",
-    "career_url": "https://jobs.smartrecruiters.com/SchneiderElectric",
-    "industry": "Solar, Energy & Utilities",
-    "ats_platform": "SmartRecruiters",
-    "active": true,
-    "active_jobs_count": 83
-  },
-  {
     "id": 3251,
     "name": "Dice CleanTech",
     "domain": "dice.com",
@@ -27488,6 +27788,16 @@
     "ats_platform": "Dice",
     "active": true,
     "active_jobs_count": 51
+  },
+  {
+    "id": 519,
+    "name": "Bloom Energy",
+    "domain": "bloomenergy.com",
+    "career_url": "https://www.bloomenergy.com/careers/",
+    "industry": "Solar, Energy & Utilities",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 28
   },
   {
     "id": 760,
@@ -27500,6 +27810,16 @@
     "active_jobs_count": 24
   },
   {
+    "id": 498,
+    "name": "Array Technologies",
+    "domain": "arraytechinc.com",
+    "career_url": "https://arraytechinc.com/careers/",
+    "industry": "Solar, Energy & Utilities",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 18
+  },
+  {
     "id": 53,
     "name": "Aurora Solar",
     "domain": "aurorasolar.com",
@@ -27510,10 +27830,50 @@
     "active_jobs_count": 16
   },
   {
+    "id": 537,
+    "name": "LevelTen Energy",
+    "domain": "leveltenenergy.com",
+    "career_url": "https://www.leveltenenergy.com/careers",
+    "industry": "Solar, Energy & Utilities",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 15
+  },
+  {
+    "id": 481,
+    "name": "Alliant Energy",
+    "domain": "alliantenergy.com",
+    "career_url": "https://www.alliantenergy.com/careers",
+    "industry": "Solar, Energy & Utilities",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 10
+  },
+  {
+    "id": 462,
+    "name": "American Electric Power",
+    "domain": "aep.com",
+    "career_url": "https://www.aep.com/careers/",
+    "industry": "Solar, Energy & Utilities",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 10
+  },
+  {
     "id": 3297,
     "name": "Legence Therma LLC",
     "domain": null,
     "career_url": null,
+    "industry": "Solar, Energy & Utilities",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 10
+  },
+  {
+    "id": 467,
+    "name": "PG&E Corporation",
+    "domain": "pge.com",
+    "career_url": "https://jobs.pge.com/",
     "industry": "Solar, Energy & Utilities",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -27530,14 +27890,34 @@
     "active_jobs_count": 9
   },
   {
-    "id": 537,
-    "name": "LevelTen Energy",
-    "domain": "leveltenenergy.com",
-    "career_url": "https://www.leveltenenergy.com/careers",
+    "id": 516,
+    "name": "Energy Vault",
+    "domain": "energyvault.com",
+    "career_url": "https://www.energyvault.com/careers",
     "industry": "Solar, Energy & Utilities",
     "ats_platform": "Direct Career Portal",
     "active": true,
-    "active_jobs_count": 9
+    "active_jobs_count": 8
+  },
+  {
+    "id": 471,
+    "name": "Eversource Energy",
+    "domain": "eversource.com",
+    "career_url": "https://jobs.eversource.com/",
+    "industry": "Solar, Energy & Utilities",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 8
+  },
+  {
+    "id": 551,
+    "name": "Arcadia Power",
+    "domain": "arcadia.com",
+    "career_url": "https://www.arcadia.com/careers",
+    "industry": "Solar, Energy & Utilities",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 6
   },
   {
     "id": 3287,
@@ -27626,16 +28006,6 @@
     "career_url": "https://boards.greenhouse.io/formenergy",
     "industry": "Solar, Energy & Utilities",
     "ats_platform": "GreenHouse",
-    "active": true,
-    "active_jobs_count": 4
-  },
-  {
-    "id": 467,
-    "name": "PG&E Corporation",
-    "domain": "pge.com",
-    "career_url": "https://jobs.pge.com/",
-    "industry": "Solar, Energy & Utilities",
-    "ats_platform": "Direct Career Portal",
     "active": true,
     "active_jobs_count": 4
   },
@@ -27840,16 +28210,6 @@
     "active_jobs_count": 2
   },
   {
-    "id": 519,
-    "name": "Bloom Energy",
-    "domain": "bloomenergy.com",
-    "career_url": "https://www.bloomenergy.com/careers/",
-    "industry": "Solar, Energy & Utilities",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 2
-  },
-  {
     "id": 3558,
     "name": "City Light & Power, Inc",
     "domain": null,
@@ -27870,16 +28230,6 @@
     "active_jobs_count": 2
   },
   {
-    "id": 516,
-    "name": "Energy Vault",
-    "domain": "energyvault.com",
-    "career_url": "https://www.energyvault.com/careers",
-    "industry": "Solar, Energy & Utilities",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 2
-  },
-  {
     "id": 518,
     "name": "Eos Energy Enterprises",
     "domain": "eose.com",
@@ -27894,16 +28244,6 @@
     "name": "Eversource",
     "domain": null,
     "career_url": null,
-    "industry": "Solar, Energy & Utilities",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 2
-  },
-  {
-    "id": 471,
-    "name": "Eversource Energy",
-    "domain": "eversource.com",
-    "career_url": "https://jobs.eversource.com/",
     "industry": "Solar, Energy & Utilities",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -28630,16 +28970,6 @@
     "active_jobs_count": 0
   },
   {
-    "id": 481,
-    "name": "Alliant Energy",
-    "domain": "alliantenergy.com",
-    "career_url": "https://www.alliantenergy.com/careers",
-    "industry": "Solar, Energy & Utilities",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
     "id": 528,
     "name": "Altus Power",
     "domain": "altuspower.com",
@@ -28654,16 +28984,6 @@
     "name": "Ameresco",
     "domain": "ameresco.com",
     "career_url": "https://www.ameresco.com/careers/",
-    "industry": "Solar, Energy & Utilities",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
-    "id": 462,
-    "name": "American Electric Power",
-    "domain": "aep.com",
-    "career_url": "https://www.aep.com/careers/",
     "industry": "Solar, Energy & Utilities",
     "ats_platform": "Direct Career Portal",
     "active": true,
@@ -28706,26 +29026,6 @@
     "career_url": "https://boards.greenhouse.io/arcadia",
     "industry": "Solar, Energy & Utilities",
     "ats_platform": "GreenHouse",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
-    "id": 551,
-    "name": "Arcadia Power",
-    "domain": "arcadia.com",
-    "career_url": "https://www.arcadia.com/careers",
-    "industry": "Solar, Energy & Utilities",
-    "ats_platform": "Direct Career Portal",
-    "active": true,
-    "active_jobs_count": 0
-  },
-  {
-    "id": 498,
-    "name": "Array Technologies",
-    "domain": "arraytechinc.com",
-    "career_url": "https://arraytechinc.com/careers/",
-    "industry": "Solar, Energy & Utilities",
-    "ats_platform": "Direct Career Portal",
     "active": true,
     "active_jobs_count": 0
   },
@@ -29620,16 +29920,6 @@
     "active_jobs_count": 0
   },
   {
-    "id": 3632,
-    "name": "Phenom People Tech",
-    "domain": "phenom.com",
-    "career_url": "https://www.dice.com/jobs?q=phenom+people",
-    "industry": "Tech Staffing & Portals",
-    "ats_platform": "Dice",
-    "active": true,
-    "active_jobs_count": 9
-  },
-  {
     "id": 3674,
     "name": "CyberCoders Tech",
     "domain": "cybercoders.com",
@@ -29637,7 +29927,7 @@
     "industry": "Tech Staffing & Portals",
     "ats_platform": "Dice",
     "active": true,
-    "active_jobs_count": 7
+    "active_jobs_count": 45
   },
   {
     "id": 3655,
@@ -29647,7 +29937,27 @@
     "industry": "Tech Staffing & Portals",
     "ats_platform": "Dice",
     "active": true,
-    "active_jobs_count": 7
+    "active_jobs_count": 45
+  },
+  {
+    "id": 3632,
+    "name": "Phenom People Tech",
+    "domain": "phenom.com",
+    "career_url": "https://www.dice.com/jobs?q=phenom+people",
+    "industry": "Tech Staffing & Portals",
+    "ats_platform": "Dice",
+    "active": true,
+    "active_jobs_count": 37
+  },
+  {
+    "id": 3748,
+    "name": "Meta Platforms, Inc. (f/k/a Facebook, Inc.)",
+    "domain": null,
+    "career_url": null,
+    "industry": "Tech Staffing & Portals",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 18
   },
   {
     "id": 3625,
@@ -29657,6 +29967,86 @@
     "industry": "Tech Staffing & Portals",
     "ats_platform": "Dice",
     "active": true,
-    "active_jobs_count": 3
+    "active_jobs_count": 9
+  },
+  {
+    "id": 3730,
+    "name": "BlueCross BlueShield Of South Carolina",
+    "domain": null,
+    "career_url": null,
+    "industry": "Tech Staffing & Portals",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
+    "id": 3728,
+    "name": "Ducommun, Inc.",
+    "domain": null,
+    "career_url": null,
+    "industry": "Tech Staffing & Portals",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 2
+  },
+  {
+    "id": 3722,
+    "name": "City Of Chicago",
+    "domain": null,
+    "career_url": null,
+    "industry": "Tech Staffing & Portals",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
+    "id": 3756,
+    "name": "Energy Transfer",
+    "domain": null,
+    "career_url": null,
+    "industry": "Tech Staffing & Portals",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
+    "id": 3727,
+    "name": "Intrepid",
+    "domain": null,
+    "career_url": null,
+    "industry": "Tech Staffing & Portals",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
+    "id": 3746,
+    "name": "Piedmont Virginia Community College",
+    "domain": null,
+    "career_url": null,
+    "industry": "Tech Staffing & Portals",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
+    "id": 3747,
+    "name": "USAC",
+    "domain": null,
+    "career_url": null,
+    "industry": "Tech Staffing & Portals",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
+  },
+  {
+    "id": 3749,
+    "name": "Zions Bancorporation, N.A.",
+    "domain": null,
+    "career_url": null,
+    "industry": "Tech Staffing & Portals",
+    "ats_platform": "Direct Career Portal",
+    "active": true,
+    "active_jobs_count": 1
   }
 ]

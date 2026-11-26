@@ -27,10 +27,6 @@ from typing import List, Dict, Any, Optional
 from datetime import datetime, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# Set temporary directory on D: to prevent disk space issues
-os.environ["TEMP"] = "D:\\Temp"
-os.environ["TMP"] = "D:\\Temp"
-
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT_DIR))
 

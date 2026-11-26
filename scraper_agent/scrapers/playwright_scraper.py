@@ -12,15 +12,6 @@ PLAYWRIGHT_SEMAPHORE = threading.Semaphore(2)
 # Ensure Node.js V8 engine has sufficient heap memory
 os.environ["NODE_OPTIONS"] = "--max-old-space-size=4096"
 
-# Ensure temporary files stay on D: if available to prevent disk space exhaustion
-temp_dir = "D:\\Temp"
-try:
-    os.makedirs(temp_dir, exist_ok=True)
-    os.environ["TEMP"] = temp_dir
-    os.environ["TMP"] = temp_dir
-except Exception:
-    pass
-
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright, Browser, Page
 
@@ -650,26 +641,26 @@ class PlaywrightCareerScraper(BaseScraper):
             query = quote_plus(u) if u else "software"
             base_url = f"https://www.dice.com/jobs?q={query}"
 
-        # Relative date parser for Dice
+        # Relative date parser for Dice (linear O(N) pattern with no backtracking)
         def _parse_dice_relative_date(posted_str: str) -> datetime:
             now = datetime.now(timezone.utc)
             s = (posted_str or "").lower().strip()
-            if any(k in s for k in ["today", "just now", "moment"]):
+            if not s or any(k in s for k in ["today", "just now", "moment"]):
                 return now
             if "yesterday" in s:
                 return now - timedelta(days=1)
-            m_d = re.search(r"(\d+)\s*d", s)
-            if m_d:
-                return now - timedelta(days=int(m_d.group(1)))
-            m_h = re.search(r"(\d+)\s*h", s)
-            if m_h:
-                return now - timedelta(hours=int(m_h.group(1)))
-            m_w = re.search(r"(\d+)\s*w", s)
-            if m_w:
-                return now - timedelta(weeks=int(m_w.group(1)))
-            m_m = re.search(r"(\d+)\s*mo", s)
-            if m_m:
-                return now - timedelta(days=int(m_m.group(1)) * 30)
+            m = re.search(r"(\d+)\+?\s*([a-z]+)", s)
+            if m:
+                val = int(m.group(1))
+                unit = m.group(2)
+                if unit.startswith("mo"):
+                    return now - timedelta(days=val * 30)
+                if unit.startswith("w"):
+                    return now - timedelta(weeks=val)
+                if unit.startswith("d"):
+                    return now - timedelta(days=val)
+                if unit.startswith("h"):
+                    return now - timedelta(hours=val)
             return now
 
         seen_ids = set()

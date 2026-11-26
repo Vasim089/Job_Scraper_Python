@@ -25,9 +25,6 @@ import sys
 import os
 from pathlib import Path
 
-os.environ["TEMP"] = "D:\\Temp"
-os.environ["TMP"] = "D:\\Temp"
-
 ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT_DIR))
 
